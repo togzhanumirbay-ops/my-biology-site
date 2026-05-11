@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§1. Прокариот және эукариот жасушалары - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Кесте стильдері */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th { background-color: #f2f2f2; color: #333; }
+
+        /* Венн диаграммасының стилі */
+        .venn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .venn-circle {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #3498db;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px;
+            background: rgba(52, 152, 219, 0.1);
+        }
+        .venn-middle {
+            width: 150px;
+            height: 150px;
+            border: 2px dashed #9b59b6;
+            border-radius: 50%;
+            margin: 0 -50px;
+            z-index: 1;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .resource-box {
+            background: #eef2f7;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .btn-presentation {
+            background: #2980b9;
+            color: white !important;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px;
+        }
+        .btn-quiz {
+            background: #8e44ad;
+            color: white !important;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px;
+        }
+        .img-placeholder {
+            width: 100%;
+            min-height: 250px;
+            background: #f9f9f9;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #777;
+            border-radius: 10px;
+        }
+        .instruction {
+            background: #fff9db;
+            padding: 10px;
+            border-left: 4px solid #f1c40f;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class8.html" style="color: white; text-decoration: none;">← 8-сынып мәзіріне қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0; font-size: 0.9rem;">
+        <a href="index.html" style="color: #27ae60; text-decoration: none;">Басты бет</a> / 
+        <a href="class8.html" style="color: #27ae60; text-decoration: none;">8-сынып</a> / 
+        §1. Прокариот және эукариот жасушалары
+    </div>
+
+    <h2 style="text-align: center; color: #2c3e50;">§1. Прокариот және эукариот жасушаларының құрылысы</h2>
+
+    <div class="content-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
+        <div class="unit-card" style="border-top: 6px solid #e74c3c; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #e74c3c;">I КЕЗЕҢ – WHY</h3>
+            <p>Қызығушылық ояту: Неге жасушалар әртүрлі?</p>
+            <button onclick="openModal('whyModal')" class="btn-task" style="width: 100%; margin-top: 15px; background: #e74c3c; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Ашу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #3498db; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #3498db;">II КЕЗЕҢ – WHAT</h3>
+            <p>Түсіну: Кесте және диаграмма тапсырмалары</p>
+            <button onclick="openModal('whatModal')" class="btn-task" style="width: 100%; margin-top: 15px; background: #3498db; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Ашу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #27ae60; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #27ae60;">III КЕЗЕҢ – HOW</h3>
+            <p>Қолдану: Өз диаграммаңды құру</p>
+            <button onclick="openModal('howModal')" class="btn-task" style="width: 100%; margin-top: 15px; background: #27ae60; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Ашу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #f39c12; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #f39c12;">IV КЕЗЕҢ – IF</h3>
+            <p>Шығармашылық: Болашақ жасушасы</p>
+            <button onclick="openModal('ifModal')" class="btn-task" style="width: 100%; margin-top: 15px; background: #f39c12; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Ашу</button>
+        </div>
+    </div>
+</main>
+
+<div id="whatModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModal')">&times;</span>
+        <h2 style="color: #3498db;">II Кезен: Түсіну (WHAT)</h2>
+
+        <div class="resource-box">
+            <p><strong>📖 Сабақ материалдары:</strong></p>
+            <a href="pres_pro_eu.pptx" class="btn-presentation">📥 Презентацияны жүктеу</a>
+            <a href="https://quizizz.com/join" target="_blank" class="btn-quiz">🎮 Quizizz Тест</a>
+        </div>
+
+        <div class="task-block">
+            <h3>📊 Тапсырма 1: «Салыстыру кестесін толтыр»</h3>
+            <div class="instruction">📌 Нұсқаулық: Әр жолды мұқият оқып, сәйкес бағанға дұрыс жауапты жаз.</div>
+            <table>
+                <tr>
+                    <th>Белгісі</th>
+                    <th>Прокариот жасуша</th>
+                    <th>Эукариот жасуша</th>
+                </tr>
+                <tr><td>Ядро</td><td>____________________</td><td>____________________</td></tr>
+                <tr><td>ДНҚ орналасуы</td><td>____________________</td><td>____________________</td></tr>
+                <tr><td>Органоидтар</td><td>____________________</td><td>____________________</td></tr>
+                <tr><td>Өлшемі</td><td>____________________</td><td>____________________</td></tr>
+                <tr><td>Мысал ағзалар</td><td>____________________</td><td>____________________</td></tr>
+            </table>
+        </div>
+
+        <div class="task-block">
+            <h3>🧩 Тапсырма 2: «Диаграмманы толықтыр (Venn diagram)»</h3>
+            <div class="instruction">📌 Нұсқаулық: Прокариотқа тән белгілерді солға, эукариотты оңға, ортақ белгілерді ортасына жаз.</div>
+            <div class="venn-container">
+                <div class="venn-circle"><b>Прокариот</b><br><small>_________</small></div>
+                <div class="venn-middle"><b>Ортақ</b><br><small>_________</small></div>
+                <div class="venn-circle" style="border-color: #27ae60; background: rgba(46, 204, 113, 0.1);"><b>Эукариот</b><br><small>_________</small></div>
+            </div>
+        </div>
+
+        <div class="task-block">
+            <h3>🧬 Тапсырма 3: «Сурет бойынша диаграмма толтыру»</h3>
+            <div class="img-placeholder">
+                <img src="cell_structure.png" alt="Жасуша құрылысы" style="width:100%;">
+            </div>
+            <table>
+                <tr>
+                    <th>Құрылым</th>
+                    <th>Қай жасушада бар?</th>
+                </tr>
+                <tr><td>Ядро</td><td>____________________</td></tr>
+                <tr><td>Жасуша мембранасы</td><td>____________________</td></tr>
+                <tr><td>Рибосома</td><td>____________________</td></tr>
+                <tr><td>Митохондрия</td><td>____________________</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="howModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModal')">&times;</span>
+        <h2 style="color: #27ae60;">III Кезен: Қолдану (HOW)</h2>
+        <div class="task-block">
+            <h3>🧠 Тапсырма 4: «Өзің диаграмма жаса»</h3>
+            <div class="instruction">📌 Нұсқаулық: Екі шеңберден тұратын Венн диаграммасын сыз және толтыр.</div>
+            <div style="height: 200px; border: 1px solid #ddd; border-radius: 8px; background: #fff;"></div>
+        </div>
+        <div class="task-block">
+            <h3>📊 Тапсырма 5: «Кестені талда және қорытынды жаса»</h3>
+            <table>
+                <tr><th>Белгісі</th><th>Прокариот</th><th>Эукариот</th></tr>
+                <tr><td>Ядро</td><td>Бар (Қате)</td><td>Жоқ (Қате)</td></tr>
+                <tr><td>Органоидтар</td><td>Бар</td><td>Бар</td></tr>
+            </table>
+            <p>📌 Қатесін тауып, астына дұрыс қорытынды жаз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="ifModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModal')">&times;</span>
+        <h2 style="color: #f39c12;">IV Кезен: Шығармашылық (IF)</h2>
+        <div class="task-block">
+            <h3>🌍 Тапсырма 6: «Болашақ жасуша диаграммасы»</h3>
+            <p>Жаңа «гибрид» жасуша ойлап тауып, оның схемасын сыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🎯 Тапсырма 7: «Себеп-салдар диаграммасы»</h3>
+            <div class="instruction">📌 Нұсқаулық: Себеп → Құрылым → Нәтиже тізбегін құр.</div>
+            <p>Мысалы: <i>Ядро жоқ → Қарапайым құрылым → Тез көбейеді</i></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

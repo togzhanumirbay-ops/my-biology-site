@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§2. Ұлпаларды жіктеу - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Кесте стильдері */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th { background-color: #27ae60; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* Венн диаграммасы */
+        .venn-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .circle {
+            width: 220px;
+            height: 220px;
+            border: 2px solid #27ae60;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            background: rgba(39, 174, 96, 0.05);
+        }
+        .middle {
+            width: 160px;
+            height: 160px;
+            border: 2px dashed #f39c12;
+            border-radius: 50%;
+            margin: 0 -60px;
+            z-index: 1;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .resource-section {
+            background: #eef2f7;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-download {
+            background: #2980b9;
+            color: white !important;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+        .img-box {
+            width: 100%;
+            min-height: 200px;
+            border: 2px dashed #bbb;
+            background: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            border-radius: 8px;
+            color: #666;
+        }
+        .instruction-tag {
+            display: inline-block;
+            background: #fff9db;
+            border-left: 4px solid #f1c40f;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class8.html" style="color: white; text-decoration: none;">← 8-сынып мәзіріне қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0; font-size: 0.9rem;">
+        <a href="index.html" style="color: #27ae60; text-decoration: none;">Басты бет</a> / 
+        <a href="class8.html" style="color: #27ae60; text-decoration: none;">8-сынып</a> / 
+        §2. Ұлпаларды жіктеу
+    </div>
+
+    <h2 style="text-align: center; color: #2c3e50;">§2. Өсімдіктер мен жануарлардың ұлпаларын жіктеу</h2>
+
+    <div class="content-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+        
+        <div class="unit-card" style="border-top: 6px solid #e74c3c; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #e74c3c;">I КЕЗЕҢ – WHY</h3>
+            <p>Қызығушылық ояту: Бір ағза — әртүрлі қызмет.</p>
+            <button onclick="openModal('whyModal2')" class="btn-task" style="width:100%; background:#e74c3c; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Бастау</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #3498db; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #3498db;">II КЕЗЕҢ – WHAT</h3>
+            <p>Түсіну: Ұлпаларды жіктеу және кестелер.</p>
+            <button onclick="openModal('whatModal2')" class="btn-task" style="width:100%; background:#3498db; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Зерттеу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #27ae60; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #27ae60;">III КЕЗЕҢ – HOW</h3>
+            <p>Қолдану: Қызметі мен суреті бойынша анықтау.</p>
+            <button onclick="openModal('howModal2')" class="btn-task" style="width:100%; background:#27ae60; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Тәжірибе</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #f39c12; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #f39c12;">IV КЕЗЕҢ – IF</h3>
+            <p>Шығармашылық: Егер ұлпа болмаса? Жаңа ұлпа.</p>
+            <button onclick="openModal('ifModal2')" class="btn-task" style="width:100%; background:#f39c12; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Жобалау</button>
+        </div>
+
+    </div>
+</main>
+
+<div id="whyModal2" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModal2')">&times;</span>
+        <h2 style="color: #e74c3c;">I Кезен: WHY (Қызығушылық)</h2>
+        <div class="task-block">
+            <h3>🏫 Тапсырма 1: «Бір ағза – әртүрлі қызмет»</h3>
+            <p>Неге бұлшықет жиырылады, ал жүйке сигнал береді? Бұл жасушалардың топтасуымен (ұлпамен) қалай байланысты?</p>
+        </div>
+        <div class="task-block">
+            <h3>🌿 Тапсырма 2: «Өсімдік те күрделі ме?»</h3>
+            <p>Қозғалмайтын өсімдіктерде жануарлардікіне ұқсас атқаратын қызметтері бар ма? Болжап көріңіз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🔍 Тапсырма 3: «Қайсысы қайда?»</h3>
+            <p>Қорғау, тасымалдау, тірек қызметтерінің қайсысы өсімдікке, қайсысы жануарға тән деп ойлайсыз?</p>
+        </div>
+    </div>
+</div>
+
+<div id="whatModal2" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModal2')">&times;</span>
+        <h2 style="color: #3498db;">II Кезен: WHAT (Түсіну)</h2>
+
+        <div class="resource-section">
+            <p><strong>📁 Сабақ материалдары:</strong></p>
+            <a href="tissues_8.pptx" class="btn-download">📊 Презентацияны ашу</a>
+        </div>
+
+        <div class="task-block">
+            <h3>📊 Тапсырма 4: «Жануар ұлпаларын жіктеу»</h3>
+            <div class="instruction-tag">📌 Нұсқаулық: Әр ұлпаның негізгі қызметін және мысалын жаз.</div>
+            <table>
+                <tr><th>Ұлпа түрі</th><th>Қызметі</th><th>Мысал</th></tr>
+                <tr><td>Эпителий</td><td>________________</td><td>________________</td></tr>
+                <tr><td>Бұлшықет</td><td>________________</td><td>________________</td></tr>
+                <tr><td>Жүйке</td><td>________________</td><td>________________</td></tr>
+                <tr><td>Дәнекер</td><td>________________</td><td>________________</td></tr>
+            </table>
+        </div>
+
+        <div class="task-block">
+            <h3>🌿 Тапсырма 5: «Өсімдік ұлпаларын толтыр»</h3>
+            <table>
+                <tr><th>Ұлпа түрі</th><th>Қызметі</th><th>Орналасуы</th></tr>
+                <tr><td>Жабын</td><td>________________</td><td>________________</td></tr>
+                <tr><td>Өткізгіш</td><td>________________</td><td>________________</td></tr>
+                <tr><td>Негізгі</td><td>________________</td><td>________________</td></tr>
+                <tr><td>Тірек</td><td>________________</td><td>________________</td></tr>
+            </table>
+        </div>
+
+        <div class="task-block">
+            <h3>🧩 Тапсырма 6: «Venn диаграммасы»</h3>
+            <div class="venn-wrapper">
+                <div class="circle"><b>Өсімдік ұлпасы</b><br><small>________</small></div>
+                <div class="middle">Ортақ</div>
+                <div class="circle" style="border-color: #3498db; background: rgba(52, 152, 219, 0.05);"><b>Жануар ұлпасы</b><br><small>________</small></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="howModal2" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModal2')">&times;</span>
+        <h2 style="color: #27ae60;">III Кезен: HOW (Қолдану)</h2>
+        <div class="task-block">
+            <h3>🧠 Тапсырма 7: «Қызмет → ұлпа»</h3>
+            <p>«Сигнал беру» қызметіне қай ұлпа жауапты? Неге?</p>
+        </div>
+        <div class="task-block">
+            <h3>📊 Тапсырма 8: «Қате кестені түзет»</h3>
+            <div class="instruction-tag">📌 Нұсқаулық: Қатені тап: Жүйке — Қозғалу, Бұлшықет — Сигнал беру.</div>
+            <p style="background: #fdf2f2; padding: 10px; border-radius: 5px;">Дұрыс нұсқасын дәптеріңізге жазыңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🔬 Тапсырма 9: «Сурет бойынша анықта»</h3>
+            <div class="img-box">
+                <img src="tissues_micro.png" alt="Ұлпалар микроскопиясы" style="width:100%; border-radius:8px;">
+            </div>
+            <p>Суретке қарап, ұлпаның түрін және қызметін сипаттаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="ifModal2" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModal2')">&times;</span>
+        <h2 style="color: #f39c12;">IV Кезен: IF (Шығармашылық)</h2>
+        <div class="task-block">
+            <h3>🌍 Тапсырма 10: «Егер ұлпа болмаса»</h3>
+            <p>Егер ағзада жүйке ұлпасы мүлдем болмаса, тіршілік қалай өзгерер еді?</p>
+        </div>
+        <div class="task-block">
+            <h3>🎨 Тапсырма 11: «Жаңа ұлпа ойлап тап»</h3>
+            <p>Фантастикалық ағза үшін жаңа ұлпа ойлап табыңыз (мысалы, энергияны тікелей ауадан алатын ұлпа).</p>
+        </div>
+        <div class="task-block">
+            <h3>🎤 Тапсырма 12: «Ғалым түсіндіреді»</h3>
+            <p>Өсімдік және жануар ұлпаларының басты 3 айырмашылығын ғалым ретінде баяндаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Байланыс - 4MAT әдістемелік ресурсы</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-container { padding: 40px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width: 768px) { .contact-container { grid-template-columns: 1fr; } }
+        
+        /* Автор ақпараты */
+        .author-info h2, .feedback-form h2 { color: #27ae60; border-bottom: 2px solid #27ae60; padding-bottom: 10px; margin-bottom: 20px; }
+        .author-card { background: #f9f9f9; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .contact-details { list-style: none; padding: 0; margin-top: 20px; }
+        .contact-details li { margin-bottom: 15px; display: flex; align-items: center; font-size: 16px; }
+        .contact-details span { margin-right: 10px; font-size: 20px; }
+
+        /* Форма стилі */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+        .form-group textarea { height: 120px; resize: vertical; }
+        .submit-btn { background-color: #27ae60; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
+        .submit-btn:hover { background-color: #219150; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <h1>4MAT(Four-Mode Application Techniques) әдісі</h1>
+        <p>Биология мұғалімдеріне арналған әдістемелік құрал</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container"> 
+        <ul class="main-nav">
+            <li><a href="index.html">Басты бет</a></li> 
+            <li><a href="theory.html">Теория</a></li>
+            <li><a href="contacts.html" class="active">Контакты</a></li>
+            <li><a href="diagnostic.html">Диагнгстика</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <div class="contact-container">
+        
+        <section class="author-info">
+            <h2>Автор туралы ақпарат</h2>
+            <div class="author-card">
+                <p><strong>Аты-жөні:</strong> Умирбай Тоғжан Хорезимқызы</p>
+                <p>Абай атындағы Қазақ Ұлттық Педагогикалық Университетінің магистранты.</p>
+                
+                <h3 style="margin-top: 25px; color: #333;">Байланыс арналары</h3>
+                <ul class="contact-details">
+                    <li><span>📧</span> <strong>Электронды пошта:</strong> <a href="mailto:togzhan.umirbay@bk.ru" style="color: #27ae60; text-decoration: none; margin-left: 5px;">togzhan.umirbay@bk.ru</a></li>
+                    <li><span>📱</span> <strong>Телефон:</strong> <a href="tel:+77777777777" style="color: #333; text-decoration: none; margin-left: 5px;">8 777 777 77 77</a></li>
+                    <li><span>🆔</span> <strong>ORCID:</strong> [Мұнда ORCID нөміріңізді жазыңыз]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="feedback-form">
+            <h2>Кері байланыс</h2>
+            <p style="margin-bottom: 20px;">Егер сізде ұсыныстар, пікірлер немесе әдістемелік материалдарға қатысты сұрақтар болса, төмендегі форма арқылы хабарласа аласыз.</p>
+            
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Аты-жөні</label>
+                    <input type="text" id="name" name="name" placeholder="Толық аты-жөніңізді енгізіңіз" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Электронды пошта</label>
+                    <input type="email" id="email" name="email" placeholder="Мысалы: example@mail.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Хабарлама мәтіні</label>
+                    <textarea id="message" name="message" placeholder="Сұрағыңызды немесе ұсынысыңызды осында жазыңыз..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Жіберу</button>
+            </form>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Методический ресурс по биологии | Автор: Умирбай Тоғжан</p>
+    </div>
+</footer>
+
+</body>
+</html>

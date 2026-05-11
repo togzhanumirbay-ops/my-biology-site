@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§9. Жануарларда заттар тасымалы - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .unit-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 6px solid #ccc;
+        }
+        .download-box {
+            background: #f0f7ff;
+            border: 2px dashed #3498db;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .btn-download {
+            display: inline-block;
+            background: #3498db;
+            color: white !important;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .task-block {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .task-block:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class7.html" style="color: white; text-decoration: none;">← 7-сыныпқа қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0;">
+        <span style="color: #27ae60;">Басты бет / 7-сынып</span> / §9. Жануарларда заттар тасымалы
+    </div>
+
+    <h2 style="text-align: center;">§9. Жануарларда заттардың тасымалдануы</h2>
+    <p style="text-align: center; color: #666;">4MAT әдістемесі бойынша 12 белсенді тапсырма</p>
+
+    <div class="content-grid">
+        <div class="unit-card" style="border-top-color: #e74c3c;">
+            <div>
+                <h3 style="color: #e74c3c;">I кезең – WHY</h3>
+                <p><strong>Неге тасымал жүйесі қажет?</strong></p>
+                <p><small>Тәжірибе, Саяхат, Себеп-салдар</small></p>
+            </div>
+            <button onclick="openModal('whyModalP9')" class="btn-task" style="background:#e74c3c; color:white;">🔍 Қызығушылық</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #3498db;">
+            <div>
+                <h3 style="color: #3498db;">II кезең – WHAT</h3>
+                <p><strong>Жүйе қалай құрылған?</strong></p>
+                <p><small>Схема, Салыстыру, Тест</small></p>
+            </div>
+            <button onclick="openModal('whatModalP9')" class="btn-task" style="background:#3498db; color:white;">🧠 Түсіну</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #27ae60;">
+            <div>
+                <h3 style="color: #27ae60;">III кезең – HOW</h3>
+                <p><strong>Жүйе қалай жұмыс істейді?</strong></p>
+                <p><small>Модельдеу, Сараптама, Байланыс</small></p>
+            </div>
+            <button onclick="openModal('howModalP9')" class="btn-task" style="background:#27ae60; color:white;">🛠️ Қолдану</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #f39c12;">
+            <div>
+                <h3 style="color: #f39c12;">IV кезең – IF</h3>
+                <p><strong>Егер өзгеріс болса?</strong></p>
+                <p><small>Болжам, Жаңа жоба, Кеңес</small></p>
+            </div>
+            <button onclick="openModal('ifModalP9')" class="btn-task" style="background:#f39c12; color:white;">🎨 Шығармашылық</button>
+        </div>
+    </div>
+</main>
+
+<div id="whyModalP9" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModalP9')">&times;</span>
+        <h2 style="color: #e74c3c;">I кезең: Неге бұл маңызды?</h2>
+        <div class="task-block">
+            <h3>🧪 Тапсырма 1: «Баяу таралу тәжірибесі»</h3>
+            <p>Диффузияның баяулығын бақылап, ағзада неге арнайы "көлік" жүйесі (қанайналым) керек екенін негіздеңіз.</p>
+        </div>
+        <div class="task-block">
+            <h3>📍 Тапсырма 2: «Дене бойынша саяхат»</h3>
+            <p>Өкпеден аяқ бұлшықетіне бара жатқан оттегі молекуласының жолын сипаттаңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>💓 Тапсырма 3: «Неге біз тез шаршаймыз?»</h3>
+            <p>Жүгіргенде жүрек соғысының жиілеуі мен заттар тасымалының арасындағы байланысты түсіндіріңіз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="whatModalP9" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModalP9')">&times;</span>
+        <h2 style="color: #3498db;">II кезең: Түсіну (Теория)</h2>
+        <div class="task-block">
+            <h3>📊 Тапсырма 4: Жүйе қалай құрылған?</h3>
+            <p>Жүрек, қан және тамырларды бір жүйеге біріктіріп, схемасын сызыңыз.</p>
+            <div class="download-box">
+                <p>Сабақ презентациясын осы жерден жүктей аласыз:</p>
+                <a href="presentation_p9.pptx" class="btn-download">📂 Презентацияны жүктеу</a>
+            </div>
+        </div>
+        <div class="task-block">
+            <h3>⚖️ Тапсырма 5: «Салыстыру тапсырмасы»</h3>
+            <p>Біржасушалы ағзалар (диффузия) мен күрделі жануарлардың (қанайналым) тасымал ерекшелігін салыстырыңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>📝 Тапсырма 6: «Интерактивті тест»</h3>
+            <p>Quizizz платформасында қанның қызметі мен мүшелері туралы біліміңізді тексеріңіз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="howModalP9" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModalP9')">&times;</span>
+        <h2 style="color: #27ae60;">III кезең: Қолдану (Тәжірибе)</h2>
+        <div class="task-block">
+            <h3>🛠️ Тапсырма 7: «Қанайналым моделін жасау»</h3>
+            <p>Қолжетімді материалдардан (түтікшелер, сұйықтық) қанның қозғалыс моделін құрастырыңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🔎 Тапсырма 8: «Қате тап»</h3>
+            <p>Берілген мәтіннен қанайналымға қатысты биологиялық қателерді тауып, түзетіңіз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🏋️ Тапсырма 9: «Өмірмен байланыс»</h3>
+            <p>Спорттық жүктеме кезінде энергия қажеттілігі мен қан айналымының жылдамдығын есептеңіз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="ifModalP9" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModalP9')">&times;</span>
+        <h2 style="color: #f39c12;">IV кезең: Шығармашылық</h2>
+        <div class="task-block">
+            <h3>🛑 Тапсырма 10: «Егер қанайналым болмаса»</h3>
+            <p>Қанайналым жүйесі жоқ күрделі ағзаның өмір сүру мүмкіндігіне 3 аргумент келтіріңіз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🚀 Тапсырма 11: «Болашақ ағза»</h3>
+            <p>Заттарды өте жылдам тасымалдайтын мүлдем жаңа, "идеалды" жүйе ойлап тауып, суретін салыңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>👨‍⚕️ Тапсырма 12: «Дәрігер кеңесі»</h3>
+            <p>Қанайналым жүйесінің ауруларының алдын алу үшін "Салауатты жүрек" жадынамасын дайындаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

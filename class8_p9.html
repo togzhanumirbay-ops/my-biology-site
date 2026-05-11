@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§9. Жануарлардың басым типтері мен кластары</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root { --zoo-orange: #f39c12; --zoo-blue: #2980b9; --zoo-green: #27ae60; --zoo-purple: #8e44ad; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; font-size: 0.9rem; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #ecf0f1; color: #2c3e50; }
+
+        .task-card-header { padding: 10px; color: white; border-radius: 8px 8px 0 0; font-weight: bold; margin-top: 15px; }
+        .method-box { background: #fdfefe; border: 1px solid #dcdde1; padding: 15px; border-radius: 0 0 8px 8px; margin-bottom: 10px; }
+        
+        .result-badge { background: #d5f5e3; color: #186a3b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+        
+        .img-placeholder { width: 100%; max-width: 400px; height: auto; border-radius: 8px; display: block; margin: 10px auto; border: 1px dashed #ccc; }
+        
+        .btn-action { display: inline-block; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: 0.3s; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container"><a href="class8.html" style="color: white; text-decoration: none;">← 8-сынып мәзіріне қайту</a></div>
+</nav>
+
+<main class="container">
+    <h2 style="text-align: center; color: #2c3e50; margin-top: 20px;">§9. Жануарлардың басым типтері мен кластары</h2>
+
+    <div class="content-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div class="unit-card" style="border-top: 6px solid var(--zoo-orange);">
+            <h3 style="color: var(--zoo-orange);">I КЕЗЕҢ – WHY (Қызығушылық)</h3>
+            <button onclick="openModal('why9')" class="btn-task" style="width:100%; background:var(--zoo-orange); color:white;">Ашу (3 тапсырма)</button>
+        </div>
+        <div class="unit-card" style="border-top: 6px solid var(--zoo-blue);">
+            <h3 style="color: var(--zoo-blue);">II КЕЗЕҢ – WHAT (Түсіну)</h3>
+            <button onclick="openModal('what9')" class="btn-task" style="width:100%; background:var(--zoo-blue); color:white;">Ашу (3 тапсырма)</button>
+        </div>
+        <div class="unit-card" style="border-top: 6px solid var(--zoo-green);">
+            <h3 style="color: var(--zoo-green);">III КЕЗЕҢ – HOW (Қолдану)</h3>
+            <button onclick="openModal('how9')" class="btn-task" style="width:100%; background:var(--zoo-green); color:white;">Ашу (3 тапсырма)</button>
+        </div>
+        <div class="unit-card" style="border-top: 6px solid var(--zoo-purple);">
+            <h3 style="color: var(--zoo-purple);">IV КЕЗЕҢ – IF (Шығармашылық)</h3>
+            <button onclick="openModal('if9')" class="btn-task" style="width:100%; background:var(--zoo-purple); color:white;">Ашу (3 тапсырма)</button>
+        </div>
+    </div>
+</main>
+
+<div id="why9" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('why9')">&times;</span>
+        <h2 style="color: var(--zoo-orange);">I Кезен: WHY - Неге?</h2>
+        
+        <div class="task-card-header" style="background: var(--zoo-orange);">Тапсырма 1: «Неге жануарлар әртүрлі?»</div>
+        <div class="method-box">
+            <p>Неге жануарлар бір-біріне ұқсамайды? Оларды топтастырудың ғылыми маңызы қандай?</p>
+            <span class="result-badge">Нәтиже: Жіктеудің маңызын түсіну.</span>
+        </div>
+
+        <div class="task-card-header" style="background: var(--zoo-orange);">Тапсырма 2: «Қайсысы ұқсас?»</div>
+        <div class="method-box">
+            <p>Берілген жануарларды ортақ белгілеріне қарай топтарға біріктіріңіз.</p>
+        </div>
+
+        <div class="task-card-header" style="background: var(--zoo-orange);">Тапсырма 3: «Ішкі құрылым маңызды ма?»</div>
+        <div class="method-box">
+            <p>Омыртқаның болуы жануардың тіршілік әрекетіне қалай әсер етеді?</p>
+        </div>
+    </div>
+</div>
+
+<div id="what9" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('what9')">&times;</span>
+        <h2 style="color: var(--zoo-blue);">II Кезен: WHAT - Не?</h2>
+        
+        <div class="task-card-header" style="background: var(--zoo-blue);">Тапсырма 4: «Жануар типтері кестесі»</div>
+        <div class="method-box">
+            <table>
+                <tr><th>Тип</th><th>Ерекшелігі</th><th>Мысал</th></tr>
+                <tr><td>Ішекқуыстылар</td><td>________________</td><td>Гидра</td></tr>
+                <tr><td>Буынаяқтылар</td><td>________________</td><td>Шаян</td></tr>
+                <tr><td>Хордалылар</td><td>________________</td><td>Қасқыр</td></tr>
+            </table>
+        </div>
+
+        <div class="task-card-header" style="background: var(--zoo-blue);">Тапсырма 5: «Кластарды толтыр»</div>
+        <div class="method-box">
+            <table>
+                <tr><th>Класс</th><th>Ерекшелігі</th><th>Мысал</th></tr>
+                <tr><td>Қосмекенділер</td><td>________________</td><td>Бақа</td></tr>
+                <tr><td>Құстар</td><td>________________</td><td>Бүркіт</td></tr>
+            </table>
+        </div>
+
+        <div class="task-card-header" style="background: var(--zoo-blue);">Тапсырма 6: «Жіктеу диаграммасы»</div>
+        <div class="method-box">
+            <div style="text-align: center; font-weight: bold;">
+                Жануарлар &rarr; <span style="color:red;">[ ТИП ]</span> &rarr; <span style="color:red;">[ КЛАСС ]</span> &rarr; Түр
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="how9" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('how9')">&times;</span>
+        <h2 style="color: var(--zoo-green);">III Кезен: HOW - Қалай?</h2>
+
+        <div class="task-card-header" style="background: var(--zoo-green);">Тапсырма 7: «Жануарды анықта»</div>
+        <div class="method-box">
+            <p><i>Сипаттама:</i> "Омыртқалы, жылы қанды, жүн жамылғысы бар". Бұл жануар қай класқа жатады?</p>
+        </div>
+
+        <div class="task-card-header" style="background: var(--zoo-green);">Тапсырма 8: «Қате кестені түзет»</div>
+        <div class="method-box">
+            <table>
+                <tr><th>Жануар</th><th>Класс (Қате нұсқа)</th></tr>
+                <tr><td>Бақа</td><td>Балық</td></tr>
+                <tr><td>Құс</td><td>Сүтқоректі</td></tr>
+            </table>
+        </div>
+
+        <div class="task-card-header" style="background: var(--zoo-green);">Тапсырма 9: «Сурет бойынша жіктеу»</div>
+        <div class="method-box">
+            <img src="animal_collage.jpg" alt="Жануарлар әлемі" class="img-placeholder">
+            <p class="tag-info" style="text-align:center;">Суретке қарап, жануарлардың типі мен класын анықтаңыз.</p>
+            <p>Қойылатын сұрақтар: Қай тип? Қай класс? Қандай белгіге қарап анықтадың?</p>
+        </div>
+    </div>
+</div>
+
+<div id="if9" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('if9')">&times;</span>
+        <h2 style="color: var(--zoo-purple);">IV Кезен: WHAT IF - Шығармашылық</h2>
+
+        <div class="task-card-header" style="background: var(--zoo-purple);">Тапсырма 10: «Егер жіктеу болмаса»</div>
+        <div class="method-box">
+            <p>Жүйелеу ғылымы (Систематика) жойылып кетсе, биологияда қандай қиындықтар туындар еді?</p>
+            <a href="#" class="btn-action" style="background: #e91e63; color:white;">Padlet-те жауап жазу</a>
+        </div>
+
+        <div class="task-card-header" style="background: var(--zoo-purple);">Тапсырма 11: «Жаңа жануар ойлап тап»</div>
+        <div class="method-box">
+            <p>Өзіңіз ойлап тапқан қиялдағы жануардың ерекшеліктерін сипаттап, оны қолданыстағы типтердің біріне жатқызыңыз.</p>
+        </div>
+
+        <div class="task-card-header" style="background: var(--zoo-purple);">Тапсырма 12: «Venn диаграммасы»</div>
+        <div class="method-box">
+            <p style="text-align: center;"><b>Омыртқалылар</b> VS <b>Омыртқасыздар</b></p>
+            <div style="display: flex; justify-content: space-around; font-size: 0.8rem; border-top: 1px solid #ccc; padding-top: 10px;">
+                <span>Ерекшелігі</span>
+                <span>Ортақ белгісі</span>
+                <span>Ерекшелігі</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) { if (event.target.className === "modal") { event.target.style.display = "none"; } }
+</script>
+
+</body>
+</html>

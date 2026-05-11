@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§7. Өсімдіктегі зат тасымалы жолдары - 11-сынып</title>
+    <style>
+        :root {
+            --why: #e74c3c; --what: #3498db;
+            --how: #2ecc71; --if: #f39c12;
+            --dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; margin: 0; color: #333; }
+        .header { background: white; padding: 30px; text-align: center; border-bottom: 3px solid #eee; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Stage Grid */
+        .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { 
+            background: white; border-radius: 15px; padding: 25px; text-align: center; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 10px solid; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Modal Layout */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 40px; width: 85%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #999; }
+
+        /* Task Styles */
+        .task-box { border-left: 6px solid #ccc; background: #fefefe; border: 1px solid #eee; padding: 20px; margin-bottom: 30px; border-radius: 0 12px 12px 0; text-align: left; }
+        .task-title { font-weight: bold; font-size: 1.2rem; color: var(--dark); display: block; margin-bottom: 8px; }
+        .task-meta { font-size: 0.95rem; color: #666; margin-bottom: 12px; background: #f0f0f0; padding: 5px 10px; display: inline-block; border-radius: 4px; }
+        
+        /* Elements */
+        .styled-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; }
+        .styled-table th, .styled-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .styled-table th { background: var(--dark); color: white; }
+
+        .diagram-box { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; background: #f8f9fa; padding: 20px; border-radius: 12px; margin: 15px 0; border: 1px solid #e0e0e0; }
+        .node { background: white; border: 2px solid var(--what); padding: 10px 15px; border-radius: 8px; font-weight: bold; text-align: center; }
+        .arrow { font-size: 1.2rem; font-weight: bold; color: var(--dark); }
+
+        .img-placeholder { background: #e9ecef; border: 2px dashed #adb5bd; padding: 20px; text-align: center; margin: 15px 0; border-radius: 12px; color: #495057; }
+        .btn-open { border: none; padding: 14px 30px; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        .btn-pres { background: #27ae60; color: white; padding: 10px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="color: #27ae60; font-weight: bold; margin-bottom: 5px;">Басты бет / 11-сынып / §7</div>
+    <h1>§7. Заттардың симпласты, апопласты және вакуольді тасымалдау жолдары</h1>
+    <p>Өсімдік ағзасындағы су мен минералды заттардың қозғалыс логистикасы</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="card" style="border-top-color: var(--why);">
+            <h2 style="color: var(--why);">I КЕЗЕҢ: WHY</h2>
+            <p>Тасымал маңызы мен "дәліз-бөлме" аналогиясы.</p>
+            <button class="btn-open" style="background: var(--why);" onclick="openM('modalWhy')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--what);">
+            <h2 style="color: var(--what);">II КЕЗЕҢ: WHAT</h2>
+            <p>Тасымал жолдарын жіктеу және ғылыми жүйелеу.</p>
+            <button class="btn-open" style="background: var(--what);" onclick="openM('modalWhat')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--how);">
+            <h2 style="color: var(--how);">III КЕЗЕҢ: HOW</h2>
+            <p>Ұлпа моделін жасау және Case Study талдау.</p>
+            <button class="btn-open" style="background: var(--how);" onclick="openM('modalHow')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--if);">
+            <h2 style="color: var(--if);">IV КЕЗЕҢ: WHAT IF</h2>
+            <p>Бейімделу жолдары мен болашақ өсімдігінің моделі.</p>
+            <button class="btn-open" style="background: var(--if);" onclick="openM('modalIf')">Тапсырмалар</button>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhy')">&times;</span>
+        <h2 style="color: var(--why);">I кезең – WHY (Experience)</h2>
+        
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 1: «Су өсімдік бойымен қалай қозғалады?»</span>
+            <span class="task-meta">Мақсаты: Өсімдіктердегі зат тасымалына қызығушылық қалыптастыру.</span>
+            <p><b>Нұсқаулық:</b> Тамыр сіңірген су жапыраққа дейін қалай жетеді? Төмендегі схеманы толтырыңыз:</p>
+            <div class="diagram-box">
+                <div class="node">Тамыр (Сіңіру)</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ] (Тасымал жолдары)</div>
+                <div class="arrow">→</div>
+                <div class="node">Жапырақ (Транспирация)</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 2: «Неге кей заттар жасуша ішінен өтеді?»</span>
+            <span class="task-meta">Мақсаты: Симпласт және апопласт жолдарының айырмашылығын түсіну.</span>
+            <p><b>Аналогия:</b> Ғимарат ішіндегі қозғалысты елестетіңіз: «дәліз арқылы жүру» және «бөлмелердің ішінен өту». Өсімдік жасушасының қай бөлігі «дәліз» рөлін атқарады? Қай жол жылдамырақ деп ойлайсыз?</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 3: «Вакуоль не үшін қажет?»</span>
+            <p><b>Сұрақ:</b> Неге өсімдік жасушасында вакуоль үлкен? Ол тек сақтау қоймасы ма, әлде тасымалға да қатыса ма?</p>
+            <div class="diagram-box">
+                <div class="node">Вакуоль</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+                <div class="arrow">→</div>
+                <div class="node">Тургорлық қысым / Сақтау</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhat')">&times;</span>
+        <h2 style="color: var(--what);">II кезең – WHAT (Conceptualization)</h2>
+        
+        <div style="text-align: center;">
+            <a href="#" class="btn-pres">📥 Презентацияны жүктеу (§7)</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 4: «Тасымалдау жолдары кестесі»</span>
+            <table class="styled-table">
+                <tr><th>Тасымалдау жолы</th><th>Ерекшелігі</th></tr>
+                <tr><td>Симпласт</td><td>Плазмодесмалар арқылы цитоплазмамен қозғалу</td></tr>
+                <tr><td>Апопласт</td><td>Жасуша қабырғасы мен бос орындар арқылы қозғалу</td></tr>
+                <tr><td>Вакуольді жол</td><td>[ ? ]</td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 5: «Сәйкестендіру»</span>
+            <p>Жол мен оның құрылымдық элементін байланыстырыңыз:</p>
+            <ul>
+                <li>Апопласт — Жасуша қабырғасы</li>
+                <li>Симпласт — [ ? ]</li>
+                <li>Вакуольді — Тонопласт мембранасы</li>
+            </ul>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 6: «Визуалды диаграмма»</span>
+            <div class="img-placeholder">
+                
+            </div>
+            <p>Диаграмманы толықтырыңыз:</p>
+            <div class="diagram-box">
+                <div class="node">Симпласт → Плазмодесма</div>
+                <div class="node">Апопласт → Жасуша қабырғасы</div>
+                <div class="node">Вакуольді жол → Мембрана арқылы</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalHow')">&times;</span>
+        <h2 style="color: var(--how);">III кезең – HOW (Application)</h2>
+        
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 7: «Өсімдік ұлпасындағы тасымалдау моделі»</span>
+            <p><b>Нұсқаулық:</b> Пластилин немесе BioRender арқылы көршілес 3-4 жасушаның моделін жасаңыз. Симпласт жолын — жасыл (цитоплазма), апопластты — қызыл (қабырға) сызықпен көрсетіңіз.</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 8: «Case Study: Су тасымалы бұзылды»</span>
+            <p><b>Жағдаят:</b> Өсімдік тамырындағы Каспари белдеушелері судың апопласт жолымен өтуін блоктайды. Неге бұл механизм өсімдік үшін сүзгі (фильтр) ретінде маңызды?</p>
+            <div class="diagram-box">
+                <div class="node" style="border-color:red">Апопласт тоқтады</div>
+                <div class="arrow">→</div>
+                <div class="node">Эндодерма кедергісі</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 9: «Схеманы визуалды талдау»</span>
+            <div class="img-placeholder">
+                
+            </div>
+            <p>Суретке қарап, плазмодесмалардың симпласт жолындағы шешуші рөлін сипаттаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modalIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalIf')">&times;</span>
+        <h2 style="color: var(--if);">IV кезең – WHAT IF (Creative)</h2>
+        
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 10: «Егер апопласт жолы жабылса...»</span>
+            <p><b>Болжам:</b> Егер өсімдіктің барлық жасуша қабырғалары су өткізбейтін балауызбен қапталса, өсімдік бойындағы су тасымалының жылдамдығы қалай өзгерер еді?</p>
+            <div class="diagram-box">
+                <div class="node">Апопласт жабық</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+                <div class="arrow">→</div>
+                <div class="node">Су тапшылығы / Баяу өсу</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 11: «Болашақ өсімдігі»</span>
+            <p><b>Шығармашылық:</b> Шөлді аймақта суды 100% үнемдейтін, вакуольді тасымалы өте жетілген жаңа өсімдік түрін сипаттаңыз. Оның жасушалық деңгейдегі тасымал ерекшелігі қандай болуы керек?</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 12: «Себеп–салдар диаграммасы»</span>
+            <div class="diagram-box">
+                <div class="node">Тасымал жолдары</div>
+                <div class="arrow">→</div>
+                <div class="node">Тұрақты су балансы</div>
+                <div class="arrow">→</div>
+                <div class="node">Өсімдік гомеостазы</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
+</script>
+
+</body>
+</html>

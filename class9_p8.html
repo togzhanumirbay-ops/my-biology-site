@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§8. Жасушалық тасымалдау түрлері</title>
+    <style>
+        :root {
+            --why-color: #e67e22; --what-color: #3498db;
+            --how-color: #27ae60; --if-color: #9b59b6;
+            --bg-light: #f4f7f6;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #2c3e50; line-height: 1.6; }
+        .header { background: #2c3e50; color: white; padding: 30px; text-align: center; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+        .stage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        @media (max-width: 1100px) { .stage-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 650px) { .stage-grid { grid-template-columns: 1fr; } }
+
+        .stage-card {
+            background: white; border-radius: 15px; padding: 25px; text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-top: 10px solid; transition: 0.3s;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .stage-card:hover { transform: translateY(-5px); }
+
+        .btn-open { width: 100%; padding: 12px; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; }
+
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 30px; width: 90%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #666; }
+
+        .task-box { background: #fff; border: 1px solid #eee; border-left: 6px solid #ccc; padding: 20px; margin-bottom: 25px; border-radius: 8px; text-align: left; }
+        .task-title { font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 10px; display: block; }
+        
+        .img-placeholder { 
+            width: 100%; background: #f0f3f4; border: 2px dashed #bdc3c7; 
+            margin: 15px 0; border-radius: 10px; min-height: 180px;
+            display: flex; align-items: center; justify-content: center; color: #7f8c8d; text-align: center; padding: 15px;
+        }
+
+        .platform-btn { 
+            display: inline-block; padding: 10px 18px; border-radius: 6px; 
+            text-decoration: none; color: white; font-weight: bold; margin-top: 10px; transition: 0.3s; font-size: 0.9rem;
+        }
+        .btn-upload { background: #e74c3c; display: block; width: fit-content; margin: 20px auto; }
+        .btn-quiz { background: #8e44ad; }
+        .btn-canva { background: #00c4cc; }
+        .btn-menti { background: #00a8ff; }
+        .btn-padlet { background: #ff4081; }
+
+        textarea { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; resize: vertical; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>§8. Белсенді және енжар тасымалдау</h1>
+    <p>Жасуша мембранасы арқылы заттардың қозғалыс заңдылықтары</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="stage-card" style="border-color: var(--why-color);">
+            <div>
+                <h2 style="color: var(--why-color);">I. WHY</h2>
+                <p>Концентрация градиенті мен селективтілік</p>
+            </div>
+            <button class="btn-open" style="background: var(--why-color);" onclick="openM('mWhy')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--what-color);">
+            <div>
+                <h2 style="color: var(--what-color);">II. WHAT</h2>
+                <p>Тасымалдау түрлерін терең талдау</p>
+            </div>
+            <button class="btn-open" style="background: var(--what-color);" onclick="openM('mWhat')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--how-color);">
+            <div>
+                <h2 style="color: var(--how-color);">III. HOW</h2>
+                <p>Мембрана моделі мен инженерлік дизайн</p>
+            </div>
+            <button class="btn-open" style="background: var(--how-color);" onclick="openM('mHow')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--if-color);">
+            <div>
+                <h2 style="color: var(--if-color);">IV. IF</h2>
+                <p>АТФ тапшылығы және медициналық қолданыс</p>
+            </div>
+            <button class="btn-open" style="background: var(--if-color);" onclick="openM('mIf')">Тапсырмаларды ашу</button>
+        </div>
+    </div>
+</div>
+
+<div id="mWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhy')">&times;</span>
+        <h2 style="color: var(--why-color);">I КЕЗЕҢ: WHY (Қызығушылық)</h2>
+        
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 1: Парадокс - Энергия не үшін керек?</span>
+            <p>Неге кейбір заттар жасушаға өздігінен өтеді, ал кейбіреулеріне энергия қажет? Концентрация градиенті бойынша және оған қарсы қозғалысты түсіндіріңіз.</p>
+            <div class="img-placeholder">[Диаграмма: Концентрация градиенті (Жоғары концентрация → Төмен концентрация)]</div>
+            <textarea placeholder="Жауабыңыз..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 2: Медициналық кейс - Дәрі неге өтпейді?</span>
+            <p>Дәрі ағзаға енгізілді, бірақ жасуша ішіне өтпей жатыр. Мембрана құрылымына сүйеніп, себебін болжаңыз.</p>
+            <div class="img-placeholder">[Сурет: Жасуша мембранасының сұйық-мозаикалық моделі]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 3: Логикалық дилемма</span>
+            <p>“Жасуша неге барлық заттарды еркін өткізе алмайды?” Селективті өткізгіштіктің маңызын дәлелдеңіз.</p>
+            <div class="img-placeholder">[Схема: Мембранадағы арналар (channels) мен тасымалдаушы ақуыздар]</div>
+        </div>
+    </div>
+</div>
+
+<div id="mWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhat')">&times;</span>
+        <h2 style="color: var(--what-color);">II КЕЗЕҢ: WHAT (Талдау)</h2>
+
+        <div style="text-align: center; background: #fdf2f2; padding: 15px; border-radius: 10px; border: 1px dashed #e74c3c;">
+            <p style="margin: 0; font-weight: bold; color: #e74c3c;">📚 Тақырыптық материалдар:</p>
+            <a href="#" class="platform-btn btn-upload">📥 Презентацияны жүктеу (.pptx)</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color); margin-top: 20px;">
+            <span class="task-title">Тапсырма 4: "Бұл зат қалай өтеді?" (Алгоритм)</span>
+            <p>Молекула көлемі, полярлығы және энергияға байланысты тасымалдау түрін анықтайтын "Шешім ағашын" (Decision Tree) құрыңыз.</p>
+            <div class="img-placeholder">[Схема: Тасымалдау түрін анықтау алгоритмі - Decision Tree үлгісі]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 5: Графикпен жұмыс</span>
+            <p>Заттың өту жылдамдығы мен концентрация арасындағы байланыс графигін талдаңыз. Енжар және белсенді тасымалдауды анықтаңыз.</p>
+            <div class="img-placeholder">[График: Концентрацияға байланысты тасымалдау жылдамдығының өзгеруі]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 6: Салыстыру матрицасы</span>
+            <p>Белсенді және енжар тасымалдауды 4 критерий бойынша салыстырыңыз:</p>
+            <table>
+                <tr><th>Критерий</th><th>Енжар тасымалдау</th><th>Белсенді тасымалдау</th></tr>
+                <tr><td>Энергия (АТФ)</td><td><input type="text"></td><td><input type="text"></td></tr>
+                <tr><td>Бағыты</td><td>Градиент бойынша</td><td><input type="text"></td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="mHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mHow')">&times;</span>
+        <h2 style="color: var(--how-color);">III КЕЗЕҢ: HOW (Практика)</h2>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 7: Рөлдік модель - "Мен мембранамын"</span>
+            <p>Кім өтеді, кім өтпейді? Қандай жағдайда? Механизмді талқылаңыз.</p>
+            <div class="img-placeholder">[Схема: Мембрана арқылы өтетін молекулалардың рөлдік моделі]</div>
+            <a href="https://www.mentimeter.com" target="_blank" class="platform-btn btn-menti">Mentimeter: Дауыс беру</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 8: Инженерлік дизайн - "Жасанды мембрана"</span>
+            <p>Кей заттарды өткізіп, кейбірін тоқтататын жасанды мембрана моделін (схемасын) жасаңыз.</p>
+            <div class="img-placeholder">[Сурет: Жасуша мембранасының құрылымдық элементтері]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Дизайн жасау</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 9: Қате табу - Теорияны тексер</span>
+            <p>“Барлық тасымалдау энергияны қажет етеді” деген тұжырымдағы қателерді тауып, дұрысын дәлелдеңіз.</p>
+            <div class="img-placeholder">[Схема: Тасымалдау түрлерінің (диффузия, осмос, белсенді) жиынтық кестесі]</div>
+        </div>
+    </div>
+</div>
+
+<div id="mIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mIf')">&times;</span>
+        <h2 style="color: var(--if-color);">IV КЕЗЕҢ: IF (Қолдану)</h2>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 10: Ғылыми сценарий - АТФ-сыз өмір</span>
+            <p>Егер жасушада кенеттен АТФ таусылса, қай тасымалдау түрлері тоқтайды? Бұл жасушаның тіршілігіне қалай әсер етеді?</p>
+            <div class="img-placeholder">[Схема: АТФ қатысатын натрий-калий сорғысының жұмысы]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 11: Дебат - Қайсысы маңызды?</span>
+            <p>“Белсенді тасымалдау маңыздырақ па, әлде енжар ма?” Екі позицияның да маңызын дәлелдеп көріңіз.</p>
+            <div class="img-placeholder">[Салыстырмалы диаграмма: Жасуша гомеостазындағы тасымалдау түрлері]</div>
+            <a href="https://padlet.com" target="_blank" class="platform-btn btn-padlet">Padlet: Дебат алаңы</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 12: Реалды өмірдегі қолданыс</span>
+            <p>Дәрілердің жасушаға ену жолдары мен тиімділігін арттыру факторларын зерттеңіз.</p>
+            <div class="img-placeholder">[Схема: Дәрі молекуласының мембрана арқылы өту жолдары]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Зерттеуді ұсыну</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§10. Флоэма бойынша зат тасымалы</title>
+    <style>
+        :root {
+            --why-color: #e67e22; --what-color: #3498db;
+            --how-color: #27ae60; --if-color: #9b59b6;
+            --bg-light: #f4f7f6;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #2c3e50; line-height: 1.6; }
+        .header { background: #2c3e50; color: white; padding: 30px; text-align: center; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+        .stage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        @media (max-width: 1100px) { .stage-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 650px) { .stage-grid { grid-template-columns: 1fr; } }
+
+        .stage-card {
+            background: white; border-radius: 15px; padding: 25px; text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-top: 10px solid; transition: 0.3s;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .stage-card:hover { transform: translateY(-5px); }
+
+        .btn-open { width: 100%; padding: 12px; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; }
+
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 30px; width: 90%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #666; }
+
+        .task-box { background: #fff; border: 1px solid #eee; border-left: 6px solid #ccc; padding: 20px; margin-bottom: 25px; border-radius: 8px; text-align: left; }
+        .task-title { font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 10px; display: block; }
+        
+        .img-placeholder { 
+            width: 100%; background: #f0f3f4; border: 2px dashed #bdc3c7; 
+            margin: 15px 0; border-radius: 10px; min-height: 180px;
+            display: flex; align-items: center; justify-content: center; color: #7f8c8d; text-align: center; padding: 15px;
+        }
+
+        .platform-btn { 
+            display: inline-block; padding: 10px 18px; border-radius: 6px; 
+            text-decoration: none; color: white; font-weight: bold; margin-top: 10px; transition: 0.3s; font-size: 0.9rem;
+        }
+        .btn-upload { background: #e74c3c; display: block; width: fit-content; margin: 20px auto; }
+        .btn-canva { background: #00c4cc; }
+        .btn-miro { background: #050038; }
+        .btn-menti { background: #00a8ff; }
+        .btn-learning { background: #3498db; }
+
+        textarea { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; resize: vertical; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>§10. Флоэма бойынша зат тасымалына сыртқы факторлардың әсері</h1>
+    <p>Органикалық заттардың "source-sink" жүйесі бойынша қозғалысы</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="stage-card" style="border-color: var(--why-color);">
+            <div>
+                <h2 style="color: var(--why-color);">I. WHY</h2>
+                <p>Аналогия, жүйелік ойлау және тасымал маңызы</p>
+            </div>
+            <button class="btn-open" style="background: var(--why-color);" onclick="openM('mWhy')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--what-color);">
+            <div>
+                <h2 style="color: var(--what-color);">II. WHAT</h2>
+                <p>Source–Sink моделі және факторларды жіктеу</p>
+            </div>
+            <button class="btn-open" style="background: var(--what-color);" onclick="openM('mWhat')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--how-color);">
+            <div>
+                <h2 style="color: var(--how-color);">III. HOW</h2>
+                <p>Модельдеу, реконструкция және сценарийлер</p>
+            </div>
+            <button class="btn-open" style="background: var(--how-color);" onclick="openM('mHow')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--if-color);">
+            <div>
+                <h2 style="color: var(--if-color);">IV. IF</h2>
+                <p>Интеграция, дебат және агро-шешімдер</p>
+            </div>
+            <button class="btn-open" style="background: var(--if-color);" onclick="openM('mIf')">Тапсырмаларды ашу</button>
+        </div>
+    </div>
+</div>
+
+<div id="mWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhy')">&times;</span>
+        <h2 style="color: var(--why-color);">I КЕЗЕҢ: WHY (Қызығушылық)</h2>
+        
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 1: Аналогия - "Жол қозғалысы"</span>
+            <p>Флоэманы өсімдіктің "көлік жүйесі" деп елестетіңіз. Флоэма арқылы тасымалды жол қозғалысымен салыстырыңыз. Қандай факторлар "кептеліс" тудырып, қозғалысты баяулатуы мүмкін?</p>
+            <div class="img-placeholder">[Схема: Флоэманың (елеуіш тәрізді түтіктер) құрылымы мен серік жасушалар]</div>
+            <textarea placeholder="Жол қозғалысымен салыстыруыңыз..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 2: Кейс - Көлеңкедегі өсімдік</span>
+            <p>Өсімдік көлеңкеде өсіп тұрса, фотосинтез баяулайды. Бұл флоэма арқылы органикалық заттардың тасымалына қалай әсер етеді?</p>
+            <div class="img-placeholder">[Схема: Фотосинтез өнімдері мен флоэмадағы тасымал байланысы]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 3: Когнитивті сұрақ - "Неге жеткізу керек?"</span>
+            <p>Жапырақта түзілген қанттар неге тамырға немесе жеміске жеткізілуі керек? Тасымал тоқтаса, өсімдікке не болады?</p>
+            <div class="img-placeholder">[Схема: Source–Sink бағыты (Жапырақ → Өсу нүктелері / Тамыр)]</div>
+        </div>
+    </div>
+</div>
+
+<div id="mWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhat')">&times;</span>
+        <h2 style="color: var(--what-color);">II КЕЗЕҢ: WHAT (Терең талдау)</h2>
+
+        <div style="text-align: center; background: #fdf2f2; padding: 15px; border-radius: 10px; border: 1px dashed #e74c3c;">
+            <p style="margin: 0; font-weight: bold; color: #e74c3c;">📚 Оқу материалы:</p>
+            <a href="#" class="platform-btn btn-upload">📥 Презентацияны жүктеу (§10 Флоэма тасымалы)</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color); margin-top: 20px;">
+            <span class="task-title">Тапсырма 4: Source–Sink моделі</span>
+            <p>Өсімдіктің қай бөліктері "Source" (донор), қайсысы "Sink" (акцептор) екенін анықтап, зат қозғалысының бағытын көрсетіңіз.</p>
+            <div class="img-placeholder">[Диаграмма: Source–Sink жүйесінің графикалық моделі]</div>
+            <a href="https://learningapps.org" target="_blank" class="platform-btn btn-learning">LearningApps: Донор мен Акцепторды тап</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 5: Деректерді талдау</span>
+            <p>Берілген кестедегі факторлар (жарық, температура) өзгергенде қант тасымалы қалай өзгеретінін талдап, заңдылық шығарыңыз.</p>
+            <table>
+                <tr><th>Жарық</th><th>Температура</th><th>Тасымал жылдамдығы</th></tr>
+                <tr><td>Төмен</td><td>10°C</td><td>Баяу</td></tr>
+                <tr><td>Жоғары</td><td>25°C</td><td>Жоғары</td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 6: Факторларды жіктеу</span>
+            <p>Жарық, температура, су және фотосинтез деңгейінің қайсысы флоэмаға тікелей, қайсысы жанама әсер ететінін анықтаңыз.</p>
+            <div class="img-placeholder">[Схема: Факторлардың өзара байланыс торы]</div>
+        </div>
+    </div>
+</div>
+
+<div id="mHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mHow')">&times;</span>
+        <h2 style="color: var(--how-color);">III КЕЗЕҢ: HOW (Модельдеу)</h2>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 7: Флоэма тасымалының моделі</span>
+            <p>Source, флоэма, sink және факторлар арасындағы байланысты көрсететін толық схема құрастырыңыз.</p>
+            <div class="img-placeholder">[Мысал: Флоэмадағы қысым-ағын (pressure-flow) теориясының моделі]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Модельді безендіру</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 8: Процесс реконструкциясы</span>
+            <p>Қант түзілуінен бастап оның sink мүшесіне қабылдануына дейінгі қадамдарды дұрыс ретке келтіріңіз.</p>
+            <div class="img-placeholder">[Схема: Флоэмаға жүктеу (loading) және босату (unloading) кезеңдері]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 9: Сценарий модельдеу</span>
+            <p>Егер температура күрт төмендесе (0-5°C), флоэмадағы тасымал қалай өзгереді? Сұйықтық тұтқырлығын ескеріп, Before/After схемасын жасаңыз.</p>
+            <div class="img-placeholder">[Схема: Төмен және оңтайлы температурадағы тасымал айырмашылығы]</div>
+            <a href="https://miro.com" target="_blank" class="platform-btn btn-miro">Miro: Сценарийді сызу</a>
+        </div>
+    </div>
+</div>
+
+<div id="mIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mIf')">&times;</span>
+        <h2 style="color: var(--if-color);">IV КЕЗЕҢ: IF (Қолдану)</h2>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 10: Агро-сценарий</span>
+            <p>Жылыжайда жарық жеткіліксіз болса, бұл жемістердің пісуіне және қант жинауына қалай әсер етеді?</p>
+            <div class="img-placeholder">[Сурет: Жылыжайдағы өсімдіктердің өнімділігі мен тасымал байланысы]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 11: Жүйелер интеграциясы</span>
+            <p>Флоэма тасымалы фотосинтез (көмірсу көзі) және транспирациямен (су балансы) қалай байланысты? 3 жүйені біріктіріп түсіндіріңіз.</p>
+            <div class="img-placeholder">[Интеграциялық схема: Фотосинтез + Ксилема + Флоэма]</div>
+            <a href="https://www.mentimeter.com" target="_blank" class="platform-btn btn-menti">Mentimeter: Сұрақ-жауап</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 12: Фермердің шешімі</span>
+            <p>Сен фермерсің. Өсімдіктің флоэма тасымалын жақсартып, өнімділікті арттыру үшін қандай агротехникалық әдістерді қолданар едің?</p>
+            <div class="img-placeholder">[Сурет: Заманауи агротехника және өсімдік қоректендіру]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Шешімді ұсыну</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

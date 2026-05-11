@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§8. Даражарнақты және қосжарнақты өсімдіктер</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root { --p8-green: #27ae60; --p8-orange: #e67e22; --p8-blue: #3498db; --p8-purple: #9b59b6; }
+        
+        /* Кесте стильдері */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; color: #333; }
+
+        /* Суреттер галереясы */
+        .task-gallery { display: flex; gap: 10px; margin: 10px 0; justify-content: center; }
+        .task-gallery img { width: 140px; height: 140px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; }
+        .venn-img { width: 100%; max-width: 300px; display: block; margin: 10px auto; }
+
+        /* Батырмалар */
+        .padlet-btn { background: #ff4081; color: white !important; padding: 10px 20px; text-decoration: none; border-radius: 25px; display: inline-block; font-weight: bold; margin-top: 10px; }
+        .padlet-btn:hover { background: #e91e63; }
+
+        .tag-info { font-size: 0.85rem; color: #666; margin-bottom: 10px; font-style: italic; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container"><a href="class8.html" style="color: white; text-decoration: none;">← 8-сынып мәзіріне қайту</a></div>
+</nav>
+
+<main class="container">
+    <h2 style="text-align: center; color: #2c3e50;">§8. Даражарнақты және қосжарнақты өсімдіктер</h2>
+
+    <div class="content-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div class="unit-card" style="border-top: 6px solid var(--p8-orange);">
+            <h3 style="color: var(--p8-orange);">I КЕЗЕҢ – WHY (Қызығушылық)</h3>
+            <button onclick="openModal('why8')" class="btn-task" style="width:100%; background:var(--p8-orange); color:white;">Ашу (3 тапсырма)</button>
+        </div>
+        <div class="unit-card" style="border-top: 6px solid var(--p8-blue);">
+            <h3 style="color: var(--p8-blue);">II КЕЗЕҢ – WHAT (Түсіну)</h3>
+            <button onclick="openModal('what8')" class="btn-task" style="width:100%; background:var(--p8-blue); color:white;">Ашу (3 тапсырма)</button>
+        </div>
+        <div class="unit-card" style="border-top: 6px solid var(--p8-green);">
+            <h3 style="color: var(--p8-green);">III КЕЗЕҢ – HOW (Қолдану)</h3>
+            <button onclick="openModal('how8')" class="btn-task" style="width:100%; background:var(--p8-green); color:white;">Ашу (3 тапсырма)</button>
+        </div>
+        <div class="unit-card" style="border-top: 6px solid var(--p8-purple);">
+            <h3 style="color: var(--p8-purple);">IV КЕЗЕҢ – IF (Шығармашылық)</h3>
+            <button onclick="openModal('if8')" class="btn-task" style="width:100%; background:var(--p8-purple); color:white;">Ашу (3 тапсырма)</button>
+        </div>
+    </div>
+</main>
+
+<div id="why8" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('why8')">&times;</span>
+        <h2 style="color: var(--p8-orange);">I Кезен: WHY</h2>
+        
+        <div class="task-block">
+            <h4>Тапсырма 1: «Неге кей өсімдіктер әртүрлі өседі?»</h4>
+            <div class="task-gallery">
+                <img src="wheat_example.jpg" alt="Бидай">
+                <img src="pea_example.jpg" alt="Бұршақ">
+            </div>
+            <p class="tag-info">Нұсқаулық: Бидай мен бұршақтың сыртқы белгілерін салыстырыңыз.</p>
+        </div>
+
+        <div class="task-block">
+            <h4>Тапсырма 2: «Тұқым ішінде не бар?»</h4>
+            <div class="task-gallery">
+                <img src="seed_structure.jpg" alt="Тұқым құрылысы" style="width: 200px;">
+            </div>
+            <p>Бидай мен бұршақ тұқымының ішкі айырмашылығын анықтаңыз.</p>
+        </div>
+
+        <div class="task-block"><h4>Тапсырма 3: «Қайсысы тез өседі?»</h4><p>Өсу қарқынының құрылымға тәуелділігін талқылаңыз.</p></div>
+    </div>
+</div>
+
+<div id="what8" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('what8')">&times;</span>
+        <h2 style="color: var(--p8-blue);">II Кезен: WHAT</h2>
+        
+        <div class="task-block">
+            <h4>Тапсырма 4: «Салыстыру кестесі»</h4>
+            <table>
+                <tr><th>Белгісі</th><th>Даражарнақты</th><th>Қосжарнақты</th></tr>
+                <tr><td>Жарнақ саны</td><td>1</td><td>2</td></tr>
+                <tr><td>Тамыры</td><td>Шашақ</td><td>Кіндік</td></tr>
+            </table>
+        </div>
+
+        <div class="task-block">
+            <h4>Тапсырма 5: «Сәйкестендіру»</h4>
+            <table>
+                <tr><th>Белгілер</th><th>Өсімдік атауы (Мысал)</th></tr>
+                <tr><td>Шашақ тамыр</td><td>____________</td></tr>
+                <tr><td>Кіндік тамыр</td><td>____________</td></tr>
+                <tr><td>Торлы жүйке</td><td>____________</td></tr>
+                <tr><td>Параллель жүйке</td><td>____________</td></tr>
+            </table>
+        </div>
+
+        <div class="task-block">
+            <h4>Тапсырма 6: «Venn диаграммасы»</h4>
+            <img src="диаграмма.png.png" alt="Venn Diagram" class="venn-img">
+            <p style="text-align:center; font-size: 0.8rem;">[Даражарнақты | Ортақ белгілер | Қосжарнақты]</p>
+        </div>
+    </div>
+</div>
+
+<div id="how8" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('how8')">&times;</span>
+        <h2 style="color: var(--p8-green);">III Кезен: HOW</h2>
+        <div class="task-block"><h4>Тапсырма 7: «Өсімдікті анықта»</h4>
+            <p>Сипаттама бойынша топты анықтаңыз.</p>
+            <p>Сипаттама беріледі: «Жапырағы параллель, тамыры шашақ». Оқушы анықтайды және дәлелдейді.</p>
+        </div>
+
+        <div class="task-block">
+            <h4>Тапсырма 8: «Қате кестені түзет»</h4>
+            <table>
+                <tr><th>Белгі</th><th>Даражарнақты</th><th>Қосжарнақты</th></tr>
+                <tr><td>Кіндік тамыр</td><td>Иә (қате)</td><td>Жоқ (қате)</td></tr>
+                <tr><td>Торлы жүйке</td><td>Иә (қате)</td><td>Жоқ (қате)</td></tr>
+                <tr><td>Шашақ тамыр</td><td>Жоқ (қате)</td><td>Иә (қате)</td></tr>
+            </table>
+            <p class="tag-info">Нұсқаулық: Кестедегі қателерді тауып, дұрыс нұсқасын жазыңыз.</p>
+        </div>
+
+        <div class="task-block"><h4>Тапсырма 9: «Сурет бойынша анықтау»</h4>
+            <p>Cурет арқылы жіктеу.</p>
+            <p>Қойылатын сұрақтар:Қай топқа жатады? Қандай белгіге қарап анықтадың?</p>
+            <p>Нұсқаулық:Оқушылар суретке қарап топты анықтайды және дәлелдейді.</p>
+            <img src="сурет1.jpg" alt="Venn Diagram" class="venn-img">
+            <img src="сурет2.jpg" alt="Venn Diagram" class="venn-img">
+            <img src="сурет3.jpg" alt="Venn Diagram" class="venn-img">
+            <img src="сурет4.jpg" alt="Venn Diagram" class="venn-img">
+        </div>
+    </div>
+</div>
+
+<div id="if8" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('if8')">&times;</span>
+        <h2 style="color: var(--p8-purple);">IV Кезен: IF</h2>
+        
+        <div class="task-block">
+            <h4>Тапсырма 10: «Егер айырмашылық болмаса»</h4>
+            <p>Жіктеудің маңызы туралы ой қорыту.</p>
+            <a href="https://padlet.com/your-link" target="_blank" class="padlet-btn">🚀 Padlet-те талқылау</a>
+        </div>
+
+
+        <div class="task-block">
+            <h4>Тапсырма 12: «Себеп–салдар диаграммасы»</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold;">
+                Құрылым &rarr; <span style="color: var(--p8-purple);">[ Қорек қоры / Бейімделу ]</span> &rarr; Өсу ерекшелігі
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) { if (event.target.className === "modal") { event.target.style.display = "none"; } }
+</script>
+
+</body>
+</html>

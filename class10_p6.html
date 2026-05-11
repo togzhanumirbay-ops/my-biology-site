@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§6. Жасуша мембранасы - 4MAT</title>
+    <style>
+        :root {
+            --why: #e74c3c; --what: #3498db;
+            --how: #2ecc71; --if: #f1c40f;
+            --dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; margin: 0; color: #333; }
+        .header { background: white; padding: 30px; text-align: center; border-bottom: 3px solid #eee; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Stage Grid */
+        .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { 
+            background: white; border-radius: 15px; padding: 25px; text-align: center; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 10px solid; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Modal Layout */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 40px; width: 85%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #999; }
+
+        /* Task Styles */
+        .task-box { border-left: 6px solid #ccc; background: #fefefe; border: 1px solid #eee; border-left-color: inherit; padding: 20px; margin-bottom: 30px; border-radius: 0 12px 12px 0; }
+        .task-title { font-weight: bold; font-size: 1.2rem; color: var(--dark); display: block; margin-bottom: 12px; }
+        .task-meta { font-size: 0.95rem; color: #666; margin-bottom: 12px; background: #f0f0f0; padding: 5px 10px; display: inline-block; border-radius: 4px; }
+        
+        /* Elements */
+        .styled-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; }
+        .styled-table th, .styled-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .styled-table th { background: var(--dark); color: white; }
+
+        .diagram-box { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px; background: #f8f9fa; padding: 25px; border-radius: 12px; margin: 15px 0; border: 1px solid #e0e0e0; }
+        .node { background: white; border: 2px solid var(--what); padding: 10px 20px; border-radius: 8px; font-weight: bold; text-align: center; min-width: 120px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .arrow { font-size: 1.5rem; font-weight: bold; color: var(--dark); }
+
+        .img-placeholder { background: #e9ecef; border: 2px dashed #adb5bd; padding: 30px; text-align: center; margin: 15px 0; border-radius: 12px; color: #495057; }
+        .btn-open { border: none; padding: 14px 30px; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; font-size: 1rem; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="color: #27ae60; font-weight: bold; margin-bottom: 5px;">Басты бет / 10-сынып / §6</div>
+    <h1>§6. Жасуша мембранасының құрылымы мен қызметтері</h1>
+    <p>Жасушаның "ақылды шекарасы": Липидтер мен нәруыздардың үйлесімі</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="card" style="border-top-color: var(--why);">
+            <h2 style="color: var(--why);">I КЕЗЕҢ: WHY</h2>
+            <p>Қорғаныс және таңдамалы өткізгіштік.</p>
+            <button class="btn-open" style="background: var(--why);" onclick="openM('modalWhy')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--what);">
+            <h2 style="color: var(--what);">II КЕЗЕҢ: WHAT</h2>
+            <p>Мембрана құрамы мен сұйық-мозаикалы моделі.</p>
+            <button class="btn-open" style="background: var(--what);" onclick="openM('modalWhat')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--how);">
+            <h2 style="color: var(--how);">III КЕЗЕҢ: HOW</h2>
+            <p>Модельдеу және өткізгіштікті талдау.</p>
+            <button class="btn-open" style="background: var(--how);" onclick="openM('modalHow')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--if);">
+            <h2 style="color: var(--if);">IV КЕЗЕҢ: WHAT IF</h2>
+            <p>Реттелудің бұзылуы және болашақ болжамы.</p>
+            <button class="btn-open" style="background: var(--if);" onclick="openM('modalIf')">Тапсырмалар</button>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhy')">&times;</span>
+        <h2 style="color: var(--why);">I кезең – WHY (Experience)</h2>
+        
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 1: «Жасушаны не қорғайды?»</span>
+            <span class="task-meta">Мақсаты: Қорғаныштық қызметке қызығушылық қалыптастыру.</span>
+            <p><b>Нұсқаулық:</b> Жасушаны «қоршалған қала» ретінде елестетіңіз. Осы аналогия бойынша бос орынды толтырыңыз:</p>
+            <div class="diagram-box">
+                <div class="node">Қала → Қорған</div>
+                <div class="arrow">↔</div>
+                <div class="node">Жасуша → [ ? ]</div>
+            </div>
+            <p><b>Сұрақ:</b> Сыртқы ортадан келетін зиянды заттар жасушаға қалай өтпей қалады?</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 2: «Барлық заттар өте ала ма?»</span>
+            <span class="task-meta">Мақсаты: Таңдамалы өткізгіштік қасиетін түсіну.</span>
+            <p><b>Нұсқаулық:</b> Жасуша мембранасын «күзетшісі бар есікке» ұқсатыңыз. Кей заттар еркін өтсе, кейбіріне рұқсат берілмейді. Неге бұл ағза үшін өте маңызды?</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 3: «Мембрана болмаса не болады?»</span>
+            <span class="task-meta">Мақсаты: Мембрананың тіршілік үшін маңызын ұғыну.</span>
+            <div class="diagram-box">
+                <div class="node">Мембрана жоқ</div>
+                <div class="arrow">→</div>
+                <div class="node">Заттар ретсіз ағады</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+            </div>
+            <p><b>Сұрақ:</b> Мембранасынан айырылған жасуша өз пішінін сақтай ала ма? Жасуша ішіндегі органоидтерге не болады?</p>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhat')">&times;</span>
+        <h2 style="color: var(--what);">II кезең – WHAT (Conceptualization)</h2>
+        
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 4: «Мембрана құрылысы»</span>
+            <table class="styled-table">
+                <thead>
+                    <tr><th>Мембрана бөлігі</th><th>Қызметі</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Фосфолипид</td><td>Қос қабат түзу, негізгі қаңқа</td></tr>
+                    <tr><td>Нәруыз</td><td>Зат тасымалдау және рецепторлық қызмет</td></tr>
+                    <tr><td>Көмірсу (Гликокаликс)</td><td>Жасушаларды тану (иммунитет)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 6: «Визуалды диаграмма»</span>
+            <div class="img-placeholder">
+                
+
+[Image of Fluid Mosaic Model of Cell Membrane with labels]
+
+            </div>
+            <div class="diagram-box">
+                <div class="node">Мембрана</div>
+                <div class="arrow">↙ ↓ ↘</div>
+                <div class="node">Липидті биқабат</div>
+                <div class="node">Тасымалдаушы нәруыздар</div>
+                <div class="node">Рецепторлық көмірсулар</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalHow')">&times;</span>
+        <h2 style="color: var(--how);">III кезең – HOW (Application)</h2>
+        
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 7: «Мембрана моделін жасау»</span>
+            <p><b>Нұсқаулық:</b> Пластилин немесе BioRender арқылы фосфолипидтің гидрофильді басы мен гидрофобты құйрығын ескере отырып, қос қабатты мембрана моделін құрастырыңыз.</p>
+            <div class="img-placeholder">
+                
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 8: «Қандай зат өтеді?»</span>
+            <p>Төмендегі заттардың мембрана арқылы өту мүмкіндігін талдап, кестені толтырыңыз:</p>
+            <table class="styled-table">
+                <tr><th>Зат</th><th>Өту жолы</th></tr>
+                <tr><td>Оттегі (O₂)</td><td>Липидті қабат арқылы (Диффузия)</td></tr>
+                <tr><td>Су (H₂O)</td><td>[ ? ]</td></tr>
+                <tr><td>Глюкоза</td><td>Арнайы нәруыз арналары арқылы</td></tr>
+            </table>
+        </div>
+        
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 9: «Микроскопиялық зерттеу»</span>
+            <p>Электронды микроскоп астында мембрана неге «үш қабатты» (екі қою және бір ашық жолақ) болып көрінетінін түсіндіріңіз.</p>
+            <div class="img-placeholder">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalIf')">&times;</span>
+        <h2 style="color: var(--if);">IV кезең – WHAT IF (Creative)</h2>
+        
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 10: «Егер мембрана бәрін өткізсе...»</span>
+            <p>Егер мембрана таңдамалы өткізгіштік қасиетін жоғалтып, барлық молекуланы еркін өткізе берсе, жасушаның ішкі ортасының тұрақтылығына (гомеостаз) не болады?</p>
+            <div class="diagram-box">
+                <div class="node">Бақылаусыз өту</div>
+                <div class="arrow">→</div>
+                <div class="node">Гомеостаз бұзылуы</div>
+                <div class="arrow">→</div>
+                <div class="node">Жасуша өлімі</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 11: «Болашақ мембранасы»</span>
+            <p>Биоинженерия тұрғысынан: Зиянды вирустарды мүлде өткізбейтін немесе тек пайдалы дәрумендерді ғана танитын «ақылды» жасанды мембрананы қалай жасауға болады?</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 12: «Себеп–салдар диаграммасы»</span>
+            <p>Мембрананың жасуша тіршілігіндегі рөлін түйіндеңіз:</p>
+            <div class="diagram-box">
+                <div class="node">Мембрана құрылымы</div>
+                <div class="arrow">→</div>
+                <div class="node">Тұрақты ішкі орта</div>
+                <div class="arrow">→</div>
+                <div class="node">Тіршілікті сақтау</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

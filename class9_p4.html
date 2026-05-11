@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§4. Биосферадағы биохимиялық үдерістер</title>
+    <style>
+        :root {
+            --why-color: #e67e22; --what-color: #3498db;
+            --how-color: #27ae60; --if-color: #9b59b6;
+            --bg-light: #f4f7f6;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #2c3e50; line-height: 1.6; }
+        .header { background: #2c3e50; color: white; padding: 30px; text-align: center; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+        /* 4 Бағанды Grid */
+        .stage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        @media (max-width: 1100px) { .stage-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 650px) { .stage-grid { grid-template-columns: 1fr; } }
+
+        .stage-card {
+            background: white; border-radius: 15px; padding: 25px; text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-top: 10px solid; transition: 0.3s;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .stage-card:hover { transform: translateY(-5px); }
+
+        .btn-open { width: 100%; padding: 12px; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; }
+
+        /* Модаль терезе */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 30px; width: 90%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #666; }
+
+        /* Тапсырма блогы */
+        .task-box { background: #fff; border: 1px solid #eee; border-left: 6px solid #ccc; padding: 20px; margin-bottom: 25px; border-radius: 8px; text-align: left; }
+        .task-title { font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 10px; display: block; }
+        
+        /* Суреттерге арналған орын */
+        .img-placeholder { 
+            width: 100%; background: #eef2f3; border: 2px dashed #bfc9ca; 
+            margin: 15px 0; border-radius: 10px; min-height: 180px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; color: #7f8c8d; text-align: center; padding: 10px;
+        }
+
+        /* Платформа батырмалары */
+        .platform-btn { 
+            display: inline-block; padding: 10px 18px; border-radius: 6px; 
+            text-decoration: none; color: white; font-weight: bold; margin-top: 10px; transition: 0.3s; font-size: 0.9rem;
+        }
+        .btn-quiz { background: #8e44ad; }
+        .btn-learning { background: #3498db; }
+        .btn-canva { background: #00c4cc; }
+        .btn-miro { background: #050038; }
+        .btn-padlet { background: #ff4081; }
+
+        textarea { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; resize: vertical; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>§4. Биосферадағы биохимиялық үдерістер — заттар айналымы</h1>
+    <p>Көміртек, азот және су айналымының табиғаттағы маңызы</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="stage-card" style="border-color: var(--why-color);">
+            <div>
+                <h2 style="color: var(--why-color);">I. WHY</h2>
+                <p>Проблемалық ойлау және өмірмен байланыс</p>
+            </div>
+            <button class="btn-open" style="background: var(--why-color);" onclick="openM('mWhy')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--what-color);">
+            <div>
+                <h2 style="color: var(--what-color);">II. WHAT</h2>
+                <p>Биохимиялық үдерістер мен заңдылықтар</p>
+            </div>
+            <button class="btn-open" style="background: var(--what-color);" onclick="openM('mWhat')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--how-color);">
+            <div>
+                <h2 style="color: var(--how-color);">III. HOW</h2>
+                <p>Модельдеу және практикалық жұмыс</p>
+            </div>
+            <button class="btn-open" style="background: var(--how-color);" onclick="openM('mHow')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--if-color);">
+            <div>
+                <h2 style="color: var(--if-color);">IV. IF</h2>
+                <p>Болжау және ғылыми қорытындылау</p>
+            </div>
+            <button class="btn-open" style="background: var(--if-color);" onclick="openM('mIf')">Тапсырмаларды ашу</button>
+        </div>
+    </div>
+</div>
+
+<div id="mWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhy')">&times;</span>
+        <h2 style="color: var(--why-color);">I КЕЗЕҢ: WHY</h2>
+        
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 1: Ыдыратушыларсыз әлем</span>
+            <p>Егер Жер бетінде бактериялар мен саңырауқұлақтар жойылып кетсе, заттар айналымы қалай өзгереді? Кемінде 2 салдарды жазыңыз.</p>
+            <div class="img-placeholder">[Сурет: Органикалық қалдықтардың ыдырауы және шірінді түзілу процесі]</div>
+            <textarea placeholder="Жауабыңыз..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 2: "Мәңгілік цикл" құпиясы</span>
+            <p>Неге табиғатта миллиондаған жылдар бойы қалдықтар жиналып қалмайды? Өз болжамыңызды ұсыныңыз.</p>
+            <div class="img-placeholder">[Схема: Биосферадағы заттар айналымының жалпы циклі]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 3: Табиғат vs Полигон</span>
+            <p>Табиғи экожүйе мен қоқыс полигонын салыстырыңыз. Қай жерде заттар айналымы тиімді? Неге?</p>
+            <div class="img-placeholder">[Сурет: Қоқыс жиналу және табиғи ыдырауды салыстыру]</div>
+        </div>
+    </div>
+</div>
+
+<div id="mWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhat')">&times;</span>
+        <h2 style="color: var(--what-color);">II КЕЗЕҢ: WHAT</h2>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 4: Көміртек айналымы</span>
+            <p>Фотосинтез, тыныс алу және жану процестері көміртек циклінде қалай байланысқан?</p>
+            <div class="img-placeholder">[Схема: Көміртек айналымының толық циклі]</div>
+            <a href="https://quizizz.com" target="_blank" class="platform-btn btn-quiz">Quizizz: Көміртек циклі</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 5: Азот айналымының кезеңдері</span>
+            <p>Фиксация, нитрификация және денитрификация процестеріне қандай ағзалар қатысады?</p>
+            <div class="img-placeholder">[Диаграмма: Азот айналымы (Nitrogen Cycle)]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 6: Гидросферадағы цикл (Су айналымы)</span>
+            <p>Булану, конденсация және жауын-шашын процестерін байланыстырып, толық циклді сипаттаңыз.</p>
+            <div class="img-placeholder">[Схема: Судың табиғаттағы айналымы]</div>
+            <a href="https://learningapps.org" target="_blank" class="platform-btn btn-learning">LearningApps: Су циклі</a>
+        </div>
+    </div>
+</div>
+
+<div id="mHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mHow')">&times;</span>
+        <h2 style="color: var(--how-color);">III КЕЗЕҢ: HOW</h2>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 7: Көміртек айналымының моделі</span>
+            <p>Негізгі процестер мен адам әсерін (зауыттар, көлік) көрсететін модель құрастырыңыз.</p>
+            <div class="img-placeholder">[Схема үлгісі: Көміртек айналымының қарапайым моделі]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Визуал модель жасау</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 8: Азот циклін жүйелеу (Кесте)</span>
+            <p>Азот айналымының кезеңдерін кестеге толтырыңыз:</p>
+            <table>
+                <tr><th>Процесс</th><th>Қатысатын ағза</th><th>Нәтиже</th></tr>
+                <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 9: Микроағзалар және тепе-теңдік</span>
+            <p>Егер топырақ бактериялары азайса, заттар айналымы қалай өзгереді? "Дейін" және "Кейін" диаграммасын сызыңыз.</p>
+            <div class="img-placeholder">[Before-After: Бактериялардың экожүйедегі рөлі]</div>
+            <a href="https://miro.com" target="_blank" class="platform-btn btn-miro">Miro: Себеп-салдар диаграммасы</a>
+        </div>
+    </div>
+</div>
+
+<div id="mIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mIf')">&times;</span>
+        <h2 style="color: var(--if-color);">IV КЕЗЕҢ: IF</h2>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 10: Көміртек балансы бұзылса...</span>
+            <p>CO₂ газының шектен тыс жиналуы климатқа қалай әсер етеді? Болашаққа болжам жасаңыз.</p>
+            <div class="img-placeholder">[Сурет: Парниктік эффект және жаһандық жылыну]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 11: Антропогендік әсерді талдау</span>
+            <p>Адам әрекеті (орман кесу, өнеркәсіп) заттар айналымына қалай әсер етеді? 3 мысал келтіріңіз.</p>
+            <div class="img-placeholder">[Диаграмма: Заттар айналымына адамның әсері]</div>
+            <a href="https://padlet.com" target="_blank" class="platform-btn btn-padlet">Padlet: Пікірлер жинағы</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 12: Зерттеуші күнделігі</span>
+            <p>Бір циклді таңдап, оның адам әсерінен қалай өзгеретіні туралы презентация дайындаңыз.</p>
+            <div class="img-placeholder">[Сурет: Заттардың жаһандық айналымының толық схемасы]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Зерттеуді тапсыру</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§6. Ферменттердің әсер ету механизмі</title>
+    <style>
+        :root {
+            --why-color: #e67e22; --what-color: #3498db;
+            --how-color: #27ae60; --if-color: #9b59b6;
+            --bg-light: #f4f7f6;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #2c3e50; line-height: 1.6; }
+        .header { background: #2c3e50; color: white; padding: 30px; text-align: center; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+        .stage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        @media (max-width: 1100px) { .stage-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 650px) { .stage-grid { grid-template-columns: 1fr; } }
+
+        .stage-card {
+            background: white; border-radius: 15px; padding: 25px; text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-top: 10px solid; transition: 0.3s;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .stage-card:hover { transform: translateY(-5px); }
+
+        .btn-open { width: 100%; padding: 12px; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; }
+
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 30px; width: 90%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #666; }
+
+        .task-box { background: #fff; border: 1px solid #eee; border-left: 6px solid #ccc; padding: 20px; margin-bottom: 25px; border-radius: 8px; text-align: left; }
+        .task-title { font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 10px; display: block; }
+        
+        .img-placeholder { 
+            width: 100%; background: #f0f3f4; border: 2px dashed #bdc3c7; 
+            margin: 15px 0; border-radius: 10px; min-height: 180px;
+            display: flex; align-items: center; justify-content: center; color: #7f8c8d; text-align: center; padding: 15px;
+        }
+
+        .platform-btn { 
+            display: inline-block; padding: 10px 18px; border-radius: 6px; 
+            text-decoration: none; color: white; font-weight: bold; margin-top: 10px; transition: 0.3s; font-size: 0.9rem;
+        }
+        .btn-quiz { background: #8e44ad; }
+        .btn-learning { background: #3498db; }
+        .btn-canva { background: #00c4cc; }
+        .btn-miro { background: #050038; }
+        .btn-padlet { background: #ff4081; }
+
+        textarea { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; resize: vertical; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>§6. Ферменттердің әсер ету механизмі</h1>
+    <p>Биологиялық катализаторлардың құпиясы: Активті орталық пен субстрат байланысы</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="stage-card" style="border-color: var(--why-color);">
+            <div>
+                <h2 style="color: var(--why-color);">I. WHY</h2>
+                <p>Реакция жылдамдығы және таңдамалылық</p>
+            </div>
+            <button class="btn-open" style="background: var(--why-color);" onclick="openM('mWhy')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--what-color);">
+            <div>
+                <h2 style="color: var(--what-color);">II. WHAT</h2>
+                <p>Әсер ету механизмі мен теориялық модельдер</p>
+            </div>
+            <button class="btn-open" style="background: var(--what-color);" onclick="openM('mWhat')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--how-color);">
+            <div>
+                <h2 style="color: var(--how-color);">III. HOW</h2>
+                <p>Модельдеу және кезеңдерді жүйелеу</p>
+            </div>
+            <button class="btn-open" style="background: var(--how-color);" onclick="openM('mHow')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--if-color);">
+            <div>
+                <h2 style="color: var(--if-color);">IV. IF</h2>
+                <p>Болжау, ингибиторлар және медицина</p>
+            </div>
+            <button class="btn-open" style="background: var(--if-color);" onclick="openM('mIf')">Тапсырмаларды ашу</button>
+        </div>
+    </div>
+</div>
+
+<div id="mWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhy')">&times;</span>
+        <h2 style="color: var(--why-color);">I КЕЗЕҢ: WHY</h2>
+        
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 1: Тірі ағзадағы жылдамдық</span>
+            <p>Неге зертханада баяу жүретін реакциялар тірі жасушада қас-қағым сәтте өтеді? Реакция жылдамдығына әсер ететін факторларды анықтаңыз.</p>
+            <div class="img-placeholder">[Схема: Ферментсіз және ферментпен (катализатормен) жүретін реакция энергиясының айырмашылығы]</div>
+            <textarea placeholder="Өз болжамыңызды жазыңыз..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 2: Таңдамалылық құпиясы</span>
+            <p>Неге барлық заттар кез келген ферментпен әрекеттеспейді? Ферменттердің спецификалық қасиетін қалай түсінесіз?</p>
+            <div class="img-placeholder">[Сурет: "Кілт пен құлып" моделі - субстрат пен ферменттің сәйкестігі]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 3: Қызба және ферменттер</span>
+            <p>Неге адам денесінің температурасы 42°C-тан асқанда өмірге қауіп төнеді? Құрылым мен қызмет байланысын түсіндіріңіз.</p>
+            <div class="img-placeholder">[Сурет: Фермент денатурациясы - ақуыз құрылымының бұзылуы]</div>
+        </div>
+    </div>
+</div>
+
+<div id="mWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhat')">&times;</span>
+        <h2 style="color: var(--what-color);">II КЕЗЕҢ: WHAT</h2>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 4: Реакция кезеңдері</span>
+            <p>Фермент + Субстрат → Комплекс → Өнім. Осы процесті кезең-кезеңімен сипаттап беріңіз.</p>
+            <div class="img-placeholder">[Схема: Фермент-субстрат комплексінің түзілуі мен өнімнің бөлінуі]</div>
+            <a href="https://quizizz.com" target="_blank" class="platform-btn btn-quiz">Quizizz: Әсер ету механизмі</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 5: Активті орталық</span>
+            <p>Активті орталық дегеніміз не? Оның пішіні мен құрылымы реакция үшін неге маңызды?</p>
+            <div class="img-placeholder">[Диаграмма: Фермент құрылымы, активті орталық пен байланысу аймағы]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 6: Екі түрлі теория</span>
+            <p>Фишердің "Кілт-құлып" және Кошлендтің "Индуцирленген сәйкестік" модельдерін салыстырыңыз. Айырмашылығы неде?</p>
+            <div class="img-placeholder">[Салыстырмалы схема: Тұрақты активті орталық vs Индуцирленген (бейімделгіш) активті орталық]</div>
+            <a href="https://learningapps.org" target="_blank" class="platform-btn btn-learning">LearningApps: Модельдерді тану</a>
+        </div>
+    </div>
+</div>
+
+<div id="mHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mHow')">&times;</span>
+        <h2 style="color: var(--how-color);">III КЕЗЕҢ: HOW</h2>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 7: Өз моделіңді жаса</span>
+            <p>Фермент пен субстраттың әрекеттесу жолын (байланысу → реакция → өнім) көрнекі схема түрінде сызыңыз.</p>
+            <div class="img-placeholder">[Мысал: Реакцияның графикалық моделі]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Визуалды модель</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 8: Процесті жүйелеу (Кесте)</span>
+            <p>Реакция кезеңдерін кестеге толтырыңыз:</p>
+            <table>
+                <tr><th>Кезең</th><th>Не болады?</th><th>Нәтижесі</th></tr>
+                <tr><td>1. Байланысу</td><td><input type="text"></td><td>Комплекс түзілуі</td></tr>
+                <tr><td>2. Түрлену</td><td>Субстрат өзгереді</td><td><input type="text"></td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 9: Орта әсерін модельдеу</span>
+            <p>Температура немесе pH өзгергенде ферменттің активті орталығында қандай өзгеріс болады? Схемамен көрсетіңіз.</p>
+            <div class="img-placeholder">[График: Оңтайлы жағдайлар мен белсенділіктің төмендеуі]</div>
+            <a href="https://miro.com" target="_blank" class="platform-btn btn-miro">Miro: Диаграмма құру</a>
+        </div>
+    </div>
+</div>
+
+<div id="mIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mIf')">&times;</span>
+        <h2 style="color: var(--if-color);">IV КЕЗЕҢ: IF</h2>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 10: Активті орталық мутациясы</span>
+            <p>Егер генетикалық мутация нәтижесінде ферменттің активті орталығының пішіні өзгерсе, бұл зат алмасуға қалай әсер етеді?</p>
+            <div class="img-placeholder">[Схема: Мутацияланған фермент пен субстраттың сәйкес келмеуі]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 11: Ингибиторлар — "Бөгет жасаушылар"</span>
+            <p>Ингибиторлар фермент механизмін қалай бұзады? Бәсекелес және бәсекелес емес ингибиторларды талдаңыз.</p>
+            <div class="img-placeholder">[Диаграмма: Ингибитордың активті орталықты блоктауы]</div>
+            <a href="https://padlet.com" target="_blank" class="platform-btn btn-padlet">Padlet: Талқылау</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 12: Ферменттердің болашағы (Инфографика)</span>
+            <p>Ферменттерді өнеркәсіпте (кір жуғыш ұнтақтар, тамақ өнеркәсібі) немесе медицинада қолданудың бір мысалын зерттеңіз.</p>
+            <div class="img-placeholder">[Инфографика: Ферменттердің практикалық қолданылуы]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Зерттеуді ұсыну</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

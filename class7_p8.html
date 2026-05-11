@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§8. Органикалық заттар - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .unit-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 6px solid #ccc;
+        }
+        .nutrient-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 5px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class7.html" style="color: white; text-decoration: none;">← 7-сыныпқа қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0;">
+        <span style="color: #27ae60;">Басты бет / 7-сынып</span> / §8. Органикалық заттар
+    </div>
+
+    <h2 style="text-align: center;">§8. Органикалық заттар</h2>
+    <p style="text-align: center; color: #666;">Көмірсулар, нәруыздар және майлардың маңызы</p>
+
+    <div class="content-grid">
+        <div class="unit-card" style="border-top-color: #e74c3c;">
+            <div>
+                <h3 style="color: #e74c3c;">I кезең – WHY</h3>
+                <p><strong>Неге біз тамақтанамыз?</strong></p>
+                <p><small>«What did you eat?» & «Guess the role»</small></p>
+            </div>
+            <button onclick="openModal('whyModalP8')" class="btn-task" style="background:#e74c3c; color:white;">🔍 Қызығушылық</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #3498db;">
+            <div>
+                <h3 style="color: #3498db;">II кезең – WHAT</h3>
+                <p><strong>Заттардың қызметі қандай?</strong></p>
+                <p><small>«Table completion» & «Food classification»</small></p>
+            </div>
+            <button onclick="openModal('whatModalP8')" class="btn-task" style="background:#3498db; color:white;">🧠 Түсіну</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #27ae60;">
+            <div>
+                <h3 style="color: #27ae60;">III кезең – HOW</h3>
+                <p><strong>Мәзірді қалай жоспарлаймыз?</strong></p>
+                <p><small>«Food analysis» & «Diet planning»</small></p>
+            </div>
+            <button onclick="openModal('howModalP8')" class="btn-task" style="background:#27ae60; color:white;">🛠️ Қолдану</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #f39c12;">
+            <div>
+                <h3 style="color: #f39c12;">IV кезең – IF</h3>
+                <p><strong>Егер теңгерім бұзылса?</strong></p>
+                <p><small>«Broken balance» & «Super food design»</small></p>
+            </div>
+            <button onclick="openModal('ifModalP8')" class="btn-task" style="background:#f39c12; color:white;">🎨 Шығармашылық</button>
+        </div>
+    </div>
+</main>
+
+<div id="whyModalP8" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModalP8')">&times;</span>
+        <h2 style="color: #e74c3c;">I кезең: Маңызын түсіну</h2>
+        <div class="task-block">
+            <h3>🍽️ Тапсырма 1: «What did you eat?»</h3>
+            <p>Бүгін жеген 3 тағамыңызды жазыңыз. Олар денеңізге не берді? (Энергия ма, әлде құрылыс материалы ма?)</p>
+        </div>
+        <div class="task-block">
+            <h3>🎯 Тапсырма 2: «Guess the role»</h3>
+            <p>Кім екенін тап: "Мен бұлшықет құрамына кіремін, жасушаларды құраймын". (Жауабы: Нәруыз)</p>
+        </div>
+    </div>
+</div>
+
+<div id="whatModalP8" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModalP8')">&times;</span>
+        <h2 style="color: #3498db;">II кезең: Түсіну және Жүйелеу</h2>
+        <div class="task-block">
+            <h3>📊 Тапсырма 4: «Table completion»</h3>
+            <table class="task-table">
+                <tr><th>Зат</th><th>Негізгі қызметі</th><th>Мысал</th></tr>
+                <tr><td>Көмірсу</td><td>Энергия көзі</td><td>Нан, картоп</td></tr>
+                <tr><td>Нәруыз</td><td>Құрылыс материалы</td><td>Ет, жұмыртқа</td></tr>
+                <tr><td>Май</td><td>Энергия қоры</td><td>Май, жаңғақ</td></tr>
+            </table>
+        </div>
+        <div class="task-block">
+            <h3>🧩 Тапсырма 5: «Food classification»</h3>
+            <p>Берілген тағамдарды (сүт, алма, балық, күріш) тиісті топтарға жіктеңіз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="howModalP8" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModalP8')">&times;</span>
+        <h2 style="color: #27ae60;">III кезең: Тәжірибеде қолдану</h2>
+        <div class="task-block">
+            <h3>🧠 Тапсырма 8: «Diet planning»</h3>
+            <p>Бір күндік теңгерімді мәзір құрастырыңыз. Онда нәруыз, май және көмірсудың үлесі қандай болуы керек?</p>
+            
+
+[Image of healthy food plate balanced with carbohydrates, proteins and fats]
+
+        </div>
+        <div class="task-block">
+            <h3>💻 Тапсырма 9: Wordwall ойыны</h3>
+            <a href="https://wordwall.net" target="_blank" class="btn-wordwall">Тағамдарды сұрыптау</a>
+        </div>
+    </div>
+</div>
+
+<div id="ifModalP8" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModalP8')">&times;</span>
+        <h2 style="color: #f39c12;">IV кезең: Шығармашылық жоба</h2>
+        <div class="task-block">
+            <h3>🌍 Тапсырма 10: «What if no protein?»</h3>
+            <p>Егер адам рационынан нәруызды мүлдем алып тастаса, ағзада қандай өзгерістер болады? 3 себеп жазыңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🎨 Тапсырма 11: «Super food design»</h3>
+            <p>Canva-да барлық қажетті элементтері бар "Болашақтың тағамы" атты инфографика жасаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

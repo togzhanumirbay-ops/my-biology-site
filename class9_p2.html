@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§2. Популяцияның өсуі және қисық сызықтары</title>
+    <style>
+        :root {
+            --why-color: #e67e22; --what-color: #3498db;
+            --how-color: #27ae60; --if-color: #8e44ad;
+            --bg-light: #f4f7f6;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #2c3e50; }
+        .header { background: #2c3e50; color: white; padding: 25px; text-align: center; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+        /* 4 Бағанды Grid */
+        .stage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        @media (max-width: 1024px) { .stage-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .stage-grid { grid-template-columns: 1fr; } }
+
+        .stage-card {
+            background: white; border-radius: 15px; padding: 25px; text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 10px solid; transition: 0.3s;
+        }
+        .stage-card:hover { transform: translateY(-5px); }
+
+        .btn-open { width: 100%; padding: 12px; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; }
+
+        /* Модаль терезе */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto; }
+        .modal-content { background: white; margin: 5% auto; padding: 35px; width: 85%; max-width: 900px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 30px; cursor: pointer; color: #666; }
+
+        /* Тапсырма стильдері */
+        .task-box { background: #fefefe; border: 1px solid #eee; border-left: 6px solid #ccc; padding: 20px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .task-title { font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 12px; display: block; }
+        textarea, input[type="text"], input[type="number"] { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        
+        .pres-btn { display: inline-block; background: #e74c3c; color: white; padding: 15px; text-decoration: none; border-radius: 10px; font-weight: bold; width: 100%; text-align: center; margin-bottom: 25px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background: #f8f9fa; }
+
+        .graph-placeholder { width: 100%; height: 150px; background: #eee; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; margin-top: 10px; color: #888; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>§2. Популяцияның өсуі, өсудің қисық сызығы</h1>
+    <p>Популяция динамикасын талдау және модельдеу</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="stage-card" style="border-color: var(--why-color);">
+            <h2 style="color: var(--why-color);">I. WHY</h2>
+            <p>Өмірлік жағдаяттарды талдау</p>
+            <button class="btn-open" style="background: var(--why-color);" onclick="openM('mWhy')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--what-color);">
+            <h2 style="color: var(--what-color);">II. WHAT</h2>
+            <p>Теория, факт және заңдылық</p>
+            <button class="btn-open" style="background: var(--what-color);" onclick="openM('mWhat')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--how-color);">
+            <h2 style="color: var(--how-color);">III. HOW</h2>
+            <p>Практика және модельдеу</p>
+            <button class="btn-open" style="background: var(--how-color);" onclick="openM('mHow')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--if-color);">
+            <h2 style="color: var(--if-color);">IV. IF</h2>
+            <p>Болжау және ғылыми ойлау</p>
+            <button class="btn-open" style="background: var(--if-color);" onclick="openM('mIf')">Тапсырмаларды ашу</button>
+        </div>
+    </div>
+</div>
+
+<div id="mWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhy')">&times;</span>
+        <h2 style="color: var(--why-color);">I КЕЗЕҢ: WHY (Проблемалық ситуация)</h2>
+        
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 1: Қояндар популяциясының парадоксі</span>
+            <p>Жағдаят: Бір қалада қояндар күрт көбейіп зиян келтіруде, ал көрші аймақта сол түр азайып барады. Бұл айырмашылықтың 3 себебін болжаңыз.</p>
+            <textarea placeholder="1. Себеп... &#10;2. Себеп... &#10;3. Себеп..."></textarea>
+            <p><i>Қорытынды сұрақ: Популяция неге әрдайым бірдей өспейді?</i></p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 2: Инфекцияның таралу графигі</span>
+            <p>COVID-19 таралуы: басында баяу, кейін тез, соңында баяулау. Неге өсім бірқалыпты болмайды? Нақты өмірмен байланыстырыңыз.</p>
+            <textarea placeholder="Инфекция динамикасын талдаңыз..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 3: Шынайылықты анықтау</span>
+            <p>Екі график: 1) Шексіз өсу, 2) Белгілі деңгейде тоқтау. Қайсысы табиғатқа жақын? Дәлелдеңіз.</p>
+            <textarea placeholder="Шектеуші факторлар туралы қорытындыңыз..."></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="mWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhat')">&times;</span>
+        <h2 style="color: var(--what-color);">II КЕЗЕҢ: WHAT (Теория)</h2>
+
+        <a href="presentation_pop_growth.pptx" class="pres-btn">📥 ПРЕЗЕНТАЦИЯ: Популяция қисықтары (.PPTX)</a>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 4: Өсу түрлерін салыстыру</span>
+            <p>Экспоненциалды және Логистикалық өсуді салыстырыңыз (жылдамдық, факторлар, пішін).</p>
+            <textarea placeholder="Айырмашылықтарды жазыңыз..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 5: S-тәрізді қисық кезеңдері</span>
+            <p>Лаг-фаза, Экспоненциалды фаза, Стационарлық фаза. Ресурстар қай кезеңде шектеле бастайды?</p>
+            <input type="text" placeholder="Жауабыңыз...">
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 6: Шектеуші факторлар мен Сыйымдылық</span>
+            <p>Азық, жыртқыштар, климат. "Тасымалдау сыйымдылығы (carrying capacity)" ұғымын қалай түсінесіз?</p>
+            <textarea placeholder="Өз сөзіңізбен анықтама беріңіз..."></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="mHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mHow')">&times;</span>
+        <h2 style="color: var(--how-color);">III КЕЗЕҢ: HOW (Практика)</h2>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 7: Математикалық модельдеу</span>
+            <p>Бастапқыда 10 дара, әр кезеңде 2 есе көбейеді. 5 кезеңді есептеңіз:</p>
+            <table>
+                <tr><th>Кезең</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+                <tr><td>Саны</td><td>10</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+            </table>
+            <p>Бұл өсудің қай түрі? <input type="text" placeholder="..."></p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 8: "Көбею және Жойылу" эксперименті</span>
+            <p>Цифрлық модельдеу: әр раундта популяцияға жаңа даралар қосып, кездейсоқ факторлардан жойылуды есепке алыңыз.</p>
+            <div class="graph-placeholder">[График құру алаңы]</div>
+            <textarea placeholder="Эксперимент нәтижесін сипаттаңыз..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 9: Графиктерді талдау</span>
+            <p>Дайын графиктерді салыстырып, қай жерде шектеу басталғанын нүктемен көрсетіңіз (талдау жазыңыз).</p>
+            <textarea placeholder="Экожүйеге қай график тән? Дәлелдеңіз..."></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="mIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mIf')">&times;</span>
+        <h2 style="color: var(--if-color);">IV КЕЗЕҢ: IF (Ғылыми ойлау)</h2>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 10: Шектеусіз әлем</span>
+            <p>Егер барлық шектеуші факторлар жойылса, экожүйеге не болар еді? Болжам жасаңыз.</p>
+            <textarea placeholder="Экожүйенің өзгеруі..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 11: Көлдегі балықтардың құпиясы</span>
+            <p>Балықтар саны күрт көбейіп, кейін күрт азайды. Бұл құбылысты популяция фазалары тұрғысынан түсіндіріңіз.</p>
+            <textarea placeholder="Себептері мен кезеңдері..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 12: Өлкетанулық зерттеу</span>
+            <p>Өз аймағыңыздағы бір түрді (мысалы, адам немесе ағаштар) таңдап, оның болашақтағы өсуін болжаңыз.</p>
+            <textarea placeholder="Факторлар мен ғылыми қорытынды..."></textarea>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

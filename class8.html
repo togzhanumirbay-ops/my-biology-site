@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>8-сынып: Биология - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .chapter-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-top: 6px solid #27ae60;
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .chapter-icon {
+            background: #27ae60;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        .paragraph-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .paragraph-list li {
+            margin-bottom: 12px;
+        }
+        .topic-link {
+            text-decoration: none;
+            color: #34495e;
+            display: block;
+            padding: 12px 15px;
+            background: #fdfdfd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid #edf2f7;
+            line-height: 1.4;
+        }
+        .topic-link:hover {
+            background: #f0fdf4;
+            border-color: #27ae60;
+            transform: translateX(8px);
+            color: #1e8449;
+            box-shadow: 2px 4px 12px rgba(39, 174, 96, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" style="color: white; text-decoration: none; font-weight: bold;">← Басты бетке қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="text-align: center; margin-top: 40px;">
+        <h1 style="color: #2c3e50;">8-сынып Биология материалдары</h1>
+        <p style="color: #7f8c8d; font-size: 1.1rem;">Тақырыпты таңдап, 4MAT әдісі бойынша тапсырмаларды бастаңыз</p>
+    </div>
+
+    <div class="chapter-container">
+        
+        <div class="chapter-card" style="border-top-color: #3498db;">
+            <div class="chapter-title">
+                <span class="chapter-icon" style="background: #3498db;">1</span>
+                Жасушалық биология
+            </div>
+            <ul class="paragraph-list">
+                <li><a href="class8_p1.html" class="topic-link">§1. Прокариот және эукариот жасушаларының құрылысы</a></li>
+                <li><a href="class8_p2.html" class="topic-link">§2. Өсімдіктер мен жануарлардың ұлпаларын жіктеу</a></li>
+            </ul>
+        </div>
+
+        <div class="chapter-card" style="border-top-color: #e74c3c;">
+            <div class="chapter-title">
+                <span class="chapter-icon" style="background: #e74c3c;">2</span>
+                Молекулалық биология
+            </div>
+            <ul class="paragraph-list">
+                <li><a href="class8_p3.html" class="topic-link">§3. Жасушаның органикалық заттары: полимерлер мен мономерлер</a></li>
+                <li><a href="class8_p4.html" class="topic-link">§4. Көмірсулар мен липидтер. Қасиеті мен қызметі</a></li>
+                <li><a href="class8_p5.html" class="topic-link">§5. Нәруыздар. Қасиеті мен қызметі</a></li>
+            </ul>
+        </div>
+
+        <div class="chapter-card" style="border-top-color: #f39c12;">
+            <div class="chapter-title">
+                <span class="chapter-icon" style="background: #f39c12;">3</span>
+                Тірі ағзалардың көптүрлілігі
+            </div>
+            <ul class="paragraph-list">
+                <li><a href="class8_p6.html" class="topic-link">§6. Өсімдік бөлімдерінің ерекше белгілері</a></li>
+                <li><a href="class8_p7.html" class="topic-link">§7. Саңырауқұлақтар – ерекше патшалық</a></li>
+                <li><a href="class8_p8.html" class="topic-link">§8. Даражарнақты және қосжарнақты өсімдіктер</a></li>
+                <li><a href="class8_p9.html" class="topic-link">§9. Жануарлардың басым типтері мен кластары</a></li>
+            </ul>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container" style="text-align: center; margin-top: 50px; padding: 20px; color: #95a5a6; border-top: 1px solid #eee;">
+        <p>© 2026 4MAT Биология Методикалық ресурсы</p>
+    </div>
+</footer>
+
+</body>
+</html>

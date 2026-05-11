@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§5. Нәруыздар - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Кесте стильдері */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f2f4f4; }
+
+        /* Ресурс блоктары */
+        .resource-section {
+            background: #ebf5fb;
+            border: 2px solid #2980b9;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-presentation {
+            background: #2980b9;
+            color: white !important;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+        .btn-quiz {
+            background: #c0392b;
+            color: white !important;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        /* Диаграмма стилі */
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #dee2e6;
+            margin: 15px 0;
+        }
+        .flow-step {
+            padding: 10px 15px;
+            border-radius: 5px;
+            background: #ecf0f1;
+            font-weight: bold;
+        }
+
+        .instruction {
+            background: #fff9db;
+            padding: 10px;
+            border-left: 4px solid #f1c40f;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class8.html" style="color: white; text-decoration: none;">← 8-сынып мәзіріне қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0; font-size: 0.9rem;">
+        <a href="index.html" style="color: #27ae60; text-decoration: none;">Басты бет</a> / 
+        <a href="class8.html" style="color: #27ae60; text-decoration: none;">8-сынып</a> / 
+        §5. Нәруыздар
+    </div>
+
+    <h2 style="text-align: center; color: #2c3e50;">§5. Нәруыздар. Қасиеті мен қызметі</h2>
+    <p style="text-align: center; color: #7f8c8d;">Ағзаның негізгі құрылыс материалы</p>
+
+    <div class="content-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+        
+        <div class="unit-card" style="border-top: 6px solid #e67e22; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #e67e22;">I КЕЗЕҢ – WHY</h3>
+            <p>Қызығушылық: Бұлшықет пен жараның жазылу құпиясы.</p>
+            <button onclick="openModal('whyModal5')" class="btn-task" style="width:100%; background:#e67e22; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Ашу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #2980b9; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #2980b9;">II КЕЗЕҢ – WHAT</h3>
+            <p>Түсіну: Нәруыз қызметтері мен аминқышқылдар байланысы.</p>
+            <button onclick="openModal('whatModal5')" class="btn-task" style="width:100%; background:#2980b9; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Зерттеу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #27ae60; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #27ae60;">III КЕЗЕҢ – HOW</h3>
+            <p>Қолдану: Тағам талдау және қате кестені түзету.</p>
+            <button onclick="openModal('howModal5')" class="btn-task" style="width:100%; background:#27ae60; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Тәжірибе</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #8e44ad; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #8e44ad;">IV КЕЗЕҢ – IF</h3>
+            <p>Шығармашылық: Ферментсіз өмір және жаңа нәруыз.</p>
+            <button onclick="openModal('ifModal5')" class="btn-task" style="width:100%; background:#8e44ad; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Жобалау</button>
+        </div>
+
+    </div>
+</main>
+
+<div id="whyModal5" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModal5')">&times;</span>
+        <h2 style="color: #e67e22;">I Кезен: WHY (Қызығушылық)</h2>
+        <div class="task-block">
+            <h3>💪 Тапсырма 1: «Бұлшықет қайдан пайда болады?»</h3>
+            <p>Спортпен шұғылданғанда бұлшықеттің өсуі нәруыздармен қалай байланысты?</p>
+        </div>
+        <div class="task-block">
+            <h3>🩹 Тапсырма 2: «Жара неге жазылады?»</h3>
+            <p>Жарақат алған терінің тез қалпына келуіне нәруыздың қандай қатысы бар?</p>
+        </div>
+        <div class="task-block">
+            <h3>🍽️ Тапсырма 3: «Неге бізге нәруыз қажет?»</h3>
+            <p>Адам нәруызды мүлдем тұтынбаса, ағзаның жұмысы қалай өзгереді?</p>
+        </div>
+    </div>
+</div>
+
+<div id="whatModal5" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModal5')">&times;</span>
+        <h2 style="color: #2980b9;">II Кезен: WHAT (Түсіну)</h2>
+        
+        <div class="resource-section">
+            <p><strong>📖 Оқу материалдары:</strong></p>
+            <a href="protein_lecture.pptx" class="btn-presentation">📊 Презентацияны жүктеу</a>
+            <a href="https://quizizz.com/join" target="_blank" class="btn-quiz">🎮 Quizizz Тест</a>
+        </div>
+
+        <div class="task-block">
+            <h3>📊 Тапсырма 4: «Нәруыз қасиеттері мен қызметі»</h3>
+            <div class="instruction">📌 Нұсқаулық: Әр қызметке түсініктеме жазыңыз.</div>
+            <table>
+                <tr><th>Қызметі</th><th>Түсіндірме</th></tr>
+                <tr><td>Құрылыс</td><td>________________</td></tr>
+                <tr><td>Ферменттік</td><td>________________</td></tr>
+                <tr><td>Қорғаныш</td><td>________________</td></tr>
+                <tr><td>Тасымалдау</td><td>________________</td></tr>
+            </table>
+        </div>
+
+        <div class="task-block">
+            <h3>🧩 Тапсырма 5: «Сәйкестендіру»</h3>
+            <ul>
+                <li>Реакцияны жылдамдатады — ( ? )</li>
+                <li>Бұлшықет құрамына кіреді — ( ? )</li>
+                <li>Антидене ретінде жұмыс істейді — ( ? )</li>
+            </ul>
+            <p>Әр сипаттаманы нәруыздың сәйкес қызметімен байланыстыр.</p>
+        </div>
+
+        <div class="task-block">
+            <h3>📈 Тапсырма 6: «Диаграмманы толықтыр»</h3>
+            <div class="flow-diagram">
+                <div class="flow-step">Аминқышқыл</div>
+                <span>→</span>
+                <div class="flow-step" style="border: 2px dashed #2980b9; background: white;">( Процесс )</div>
+                <span>→</span>
+                <div class="flow-step">Нәруыз</div>
+                <img src="protein_synthesis.png" alt="Нәруыз синтезі" style="width:100%; margin-top:10px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="howModal5" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModal5')">&times;</span>
+        <h2 style="color: #27ae60;">III Кезен: HOW (Қолдану)</h2>
+        <div class="task-block">
+            <h3>🥚 Тапсырма 7: «Тағам талдау»</h3>
+            <p>Ет, жұмыртқа, бұршақ — бұл тағамдардың нәруыз мөлшері мен ағзадағы маңызын талқылаңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>❌ Тапсырма 8: «Қате кестені түзет»</h3>
+            <table>
+                <tr><th>Қызмет</th><th>Нәруыз</th></tr>
+                <tr><td>Энергия қоры</td><td>Негізгі қызмет</td></tr>
+                <tr><td>Құрылыс</td><td>Жоқ</td></tr>
+            </table>
+            <p>Қатені тауып, дұрыс нұсқасын түсіндіріңіз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🔄 Тапсырма 9: «Себеп–салдар схемасы»</h3>
+            <p><b>Нәруыз жетіспеуі → ( ? ) → ағза әлсірейді</b></p>
+        </div>
+    </div>
+</div>
+
+<div id="ifModal5" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModal5')">&times;</span>
+        <h2 style="color: #8e44ad;">IV Кезен: IF (Шығармашылық)</h2>
+        <div class="task-block">
+            <h3>🧪 Тапсырма 10: «Егер ферменттер болмаса»</h3>
+            <p>Ағзадағы барлық биохимиялық реакциялар ферментсіз жүрсе, өмір қалай өзгерер еді?</p>
+        </div>
+        <div class="task-block">
+            <h3>🎨 Тапсырма 11: «Өз нәруызыңды ойлап тап»</h3>
+            <p>Су астында тыныс алуға немесе энергияны жарықтан алуға көмектесетін жаңа нәруыз ойлап табыңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>📊 Тапсырма 12: «Салыстырмалы диаграмма»</h3>
+            <p>Нәруыздың басқа органикалық заттардан (көмірсу, май) басты айырмашылығы мен ұқсастығын Венн диаграммасы арқылы көрсетіңіз.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

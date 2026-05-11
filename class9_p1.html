@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§1. Бинарлы номенклатура - 4MAT Тапсырмалары</title>
+    <style>
+        :root {
+            --why-color: #e67e22; --what-color: #3498db;
+            --how-color: #27ae60; --if-color: #8e44ad;
+            --bg-light: #f4f7f6;
+        }
+
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #2c3e50; }
+        .header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+        /* 4 Бағанды Grid */
+        .stage-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 1024px) { .stage-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .stage-grid { grid-template-columns: 1fr; } }
+
+        .stage-card {
+            background: white; border-radius: 15px; padding: 20px; text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 10px solid; transition: 0.3s;
+        }
+        .stage-card:hover { transform: translateY(-5px); }
+
+        .btn-open {
+            width: 100%; padding: 12px; border: none; border-radius: 8px;
+            color: white; font-weight: bold; cursor: pointer; margin-top: 15px;
+        }
+
+        /* Модаль терезе стильдері */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); overflow-y: auto; }
+        .modal-content { background: white; margin: 5% auto; padding: 30px; width: 80%; max-width: 800px; border-radius: 15px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; }
+
+        /* Тапсырма элементтері */
+        .task-box { background: #f9f9f9; border-left: 5px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        .task-title { font-weight: bold; color: #333; margin-bottom: 10px; display: block; }
+        textarea, input[type="text"] { width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        
+        .pres-btn {
+            display: inline-block; background: #e74c3c; color: white; padding: 15px 25px;
+            text-decoration: none; border-radius: 10px; font-weight: bold; width: 100%; text-align: center; margin-bottom: 20px;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 0.9rem; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>§1. Әртүрлі түрлерді сипаттау үшін бинарлы номенклатураны қолдану</h1>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="stage-card" style="border-color: var(--why-color);">
+            <h2 style="color: var(--why-color);">I. WHY</h2>
+            <p>Қызығушылық пен өмірмен байланыс</p>
+            <button class="btn-open" style="background: var(--why-color);" onclick="openM('mWhy')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--what-color);">
+            <h2 style="color: var(--what-color);">II. WHAT</h2>
+            <p>Факт, ереже және ақпарат</p>
+            <button class="btn-open" style="background: var(--what-color);" onclick="openM('mWhat')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--how-color);">
+            <h2 style="color: var(--how-color);">III. HOW</h2>
+            <p>Практика мен модельдеу</p>
+            <button class="btn-open" style="background: var(--how-color);" onclick="openM('mHow')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--if-color);">
+            <h2 style="color: var(--if-color);">IV. IF</h2>
+            <p>Кеңейту мен жасампаздық</p>
+            <button class="btn-open" style="background: var(--if-color);" onclick="openM('mIf')">Тапсырмаларды ашу</button>
+        </div>
+    </div>
+</div>
+
+<div id="mWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhy')">&times;</span>
+        <h2 style="color: var(--why-color);">I КЕЗЕҢ: WHY (Қызығушылық)</h2>
+        
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 1: Халықаралық экспедиция</span>
+            <p>Жағдаят: Бір жануарды әр ел ғалымы өз тілінде атады (қасқыр, wolf, lobo). Бұл ғылымда қандай 2 нақты қиындық туғызады?</p>
+            <textarea placeholder="1. салдар... &#10;2. салдар..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 2: Дәрігер мен Эколог мәселесі</span>
+            <p>Бір ағза әртүрлі атаумен тіркелгендіктен, медицина мен зерттеуге қандай қауіп төнуі мүмкін?</p>
+            <textarea placeholder="Жауабыңызды негіздеңіз..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 3: Зерттеуші рөлі</span>
+            <p>Сіз жаңа түр таптыңыз. Оны тек жергілікті атаумен (мысалы, "Алтын тамыр") атаудың шектеулерін түсіндіріңіз.</p>
+            <textarea placeholder="Жергілікті vs Ғылыми атау..."></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="mWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhat')">&times;</span>
+        <h2 style="color: var(--what-color);">II КЕЗЕҢ: WHAT (Ақпарат)</h2>
+
+        <a href="presentation_bio9.pptx" class="pres-btn">📥 ПРЕЗЕНТАЦИЯНЫ ЖҮКТЕУ (.PPTX)</a>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 4: Құрылымды талдау</span>
+            <p><i>Homo sapiens, Canis lupus</i>. Бірінші және екінші сөз нені білдіреді? 2 негізгі ережені тұжырымдаңыз.</p>
+            <input type="text" placeholder="1-сөз мағынасы...">
+            <input type="text" placeholder="2-сөз мағынасы..." style="margin-top:5px;">
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 5: Редакторлық талдау</span>
+            <p>Төмендегілердің қатесін тауып, дұрысын жазыңыз: <i>homo sapiens, felis Catus</i>.</p>
+            <textarea placeholder="Қатесі: ... &#10;Дұрыс нұсқасы: ..."></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="mHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mHow')">&times;</span>
+        <h2 style="color: var(--how-color);">III КЕЗЕҢ: HOW (Практика)</h2>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 7: Нысандарды модельдеу</span>
+            <p>Аулаңыздағы 4-5 нысанды таңдап, оларды "туыс" және "түр" бойынша жіктеңіз.</p>
+            <table>
+                <tr><th>Нысан суреті/аты</th><th>Туыс атауы</th><th>Бинарлы атауы</th></tr>
+                <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 8: Карточкамен жұмыс (Card Sort)</span>
+            <p>Ағза суретін ғылыми атаумен сәйкестендіріп, қателерді түзетіңіз.</p>
+            <div style="padding:10px; background:#eee; border-radius:5px;">[Интерактивті сұрыптау блогы осында орналасады]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 9: Дихотомиялық кілт</span>
+            <p>6 ағзаны белгілері бойынша бөліп, анықтағыш құрастырыңыз.</p>
+            <textarea placeholder="1. Белгісі... -> 2. ..."></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="mIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mIf')">&times;</span>
+        <h2 style="color: var(--if-color);">IV КЕЗЕҢ: IF (Жасампаздық)</h2>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 10: Жаңа түр ашу</span>
+            <p>Жаңа ағзаға ерекшелігіне сай бинарлы атау беріңіз және негіздеңіз.</p>
+            <input type="text" placeholder="Genus species...">
+            <textarea placeholder="Неліктен бұл атау?"></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 11: Болжау (Scenario)</span>
+            <p>Егер тек жергілікті атаулар қалса, медицина мен экологияда қандай 3 қиындық болады?</p>
+            <textarea placeholder="1. ... &#10;2. ... &#10;3. ..."></textarea>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

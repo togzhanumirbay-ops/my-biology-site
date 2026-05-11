@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§10. Өсімдіктердегі заттар тасымалы - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .unit-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 6px solid #ccc;
+        }
+        .download-box {
+            background: #f0fdf4;
+            border: 2px dashed #27ae60;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .btn-download {
+            display: inline-block;
+            background: #27ae60;
+            color: white !important;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .btn-download:hover { background: #219150; }
+        .task-block {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .task-block:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class7.html" style="color: white; text-decoration: none;">← 7-сыныпқа қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0;">
+        <span style="color: #27ae60;">Басты бет / 7-сынып</span> / §10. Өсімдіктердегі заттар тасымалы
+    </div>
+
+    <h2 style="text-align: center;">§10. Өсімдіктердегі заттардың тасымалдануы</h2>
+    <p style="text-align: center; color: #666;">Ксилема, флоэма және транспирация процестері</p>
+
+    <div class="content-grid">
+        <div class="unit-card" style="border-top-color: #e74c3c;">
+            <div>
+                <h3 style="color: #e74c3c;">I кезең – WHY</h3>
+                <p><strong>Өсімдік қалай «ішеді»?</strong></p>
+                <p><small>Тәжірибе, Булану, Тірі жүйе</small></p>
+            </div>
+            <button onclick="openModal('whyModalP10')" class="btn-task" style="background:#e74c3c; color:white;">🔍 Қызығушылық</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #3498db;">
+            <div>
+                <h3 style="color: #3498db;">II кезең – WHAT</h3>
+                <p><strong>Тасымал жолдары қандай?</strong></p>
+                <p><small>Ксилема, Флоэма, Интерактив тест</small></p>
+            </div>
+            <button onclick="openModal('whatModalP10')" class="btn-task" style="background:#3498db; color:white;">🧠 Түсіну</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #27ae60;">
+            <div>
+                <h3 style="color: #27ae60;">III кезең – HOW</h3>
+                <p><strong>Процесті қалай бақылаймыз?</strong></p>
+                <p><small>Транспирация, Қате табу, Күтім</small></p>
+            </div>
+            <button onclick="openModal('howModalP10')" class="btn-task" style="background:#27ae60; color:white;">🛠️ Қолдану</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #f39c12;">
+            <div>
+                <h3 style="color: #f39c12;">IV кезең – IF</h3>
+                <p><strong>Өсімдік өзгерсе не болады?</strong></p>
+                <p><small>Салдар, Болашақ өсімдігі, Кеңес</small></p>
+            </div>
+            <button onclick="openModal('ifModalP10')" class="btn-task" style="background:#f39c12; color:white;">🎨 Шығармашылық</button>
+        </div>
+    </div>
+</main>
+
+<div id="whyModalP10" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModalP10')">&times;</span>
+        <h2 style="color: #e74c3c;">I кезең: Неге бұл маңызды?</h2>
+        <div class="task-block">
+            <h3>🌱 Тапсырма 1: «Өсімдік қалай “ішеді”?»</h3>
+            <p>Боялған суға салынған гүлдің түсі неге өзгереді? Бұл тәжірибе өсімдіктегі қандай жүйенің бар екенін дәлелдейді?</p>
+        </div>
+        <div class="task-block">
+            <h3>☀️ Тапсырма 2: «Күн ыстықта не болады?»</h3>
+            <p>Ыстықта жапырақтардың солу себебін түсіндіріңіз. Булану процесінің өсімдік үшін пайдасы қандай?</p>
+        </div>
+        <div class="task-block">
+            <h3>🔄 Тапсырма 3: «Өсімдік – тірі жүйе ме?»</h3>
+            <p>Қозғалмайтын өсімдіктің ішіндегі заттардың үздіксіз қозғалысын қалай дәлелдейсіз?</p>
+        </div>
+    </div>
+</div>
+
+<div id="whatModalP10" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModalP10')">&times;</span>
+        <h2 style="color: #3498db;">II кезең: Түсіну (Теория)</h2>
+        <div class="task-block">
+            <h3>🛤️ Тапсырма 4: Жолды анықта</h3>
+            <p>Су мен минералдардың тамырдан жапыраққа дейінгі қозғалыс схемасын құрастырыңыз.</p>
+            <div class="download-box">
+                <p>Сабақ презентациясын осы жерден жүктей аласыз:</p>
+                <a href="presentation_p10.pptx" class="btn-download">📂 Презентацияны жүктеу</a>
+            </div>
+        </div>
+        <div class="task-block">
+            <h3>↔️ Тапсырма 5: «Екі бағыт»</h3>
+            <p>Ксилема мен флоэманы салыстырыңыз. Қайсысы органикалық заттарды, қайсысы суды тасымалдайды?</p>
+        </div>
+        <div class="task-block">
+            <h3>📝 Тапсырма 6: «Қысқа тест»</h3>
+            <p>Quizizz платформасында тасымал жүйелері мен транспирация туралы біліміңізді тексеріңіз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="howModalP10" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModalP10')">&times;</span>
+        <h2 style="color: #27ae60;">III кезең: Қолдану (Тәжірибе)</h2>
+        <div class="task-block">
+            <h3>💧 Тапсырма 7: «Транспирация тәжірибесі»</h3>
+            <p>Оқушылар өсімдік жапырағын полиэтилен пакетпен жабады және біраз уақыттан кейін пакет ішінде су тамшылары пайда болатынын бақылайды. Жапыраққа пакет кигізу тәжірибесінен кейін пайда болған су тамшылары нені білдіреді? Қорытынды жасаңыз. Оқушылар жасау керек қорытынды: өсімдік жапырағы арқылы су буланады. Бұл транспирация процесін тәжірибе арқылы түсінуге көмектеседі.</p>
+             
+        </div>
+        <div class="task-block">
+            <h3>🔎 Тапсырма 8: «Қате тап»</h3>
+            <p>«Су флоэма арқылы қозғалады, ал қоректік заттар тек тамырда қалады». Бұл тұжырымдағы биологиялық қателерді түзетіңіз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🚑 Тапсырма 9: «Өсімдікті құтқар»</h3>
+            <p>Су жетіспеушілігінен солып бара жатқан өсімдіктің тасымал жүйесін қалпына келтірудің 3 жолын ұсыныңыз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="ifModalP10" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModalP10')">&times;</span>
+        <h2 style="color: #f39c12;">IV кезең: Шығармашылық</h2>
+        <div class="task-block">
+            <h3>🛑 Тапсырма 10: «Егер ксилема жұмыс істемесе»</h3>
+            <p>Су тасымалы тоқтаған өсімдік ағзасында болатын 3 негізгі өзгерісті сипаттаңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🌵 Тапсырма 11: «Болашақ өсімдігі»</h3>
+            <p>Марс немесе шөл дала сияқты экстремалды жағдайларға бейімделген, ерекше тасымал жүйесі бар өсімдіктің моделін ойлап табыңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>👩‍🌾 Тапсырма 12: «Бағбан кеңесі»</h3>
+            <p>Заттардың тасымалдануын жақсарту үшін жабық өсімдіктерді күту бойынша нұсқаулық дайындаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

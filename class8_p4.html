@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§4. Көмірсулар мен липидтер - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Кесте стильдері */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th { background-color: #e67e22; color: white; }
+        tr:nth-child(even) { background-color: #fff9f3; }
+
+        /* Ресурс блоктары */
+        .resource-section {
+            background: #fdf2e9;
+            border: 2px solid #e67e22;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-presentation {
+            background: #e67e22;
+            color: white !important;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+        .btn-quiz {
+            background: #9b59b6;
+            color: white !important;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        /* Сурет орны */
+        .image-placeholder {
+            width: 100%;
+            min-height: 200px;
+            background: #f9f9f9;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin: 15px 0;
+            color: #888;
+            font-style: italic;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .instruction {
+            background: #fff9db;
+            padding: 10px;
+            border-left: 4px solid #f1c40f;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class8.html" style="color: white; text-decoration: none;">← 8-сынып мәзіріне қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0; font-size: 0.9rem;">
+        <a href="index.html" style="color: #27ae60; text-decoration: none;">Басты бет</a> / 
+        <a href="class8.html" style="color: #27ae60; text-decoration: none;">8-сынып</a> / 
+        §4. Көмірсулар мен липидтер
+    </div>
+
+    <h2 style="text-align: center; color: #d35400;">§4. Көмірсулар мен липидтер: қасиеті мен қызметі</h2>
+    <p style="text-align: center; color: #666;">Энергия көздерін 4MAT әдісімен зерттеу</p>
+
+    <div class="content-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+        
+        <div class="unit-card" style="border-top: 6px solid #e74c3c; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #e74c3c;">I КЕЗЕҢ – WHY</h3>
+            <p>Қызығушылық: Энергия қайдан келеді? Тағам таңдау.</p>
+            <button onclick="openModal('whyModal4')" class="btn-task" style="width:100%; background:#e74c3c; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Ашу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #3498db; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #3498db;">II КЕЗЕҢ – WHAT</h3>
+            <p>Түсіну: Көмірсулар мен липидтердің айырмашылығы.</p>
+            <button onclick="openModal('whatModal4')" class="btn-task" style="width:100%; background:#3498db; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Зерттеу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #27ae60; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #27ae60;">III КЕЗЕҢ – HOW</h3>
+            <p>Қолдану: Тамақ мәзірін талдау және қатемен жұмыс.</p>
+            <button onclick="openModal('howModal4')" class="btn-task" style="width:100%; background:#27ae60; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Тәжірибе</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #f39c12; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #f39c12;">IV КЕЗЕҢ – IF</h3>
+            <p>Шығармашылық: Идеалды тағам және диаграмма.</p>
+            <button onclick="openModal('ifModal4')" class="btn-task" style="width:100%; background:#f39c12; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Жобалау</button>
+        </div>
+
+    </div>
+</main>
+
+<div id="whyModal4" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModal4')">&times;</span>
+        <h2 style="color: #e74c3c;">I Кезен: WHY (Қызығушылық)</h2>
+        <div class="task-block">
+            <h3>⚡ Тапсырма 1: «Энергия қайдан келеді?»</h3>
+            <p>Неге тәтті жегеннен кейін адам тез энергия алады, ал майлы тағам ұзаққа жетеді?</p>
+        </div>
+        <div class="task-block">
+            <h3>🍫 Тапсырма 2: «Тағам таңдау»</h3>
+            <p>Шоколад пен жаңғақтың қайсысы ұзақ уақыт бойы тоқ ұстайды және неге?</p>
+        </div>
+        <div class="task-block">
+            <h3>🔋 Тапсырма 3: «Неге май жиналады?»</h3>
+            <p>Неге ағза артық энергияны дәл май түрінде сақтайды?</p>
+        </div>
+    </div>
+</div>
+
+<div id="whatModal4" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModal4')">&times;</span>
+        <h2 style="color: #3498db;">II Кезен: WHAT (Түсіну)</h2>
+        
+        <div class="resource-section">
+            <p><strong>📁 Сабақ материалдары:</strong></p>
+            <a href="carbon_lipid.pptx" class="btn-presentation">📊 Презентацияны жүктеу</a>
+            <a href="https://quizizz.com/join" target="_blank" class="btn-quiz">🎮 Quizizz Тест</a>
+        </div>
+
+        <div class="task-block">
+            <h3>📊 Тапсырма 4: «Көмірсу vs липид кестесі»</h3>
+            <table>
+                <tr><th>Белгісі</th><th>Көмірсулар</th><th>Липидтер</th></tr>
+                <tr><td>Қасиеті</td><td>________________</td><td>________________</td></tr>
+                <tr><td>Қызметі</td><td>________________</td><td>________________</td></tr>
+                <tr><td>Мысал</td><td>________________</td><td>________________</td></tr>
+            </table>
+        </div>
+
+        <div class="task-block">
+            <h3>🧩 Тапсырма 5: «Сәйкестендіру»</h3>
+            <p>«Тез энергия береді», «Энергия қоры», «Суда ерімейді», «Глюкоза құрамында болады».</p>
+        </div>
+
+        <div class="task-block">
+            <h3>📈 Тапсырма 6: «Диаграмманы толықтыр»</h3>
+            <p>Көмірсулар → ( ? ) энергия <br> Липидтер → ( ? ) энергия</p>
+            <p>Қайсысы тез, қайсысы ұзақ энергия беретінін жаз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="howModal4" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModal4')">&times;</span>
+        <h2 style="color: #27ae60;">III Кезен: HOW (Қолдану)</h2>
+        <div class="task-block">
+            <h3>🧠 Тапсырма 7: «Тамақ мәзірін талдау»</h3>
+            <p>Нан, ет, май, көкөніс — қайсысы энергия береді, қайсысы қор ретінде жиналады?</p>
+        </div>
+        <div class="task-block">
+            <h3>❌ Тапсырма 8: «Қате кестені түзет»</h3>
+            <table>
+                <tr><th>Зат</th><th>Қасиеті</th></tr>
+                <tr><td>Көмірсу</td><td>Ұзақ энергия береді</td></tr>
+                <tr><td>Липид</td><td>Тез энергия береді</td></tr>
+            </table>
+            <p>Қатесін тауып, дұрысын түсіндіріп жазыңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🔄 Тапсырма 9: «Себеп–салдар байланысы»</h3>
+            <p><b>Артық көмірсу → ( ? ) → май жиналады</b></p>
+            <p>Ағзада қандай процесс жүретінін жаз (мысалы: энергия артық болуы, айналу).</p>
+        </div>
+    </div>
+</div>
+
+<div id="ifModal4" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModal4')">&times;</span>
+        <h2 style="color: #f39c12;">IV Кезен: IF (Шығармашылық)</h2>
+        <div class="task-block">
+            <h3>🌍 Тапсырма 10: «Егер көмірсу болмаса»</h3>
+            <p>Егер адам көмірсу жемесе, ағзаның жұмысында қандай 3 өзгеріс болады?</p>
+        </div>
+        <div class="task-block">
+            <h3>🎨 Тапсырма 11: «Идеалды тағам»</h3>
+            <p>Оқушы үшін ең пайдалы таңғы ас мәзірін ойлап тауып, құрамын сипаттаңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>📊 Тапсырма 12: «Салыстырмалы диаграмма»</h3>
+            <div class="image-placeholder">
+                <img src="venn_carb_lipid.png" alt="Венн диаграммасы" style="width:100%; border-radius:10px;">
+            </div>
+            <p>Көмірсу мен липидтің ортақ және жеке қасиеттерін жазыңыз.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

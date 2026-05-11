@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§5. Кальвин циклі - 11-сынып</title>
+    <style>
+        :root {
+            --why: #e74c3c; --what: #3498db;
+            --how: #2ecc71; --if: #f39c12;
+            --dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; margin: 0; color: #333; }
+        .header { background: white; padding: 30px; text-align: center; border-bottom: 3px solid #eee; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Stage Grid */
+        .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { 
+            background: white; border-radius: 15px; padding: 25px; text-align: center; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 10px solid; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Modal Layout */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 40px; width: 85%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #999; }
+
+        /* Task Styles */
+        .task-box { border-left: 6px solid #ccc; background: #fefefe; border: 1px solid #eee; padding: 20px; margin-bottom: 30px; border-radius: 0 12px 12px 0; text-align: left; }
+        .task-title { font-weight: bold; font-size: 1.2rem; color: var(--dark); display: block; margin-bottom: 8px; }
+        .task-meta { font-size: 0.95rem; color: #666; margin-bottom: 12px; background: #f0f0f0; padding: 5px 10px; display: inline-block; border-radius: 4px; }
+        
+        /* Elements */
+        .styled-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; }
+        .styled-table th, .styled-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .styled-table th { background: var(--dark); color: white; }
+
+        .diagram-box { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; background: #f8f9fa; padding: 20px; border-radius: 12px; margin: 15px 0; border: 1px solid #e0e0e0; }
+        .node { background: white; border: 2px solid var(--what); padding: 10px 15px; border-radius: 8px; font-weight: bold; text-align: center; }
+        .arrow { font-size: 1.2rem; font-weight: bold; color: var(--dark); }
+
+        .img-placeholder { background: #e9ecef; border: 2px dashed #adb5bd; padding: 20px; text-align: center; margin: 15px 0; border-radius: 12px; color: #495057; }
+        .btn-open { border: none; padding: 14px 30px; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        .btn-pres { background: #e74c3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="color: #27ae60; font-weight: bold; margin-bottom: 5px;">Басты бет / 11-сынып / §5</div>
+    <h1>§5. Фотосинтездің қараңғы фазасы. Кальвин циклі</h1>
+    <p>Көмірқышқыл газының фиксациясы және органикалық заттардың биосинтезі</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="card" style="border-top-color: var(--why);">
+            <h2 style="color: var(--why);">I КЕЗЕҢ: WHY</h2>
+            <p>Қанттың түзілуі және атмосфералық тепе-теңдік.</p>
+            <button class="btn-open" style="background: var(--why);" onclick="openM('modalWhy')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--what);">
+            <h2 style="color: var(--what);">II КЕЗЕҢ: WHAT</h2>
+            <p>Кальвин циклінің сатылары мен ферменттері.</p>
+            <button class="btn-open" style="background: var(--what);" onclick="openM('modalWhat')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--how);">
+            <h2 style="color: var(--how);">III КЕЗЕҢ: HOW</h2>
+            <p>Процесті модельдеу және факторларды талдау.</p>
+            <button class="btn-open" style="background: var(--how);" onclick="openM('modalHow')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--if);">
+            <h2 style="color: var(--if);">IV КЕЗЕҢ: WHAT IF</h2>
+            <p>Экологиялық салдарлар мен болашақ биотехнологиясы.</p>
+            <button class="btn-open" style="background: var(--if);" onclick="openM('modalIf')">Тапсырмалар</button>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhy')">&times;</span>
+        <h2 style="color: var(--why);">I кезең – WHY (Experience)</h2>
+        
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 1: «Өсімдік қантты қалай түзеді?»</span>
+            <span class="task-meta">Мақсаты: Қараңғы фазаның органикалық зат түзу рөлін түсіндіру.</span>
+            <p><b>Нұсқаулық:</b> Өсімдік глюкозаны қалай синтездейді? Көмірқышқыл газының маңызын талқылаңыз:</p>
+            <div class="diagram-box">
+                <div class="node">CO₂ (Көмірқышқыл газы)</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ] (Биохимиялық процесс)</div>
+                <div class="arrow">→</div>
+                <div class="node">Глюкоза (Қорек)</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 2: «Неге қараңғы фаза деп аталады?»</span>
+            <p><b>Сұрақ:</b> Бұл процесс толық қараңғыда жүре ме? Ол неге жарық фазасы өнімдеріне (АТФ пен НАДФ·Н) тәуелді? Екеуінің арасындағы көпірді сипаттаңыз.</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 3: «Экологиялық маңызы»</span>
+            <span class="task-meta">Мақсаты: Кальвин циклінің биосфера үшін рөлін түсіну.</span>
+            <div class="diagram-box">
+                <div class="node">CO₂ сіңірілуі</div>
+                <div class="arrow">→</div>
+                <div class="node">Кальвин циклі</div>
+                <div class="arrow">→</div>
+                <div class="node">Органикалық зат түзілуі</div>
+            </div>
+            <p><b>Сұрақ:</b> Өсімдіктер болмаса, атмосферадағы көмірқышқыл газының мөлшері қалай өзгерер еді?</p>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhat')">&times;</span>
+        <h2 style="color: var(--what);">II кезең – WHAT (Conceptualization)</h2>
+        
+        <div style="text-align: center;">
+            <a href="#" class="btn-pres">📥 Презентацияны жүктеу (§5)</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 4: «Кальвин циклі кезеңдері»</span>
+            <table class="styled-table">
+                <tr><th>Кезең</th><th>Негізгі процесс</th></tr>
+                <tr><td>CO₂ фиксациясы</td><td>Рибулозобисфосфатқа CO₂ қосылуы</td></tr>
+                <tr><td>Тотықсыздану</td><td>НАДФ·Н пен АТФ көмегімен глюкоза бастамасын түзу</td></tr>
+                <tr><td>Регенерация</td><td>[ ? ]</td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 6: «Визуалды механизм»</span>
+            <div class="img-placeholder"></div>
+            <div class="diagram-box">
+                <div class="node">CO₂</div>
+                <div class="arrow">→</div>
+                <div class="node">Рубиско ферменті</div>
+                <div class="arrow">→</div>
+                <div class="node">Триозофосфат</div>
+                <div class="arrow">→</div>
+                <div class="node">Глюкоза</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalHow')">&times;</span>
+        <h2 style="color: var(--how);">III кезең – HOW (Application)</h2>
+        
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 7: «Кальвин циклінің моделін жасау»</span>
+            <p><b>Нұсқаулық:</b> Пластилин немесе BioRender арқылы Кальвин циклінің 3 негізгі сатысын көрсететін модель құрастырыңыз. АТФ пен НАДФ·Н молекулаларының кіріс нүктелерін белгілеңіз.</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 8: «Case Study: CO₂ тапшылығы»</span>
+            <p><b>Жағдаят:</b> Егер өсімдік жапырағындағы лептесіктер жабылып қалса (құрғақшылық кезінде), Кальвин цикліне және глюкоза өндірісіне не болады?</p>
+            <div class="diagram-box">
+                <div class="node" style="border-color:red">CO₂ азайды</div>
+                <div class="arrow">→</div>
+                <div class="node">Фиксация тоқтайды</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 9: «Схеманы талдау»</span>
+            <div class="img-placeholder">
+
+[Image of the relationship between light-dependent and light-independent reactions of photosynthesis]
+</div>
+            <p>Жарық және қараңғы фазалар арасындағы байланыс схемасына қарап, зат алмасу циклін сипаттаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modalIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalIf')">&times;</span>
+        <h2 style="color: var(--if);">IV кезең – WHAT IF (Creative)</h2>
+        
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 10: «Егер Кальвин циклі тоқтаса...»</span>
+            <p>Егер Жер бетіндегі Рубиско ферменті кенеттен істен шықса, адамзат пен жануарлар әлемі қанша уақыт бойы тіршілік ете алар еді?</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 11: «Болашақ фотосинтезі»</span>
+            <p><b>Шығармашылық:</b> Марс сияқты көмірқышқыл газына бай, бірақ жарығы аз планетада Кальвин циклі қалай бейімделуі керек? Жасанды өсімдік моделін ұсыныңыз.</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 12: «Себеп–салдар диаграммасы»</span>
+            <div class="diagram-box">
+                <div class="node">АТФ/НАДФ·Н</div>
+                <div class="arrow">+</div>
+                <div class="node">CO₂</div>
+                <div class="arrow">→</div>
+                <div class="node">Органикалық зат</div>
+                <div class="arrow">→</div>
+                <div class="node">Өсу мен Даму</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
+</script>
+
+</body>
+</html>

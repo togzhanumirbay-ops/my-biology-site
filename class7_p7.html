@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§7. Өсімдік және жануар жасушасы - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .unit-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 6px solid #ccc;
+        }
+        .venn-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f0fdf4;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px dashed #27ae60;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class7.html" style="color: white; text-decoration: none;">← 7-сыныпқа қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0;">
+        <span style="color: #27ae60;">Басты бет / 7-сынып</span> / §7. Өсімдік және жануар жасушасы
+    </div>
+
+    <h2 style="text-align: center;">§7. Өсімдік және жануар жасушасының айырмашылығы</h2>
+    <p style="text-align: center; color: #666;">Құрылымы мен функцияларының арасындағы байланыс</p>
+
+    <div class="content-grid">
+        <div class="unit-card" style="border-top-color: #e74c3c;">
+            <div>
+                <h3 style="color: #e74c3c;">I кезең – WHY</h3>
+                <p><strong>Неге олар бірдей емес?</strong></p>
+                <p><small>«Survival dilemma» & «Who am I?»</small></p>
+            </div>
+            <button onclick="openModal('whyModalP7')" class="btn-task" style="background:#e74c3c; color:white;">🔍 Қызығушылық</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #3498db;">
+            <div>
+                <h3 style="color: #3498db;">II кезең – WHAT</h3>
+                <p><strong>Айырмашылығы неде?</strong></p>
+                <p><small>Venn thinking & Virtual Microscope</small></p>
+            </div>
+            <button onclick="openModal('whatModalP7')" class="btn-task" style="background:#3498db; color:white;">🧠 Түсіну</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #27ae60;">
+            <div>
+                <h3 style="color: #27ae60;">III кезең – HOW</h3>
+                <p><strong>Байланысты қалай түсінеміз?</strong></p>
+                <p><small>«Cell factory» & «Structure simulation»</small></p>
+            </div>
+            <button onclick="openModal('howModalP7')" class="btn-task" style="background:#27ae60; color:white;">🛠️ Қолдану</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #f39c12;">
+            <div>
+                <h3 style="color: #f39c12;">IV кезең – IF</h3>
+                <p><strong>Егер өзгеріс болса?</strong></p>
+                <p><small>«Swap experiment» & «Hybrid design»</small></p>
+            </div>
+            <button onclick="openModal('ifModalP7')" class="btn-task" style="background:#f39c12; color:white;">🎨 Шығармашылық</button>
+        </div>
+    </div>
+</main>
+
+<div id="whyModalP7" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModalP7')">&times;</span>
+        <h2 style="color: #e74c3c;">I кезең: Неге бұл маңызды?</h2>
+        <div class="task-block">
+            <h3>🧠 Тапсырма 1: «Survival dilemma»</h3>
+            <p>Өсімдік қозғалмайды, ал жануар қозғалады. Осы айырмашылық олардың жасушасында қалай көрініс табуы керек? Болжап көріңіз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🎭 Тапсырма 2: «Who am I?»</h3>
+            <p>«Менде үлкен вакуоль және жасуша қабырғасы бар». Мен қай жасушамын?</p>
+        </div>
+    </div>
+</div>
+
+<div id="whatModalP7" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModalP7')">&times;</span>
+        <h2 style="color: #3498db;">II кезең: Түсіну</h2>
+        <div class="task-block">
+            <h3>📊 Тапсырма 5: «Triple Venn thinking»</h3>
+            <p>Өсімдік пен жануар жасушасына ортақ және жеке белгілерді Венн диаграммасына толтырыңыз.</p>
+            <div class="venn-diagram">
+                 
+
+[Image of plant vs animal cell Venn diagram]
+
+            </div>
+        </div>
+        <div class="task-block">
+            <h3>🔬 Тапсырма 6: «Microscope simulation»</h3>
+            <p>Виртуалды микроскоп арқылы жасушаларды салыстырыңыз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="howModalP7" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModalP7')">&times;</span>
+        <h2 style="color: #27ae60;">III кезең: Қолдану</h2>
+        <div class="task-block">
+            <h3>🧪 Тапсырма 7: «Function → structure»</h3>
+            <p>Фотосинтез процесі қай жасушада жүреді? Ол үшін қандай органоид жауапты?</p>
+        </div>
+        <div class="task-block">
+            <h3>🏭 Тапсырма 8: «Cell factory simulation»</h3>
+            <p>Жасушаны зауыт деп есептеңіз. Митохондрия — энергия станциясы, ал хлоропласт — күн панелі. Осы модельді толықтырыңыз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="ifModalP7" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModalP7')">&times;</span>
+        <h2 style="color: #f39c12;">IV кезең: Шығармашылық</h2>
+        <div class="task-block">
+            <h3>🌍 Тапсырма 10: «Swap experiment»</h3>
+            <p>Егер адам жасушасына хлоропласт қоссақ, біз тамақ ішпей-ақ күннен энергия ала алар ма едік? Болжап көріңіз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🎨 Тапсырма 11: «Hybrid cell design»</h3>
+            <p>Canva-да өсімдік пен жануардың ең жақсы қасиеттері біріккен гибридті жасушаның дизайнын жасаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

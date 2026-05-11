@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§6. Жасуша құрылысы - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .unit-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 6px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class7.html" style="color: white; text-decoration: none;">← 7-сыныпқа қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0;">
+        <span style="color: #27ae60;">Басты бет / 7-сынып</span> / §6. Жасуша құрылысы
+    </div>
+
+    <h2 style="text-align: center;">§6. Жасуша құрылысы</h2>
+    <p style="text-align: center; color: #666;">Жасуша – тіршіліктің негізгі бірлігі</p>
+
+    <div class="content-grid">
+        <div class="unit-card" style="border-top-color: #e74c3c;">
+            <div>
+                <h3 style="color: #e74c3c;">I кезең – WHY</h3>
+                <p><strong>Неге жасуша – тіршіліктің негізгі бірлігі?</strong></p>
+                <p><small>«Zoom in challenge» & «Black box»</small></p>
+            </div>
+            <button onclick="openModal('whyModalP6')" class="btn-task" style="background:#e74c3c; color:white;">🔍 Қызығушылық</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #3498db;">
+            <div>
+                <h3 style="color: #3498db;">II кезең – WHAT</h3>
+                <p><strong>Жасуша неден тұрады?</strong></p>
+                <p><small>«Organelle matching» & «3D Cell VR»</small></p>
+            </div>
+            <button onclick="openModal('whatModalP6')" class="btn-task" style="background:#3498db; color:white;">🧠 Түсіну</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #27ae60;">
+            <div>
+                <h3 style="color: #27ae60;">III кезең – HOW</h3>
+                <p><strong>Жасуша қалай жұмыс істейді?</strong></p>
+                <p><small>«Edible cell» & «Digital labeling»</small></p>
+            </div>
+            <button onclick="openModal('howModalP6')" class="btn-task" style="background:#27ae60; color:white;">🛠️ Қолдану</button>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #f39c12;">
+            <div>
+                <h3 style="color: #f39c12;">IV кезең – IF</h3>
+                <p><strong>Егер жасуша өзгерсе не болады?</strong></p>
+                <p><small>«Broken cell» & «Future cell»</small></p>
+            </div>
+            <button onclick="openModal('ifModalP6')" class="btn-task" style="background:#f39c12; color:white;">🎨 Шығармашылық</button>
+        </div>
+    </div>
+</main>
+
+<div id="whyModalP6" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModalP6')">&times;</span>
+        <h2 style="color: #e74c3c;">I кезең: Неге бұл маңызды?</h2>
+        <div class="task-block">
+            <h3>🔍 Тапсырма 1: «Zoom in challenge»</h3>
+            <p>Адам → Ұлпа → Жасуша тізбегімен танысыңыз. Ең кішкентай деңгейде не барын болжаңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>📦 Тапсырма 2: «Black box»</h3>
+            <p>Қораптың ішін ашпай не барын болжаңыз. Жасушаны да біз бірден көрмейміз, бірақ ол бар.</p>
+        </div>
+    </div>
+</div>
+
+<div id="whatModalP6" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModalP6')">&times;</span>
+        <h2 style="color: #3498db;">II кезең: Түсіну</h2>
+        <div class="task-block">
+            <h3>🧩 Тапсырма 4: «Organelle matching»</h3>
+            <p>Органоидтарды өз қызметімен сәйкестендіріңіз:</p>
+            <table class="task-table">
+                <tr><th>Органоид</th><th>Қызметі</th></tr>
+                <tr><td>Ядро</td><td>Басқару орталығы</td></tr>
+                <tr><td>Митохондрия</td><td>Энергия станциясы</td></tr>
+                <tr><td>Мембрана</td><td>Қорғаныс және тасымал</td></tr>
+            </table>
+        </div>
+        <div class="task-block">
+            <h3>🧬 Тапсырма 5: «3D Cell exploration»</h3>
+            <p>Cell World VR арқылы жасуша ішіне виртуалды саяхат жасаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="howModalP6" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModalP6')">&times;</span>
+        <h2 style="color: #27ae60;">III кезең: Қолдану</h2>
+        <div class="task-block">
+            <h3>🧪 Тапсырма 7: «Edible cell»</h3>
+            <p>Желе мен кәмпиттерді пайдаланып, жасушаның тәтті моделін жасаңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>💻 Тапсырма 9: «Digital labeling»</h3>
+            <p>Wordwall платформасында органоидтарды белгілеп шығыңыз.</p>
+            <a href="https://wordwall.net" target="_blank" class="btn-wordwall">Wordwall-ға өту</a>
+        </div>
+    </div>
+</div>
+
+<div id="ifModalP6" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModalP6')">&times;</span>
+        <h2 style="color: #f39c12;">IV кезең: Шығармашылық</h2>
+        <div class="task-block">
+            <h3>🌍 Тапсырма 10: «Broken cell»</h3>
+            <p>Егер ядро немесе митохондрия болмаса, жасуша қалай өмір сүрер еді?</p>
+        </div>
+        <div class="task-block">
+            <h3>🎨 Тапсырма 11: «Future cell»</h3>
+            <p>Canva платформасында болашақтың жасушасын жобалаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

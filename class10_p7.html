@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§7. Беттік аудан және Диффузия жылдамдығы</title>
+    <style>
+        :root {
+            --why: #e74c3c; --what: #3498db;
+            --how: #2ecc71; --if: #f39c12;
+            --dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; margin: 0; color: #333; }
+        .header { background: white; padding: 30px; text-align: center; border-bottom: 3px solid #eee; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Stage Grid */
+        .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { 
+            background: white; border-radius: 15px; padding: 25px; text-align: center; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 10px solid; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Modal Layout */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 40px; width: 85%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #999; }
+
+        /* Task Styles */
+        .task-box { border-left: 6px solid #ccc; background: #fefefe; border: 1px solid #eee; border-left-color: inherit; padding: 20px; margin-bottom: 30px; border-radius: 0 12px 12px 0; }
+        .task-title { font-weight: bold; font-size: 1.2rem; color: var(--dark); display: block; margin-bottom: 12px; }
+        .task-meta { font-size: 0.95rem; color: #666; margin-bottom: 12px; background: #f0f0f0; padding: 5px 10px; display: inline-block; border-radius: 4px; }
+        
+        /* Elements */
+        .styled-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; }
+        .styled-table th, .styled-table td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        .styled-table th { background: var(--dark); color: white; }
+
+        .diagram-box { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px; background: #f8f9fa; padding: 25px; border-radius: 12px; margin: 15px 0; border: 1px solid #e0e0e0; }
+        .node { background: white; border: 2px solid var(--what); padding: 10px 20px; border-radius: 8px; font-weight: bold; text-align: center; min-width: 140px; }
+        .arrow { font-size: 1.5rem; font-weight: bold; color: var(--dark); }
+
+        .img-placeholder { background: #e9ecef; border: 2px dashed #adb5bd; padding: 30px; text-align: center; margin: 15px 0; border-radius: 12px; color: #495057; }
+        .btn-open { border: none; padding: 14px 30px; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; font-size: 1rem; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="color: #27ae60; font-weight: bold; margin-bottom: 5px;">Басты бет / 10-сынып / §7</div>
+    <h1>§7. Беттік ауданның көлемге қатынасының диффузия жылдамдығына әсері</h1>
+    <p>Жасуша өлшемінің биологиялық шектеулері мен зат алмасу тиімділігі</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="card" style="border-top-color: var(--why);">
+            <h2 style="color: var(--why);">I КЕЗЕҢ: WHY</h2>
+            <p>Жасуша өлшемі мен өмірлік аналогиялар.</p>
+            <button class="btn-open" style="background: var(--why);" onclick="openM('modalWhy')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--what);">
+            <h2 style="color: var(--what);">II КЕЗЕҢ: WHAT</h2>
+            <p>Қатынас ұғымы және заңдылықтарды талдау.</p>
+            <button class="btn-open" style="background: var(--what);" onclick="openM('modalWhat')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--how);">
+            <h2 style="color: var(--how);">III КЕЗЕҢ: HOW</h2>
+            <p>Тәжірибелік дәлелдеу және есептеулер.</p>
+            <button class="btn-open" style="background: var(--how);" onclick="openM('modalHow')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--if);">
+            <h2 style="color: var(--if);">IV КЕЗЕҢ: WHAT IF</h2>
+            <p>Шығармашылық жобалау және салдарларды болжау.</p>
+            <button class="btn-open" style="background: var(--if);" onclick="openM('modalIf')">Тапсырмалар</button>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhy')">&times;</span>
+        <h2 style="color: var(--why);">I кезең – WHY (Experience)</h2>
+        
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 1: «Неге үлкен жасушалар баяу жұмыс істейді?»</span>
+            <span class="task-meta">Мақсаты: Беттік аудан мен көлем байланысына қызығушылық ояту.</span>
+            <p><b>Сұрақ:</b> Егер жасуша футбол добының көлеміндей болса, оның орталығына оттегі жетуі үшін қанша уақыт керек болар еді? Төмендегі схеманы толтырыңыз:</p>
+            <div class="diagram-box">
+                <div class="node">Жасуша үлкейеді</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+                <div class="arrow">→</div>
+                <div class="node">Тасымал қиындайды</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 2: «Қант неге тез ериді?»</span>
+            <span class="task-meta">Мақсаты: Беттік аудан әсерін өмірмен байланыстыру.</span>
+            <p><b>Нұсқаулық:</b> Шайға салған ұнтақ қант пен кесек қанттың қайсысы тез ериді? Неге? Беттік ауданның (Surface Area) диффузияға әсерін түсіндіріңіз.</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 3: «Өкпе неге көпіршік тәрізді?»</span>
+            <span class="task-meta">Мақсаты: Беттік ауданның биологиялық маңызын түсіну.</span>
+            <p>Өкпе альвеолалары мен ішек бүрлерінің құрылысын талдаңыз. Олар неге тегіс емес, қатпарлы немесе көпіршікті?</p>
+            <div class="img-placeholder">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhat')">&times;</span>
+        <h2 style="color: var(--what);">II кезең – WHAT (Conceptualization)</h2>
+        
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 4: «Беттік аудан мен көлем қатынасы»</span>
+            <p>Жасуша өлшемі артқан сайын аудан мен көлем қалай өзгеретінін бақылап, кестені толтырыңыз:</p>
+            <table class="styled-table">
+                <tr><th>Жасуша өлшемі</th><th>Беттік аудан (A)</th><th>Көлем (V)</th><th>A/V қатынасы</th></tr>
+                <tr><td>Кіші (1 мкм)</td><td>6</td><td>1</td><td>6:1</td></tr>
+                <tr><td>Үлкен (3 мкм)</td><td>[ ? ]</td><td>[ ? ]</td><td>[ ? ]</td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 5: «Сәйкестендіру»</span>
+            <p>Жағдай мен нәтижені дұрыс байланыстырыңыз:</p>
+            <table class="styled-table">
+                <tr><td>1. Үлкен беттік аудан</td><td>A. Баяу диффузия</td></tr>
+                <tr><td>2. Кіші беттік аудан</td><td>B. Жылдам диффузия</td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 6: «Диаграмма толтыру»</span>
+            <div class="diagram-box">
+                <div class="node">Беттік аудан ↑</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+            </div>
+            <div class="diagram-box">
+                <div class="node">Көлем ↑↑</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalHow')">&times;</span>
+        <h2 style="color: var(--how);">III кезең – HOW (Application)</h2>
+        
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 7: «Агар тәжірибесін талдау»</span>
+            <p>Фенолфталеин қосылған агар кубтарын қышқылға салғанда, қайсысының ортасына дейін ерітінді тез жетеді? Төмендегі суретті талдаңыз.</p>
+            <div class="img-placeholder">
+                
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 8: «Қайсысы тиімді?»</span>
+            <p><b>Нұсқаулық:</b> Тегіс жасуша мен микро бүрлері бар жасушаның суретін салыстырыңыз. Қайсысы заттарды көбірек сіңіре алады?</p>
+            <div class="diagram-box">
+                <div class="node">Қатпар көп</div>
+                <div class="arrow">→</div>
+                <div class="node">Аудан ↑</div>
+                <div class="arrow">→</div>
+                <div class="node">Диффузия тез</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 9: «Математикалық есептеу»</span>
+            <p>Қабырғасы 2 см кубтың қасиеттерін есептеңіз:</p>
+            <p><i>A = 6 × a² ; V = a³</i></p>
+            <ul style="list-style: none;">
+                <li>Беттік аудан: ________ см²</li>
+                <li>Көлем: ________ см³</li>
+                <li>Қатынас: ________</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="modalIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalIf')">&times;</span>
+        <h2 style="color: var(--if);">IV кезең – WHAT IF (Creative)</h2>
+        
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 10: «Егер жасушалар өте үлкен болса...»</span>
+            <p>Егер біздің жасушаларымыз 10 есе үлкен болса, бұл біздің қозғалыс жылдамдығымызға және энергиямызға қалай әсер етер еді?</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 11: «Идеалды жасуша құрастыр»</span>
+            <p><b>Шығармашылық тапсырма:</b> Ең жоғары сіңіру қабілеті бар жасушаның пішінін ойлап табыңыз. Ол неге ұқсас болуы керек? (Жұлдызша, жалпақ тақташа, т.б.)</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 12: «Себеп–салдар диаграммасы»</span>
+            <p>Бүгінгі сабақтың негізгі түйінін мына схема арқылы қорытындылаңыз:</p>
+            <div class="diagram-box">
+                <div class="node">Өлшем ↑</div>
+                <div class="arrow">→</div>
+                <div class="node">A/V қатынасы ↓</div>
+                <div class="arrow">→</div>
+                <div class="node">Тасымал баяу</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>7-сынып: Биология оқулығы - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <h1>7-сынып Биология материалдары</h1>
+        <p>4MAT әдістемесіне негізделген оқу бағдарламасы</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container"> 
+        <ul class="main-nav">
+            <li><a href="index.html" class="active">Басты бет</a></li>
+            <li><a href="theory.html">Теория</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+    /* Блоктарды 2 колонкаға бөлу */
+    .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Нақты 2 тең бөлік */
+        gap: 25px; /* Блоктар арасындағы арақашықтық */
+        margin-top: 20px;
+    }
+
+    /* Бөлім карточкасының стилі */
+    .unit-card {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border-top: 5px solid #27ae60;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .unit-header {
+        color: #27ae60;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .unit-title {
+        font-size: 1.3rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: #2c3e50;
+        border-bottom: 2px solid #f1f1f1;
+        padding-bottom: 10px;
+    }
+
+    .topic-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .topic-list li {
+        padding: 8px 0;
+        border-bottom: 1px dashed #eee;
+    }
+
+    .topic-list li:last-child {
+        border-bottom: none;
+    }
+
+    .topic-link {
+        text-decoration: none;
+        color: #34495e;
+        font-size: 1rem;
+        transition: 0.2s;
+        display: block;
+    }
+
+    .topic-link:hover {
+        color: #27ae60;
+        padding-left: 5px;
+    }
+
+    /* Мобильді нұсқада (телефонда) 1 колонкаға айналады */
+    @media (max-width: 768px) {
+        .content-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<main class="container">
+    <div style="margin: 20px 0; font-size: 0.9rem;">
+        <a href="index.html" style="color: #27ae60; text-decoration: none;">Басты бет</a> / 7-сынып
+    </div>
+
+    <h2 style="text-align: center; margin-bottom: 30px;">Оқулық мазмұны</h2>
+
+    <div class="content-grid">
+        <div class="unit-card">
+            <div class="unit-header">1-БӨЛІМ</div>
+            <div class="unit-title">ЭКОЖҮЙЕЛЕР</div>
+            <ul class="topic-list">
+                <li><a href="class7_p1.html" class="topic-link">§1. Экологиялық факторлар</a></li>
+                <li><a href="class7_p2.html" class="topic-link">§2. Биотикалық факторлар, қоректік тізбек</a></li>
+                <li><a href="class7_p3.html" class="topic-link">§3. Экологиялық сукцессия</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #3498db;">
+            <div class="unit-header" style="color: #3498db;">2-БӨЛІМ</div>
+            <div class="unit-title">ТІРІ АҒЗАЛАРДЫ ЖҮЙЕЛЕУ</div>
+            <ul class="topic-list">
+                <li><a href="class7_p4.html" class="topic-link">§4. Жүйелеудің маңызы</a></li>
+                <li><a href="class7_p5.html" class="topic-link">§5. Омыртқасыз және омыртқалылар</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card" style="border-top-color: #e67e22;">
+            <div class="unit-header" style="color: #e67e22;">3-БӨЛІМ</div>
+            <div class="unit-title">ЖАСУШАЛЫҚ БИОЛОГИЯ</div>
+            <ul class="topic-list">
+                <li><a href="class7_p6.html" class="topic-link">§6. Жасуша құрылысы</a></li>
+                <li><a href="class7_p7.html" class="topic-link">§7. Өсімдік және жануар жасушасы</a></li>
+                <li><a href="class7_p8.html" class="topic-link">§8. Органикалық заттар</a></li>
+            </ul>
+        </div>
+        
+        <div class="unit-card" style="border-top-color: #9b59b6;">
+            <div class="unit-header" style="color: #9b59b6;">4-БӨЛІМ</div>
+            <div class="unit-title">ЗАТТАРДЫҢ ТАСЫМАЛДАНУЫ</div>
+            <ul class="topic-list">
+                <li><a href="class7_p9.html" class="topic-link">§9. Жануарлардағы заттар тасымалы</a></li>
+                <li><a href="class7_p10.html" class="topic-link">§10. Өсімдіктердегі заттар тасымалы</a></li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Методический ресурс по биологии | Автор: Умирбай Тоғжан</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§4. Жасуша органоидтері - 4MAT Тапсырмалары</title>
+    <style>
+        :root {
+            --why: #e74c3c; --what: #3498db;
+            --how: #2ecc71; --if: #f1c40f;
+            --dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; margin: 0; color: #333; }
+        .header { background: white; padding: 30px; text-align: center; border-bottom: 3px solid #eee; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Stage Grid */
+        .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { 
+            background: white; border-radius: 15px; padding: 25px; text-align: center; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 10px solid; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Modal Layout */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 40px; width: 85%; max-width: 900px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 30px; cursor: pointer; color: #999; }
+
+        /* Task Styles */
+        .task-box { border-left: 5px solid #ccc; background: #f9f9f9; padding: 20px; margin-bottom: 25px; border-radius: 0 10px 10px 0; }
+        .task-title { font-weight: bold; font-size: 1.1rem; color: var(--dark); display: block; margin-bottom: 10px; }
+        .task-meta { font-size: 0.9rem; color: #666; margin-bottom: 10px; }
+        
+        /* Interactive Elements */
+        .styled-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        .styled-table th, .styled-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .styled-table th { background: var(--dark); color: white; }
+
+        .diagram-box { display: flex; align-items: center; justify-content: center; gap: 10px; background: #eef7ff; padding: 15px; border-radius: 10px; margin: 10px 0; }
+        .node { background: white; border: 2px solid var(--what); padding: 8px 15px; border-radius: 5px; font-weight: bold; }
+        .arrow { font-weight: bold; color: var(--what); }
+
+        .btn-open { border: none; padding: 12px 25px; border-radius: 25px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="color: #27ae60; font-weight: bold;">Басты бет / 10-сынып / §4</div>
+    <h1>§4. Жасушаның негізгі құрамбөліктері. Органоидтерді жіктеу</h1>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="card" style="border-top-color: var(--why);">
+            <h2 style="color: var(--why);">I КЕЗЕҢ: WHY</h2>
+            <p>Жасуша — кішкентай қала. Органоидтер маңызы.</p>
+            <button class="btn-open" style="background: var(--why);" onclick="openM('modalWhy')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--what);">
+            <h2 style="color: var(--what);">II КЕЗЕҢ: WHAT</h2>
+            <p>Құрылымы мен ғылыми жіктелуі.</p>
+            <button class="btn-open" style="background: var(--what);" onclick="openM('modalWhat')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--how);">
+            <h2 style="color: var(--how);">III КЕЗЕҢ: HOW</h2>
+            <p>Модельдеу және практикалық зерттеу.</p>
+            <button class="btn-open" style="background: var(--how);" onclick="openM('modalHow')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--if);">
+            <h2 style="color: var(--if);">IV КЕЗЕҢ: WHAT IF</h2>
+            <p>Болжам және шығармашылық жобалау.</p>
+            <button class="btn-open" style="background: var(--if);" onclick="openM('modalIf')">Тапсырмалар</button>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhy')">&times;</span>
+        <h2 style="color: var(--why);">I кезең – WHY (Experience)</h2>
+        
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 1: «Жасуша – кішкентай қала»</span>
+            <div class="task-meta"><b>Мақсаты:</b> Жасушаның күрделі жүйе екенін түсіндіру.</div>
+            <p><b>Сұрақ:</b> Қаладағы мекемелер сияқты жасуша бөліктері қалай қызмет бөліседі? Ядро — басқару орталығы болса, энергияны кім береді?</p>
+            
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 2: «Егер жасушада энергия болмаса...»</span>
+            <div class="task-meta"><b>Мақсаты:</b> Органоидтердің маңызын өмірмен байланыстыру.</div>
+            <p><b>Ситуация:</b> «Адам қатты әлсіреп қалды, жасушаларда энергия аз». Бұл қай органоидтің жұмысымен байланысты?</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 3: «Қай жасуша күрделірек?»</span>
+            <div class="task-meta"><b>Мақсаты:</b> Органоидтердің әртүрлілігін түсіну.</div>
+            <p>Өсімдік пен жануар жасушасының суреттерін салыстырып, ерекшеліктерін табыңыз.</p>
+            
+
+[Image of plant vs animal cell comparison]
+
+        </div>
+    </div>
+</div>
+
+<div id="modalWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhat')">&times;</span>
+        <h2 style="color: var(--what);">II кезең – WHAT (Conceptualization)</h2>
+        
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 4: «Органоидтер кестесі»</span>
+            <table class="styled-table">
+                <tr><th>Органоид</th><th>Қызметі</th></tr>
+                <tr><td>Ядро</td><td>Тұқым қуалау ақпаратын сақтау</td></tr>
+                <tr><td>Митохондрия</td><td>АТФ (энергия) синтезі</td></tr>
+                <tr><td>Рибосома</td><td>Нәруыз биосинтезі</td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 6: «Органоидтерді жіктеу»</span>
+            <div class="diagram-box">
+                <div class="node">Органоидтер</div>
+                <div class="arrow">→</div>
+                <div class="node">Мембраналы</div>
+                <div class="node">Мембранасыз</div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div id="modalHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalHow')">&times;</span>
+        <h2 style="color: var(--how);">III кезең – HOW (Application)</h2>
+        
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 8: «Жасуша моделін құрастыр»</span>
+            <p>Пластилин немесе Canva арқылы жасуша моделін жасап, әр органоидтің орнын белгілеңіз.</p>
+            
+
+[Image of 3D cell model project]
+
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 9: «Жасуша фабрикасы» рөлдік ойыны</span>
+            <p>Ядро — директор, Рибосома — жұмысшы, Митохондрия — қуат көзі. Жасушадағы зат алмасу процесін сахналаңыз.</p>
+        </div>
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 10: «Жасуша моделін құрастыр»</span>
+            <p><b>Мақсаты:</b> Органоидтердің орналасуы мен қызметін практикалық түрде түсіну.</p>
+            <div style="background: #eef9f1; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                <strong>Нұсқаулық:</strong> Топпен жұмыс жасап, пластилин, қағаз немесе онлайн платформалар (Canva, BioRender) арқылы жасуша моделін құрастырыңдар. Әр органоидті белгілеп, оның қызметін қорғаңдар.
+            </div>
+            <div class="img-box">
+                <p><i>[Мұнда оқушыларға үлгі болатын 3D жасуша моделінің суреті орналасады]</i></p>
+                
+            </div>
+            <p><b>Сұрақтар:</b> Органоидтер неге белгілі бір ретпен орналасқан? Өсімдік пен жануар жасушасының моделіндегі басты 3 айырмашылықты атаңыз.</p>
+            <p><b>Нәтиже:</b> Оқушы органоид құрылымын тәжірибе арқылы меңгереді.</p>
+        </div>
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 11: «Органоидті анықта» (Case Study)</span>
+            <p><b>Мақсаты:</b> Органоид қызметін нақты биологиялық жағдаяттар арқылы талдау.</p>
+            <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
+                <strong>Жағдаяттарды талдаңыз:</strong>
+                <ul>
+                    <li>«Жасушада энергия жетіспейді» — ?</li>
+                    <li>«Нәруыз синтезі тоқтады» — ?</li>
+                    <li>«Өсімдік фотосинтез жүргізе алмай жатыр» — ?</li>
+                </ul>
+            </div>
+            <p><b>📌 Қосымша тапсырма (Диаграмма толтыру):</b></p>
+            <div class="diagram-box">
+                <div class="node" style="border-color:#e74c3c">Проблема</div>
+                <div class="arrow">→</div>
+                <div class="node" style="border-color:#3498db">Органоид</div>
+                <div class="arrow">→</div>
+                <div class="node" style="border-color:#2ecc71">Қызмет</div>
+            </div>
+            <p><b>Нәтиже:</b> Оқушы органоидті нақты биологиялық процесспен байланыстырады.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modalIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalIf')">&times;</span>
+        <h2 style="color: var(--if);">IV кезең – WHAT IF (Creative)</h2>
+        
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 13: «Егер митохондрия болмаса...»</span>
+            <p>Жасушада энергия станциясы істен шықса не болар еді? 3 негізгі салдырын жазыңыз.</p>
+            <div class="diagram-box">
+                <div class="node">Митохондрия жоқ</div>
+                <div class="arrow">→</div>
+                <div class="node">АТФ тапшылығы</div>
+                <div class="arrow">→</div>
+                <div class="node">Тіршілік тоқтауы</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 14: «Болашақ жасушасын жаса»</span>
+            <p>Ғылым дамыған заманда жасушаға тағы қандай жаңа органоид қосар едіңіз? Оның қызметін ойлап табыңыз.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
+</script>
+
+</body>
+</html>

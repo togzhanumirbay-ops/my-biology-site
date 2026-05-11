@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§5. Асқорыту үдерісі және ферменттер</title>
+    <style>
+        :root {
+            --why-color: #e67e22; --what-color: #3498db;
+            --how-color: #27ae60; --if-color: #9b59b6;
+            --bg-light: #f4f7f6;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #2c3e50; line-height: 1.6; }
+        .header { background: #2c3e50; color: white; padding: 30px; text-align: center; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+        /* Grid System */
+        .stage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        @media (max-width: 1100px) { .stage-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 650px) { .stage-grid { grid-template-columns: 1fr; } }
+
+        .stage-card {
+            background: white; border-radius: 15px; padding: 25px; text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-top: 10px solid; transition: 0.3s;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .stage-card:hover { transform: translateY(-5px); }
+
+        .btn-open { width: 100%; padding: 12px; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; }
+
+        /* Modal Settings */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 30px; width: 90%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #666; }
+
+        /* Task Box Style */
+        .task-box { background: #fff; border: 1px solid #eee; border-left: 6px solid #ccc; padding: 20px; margin-bottom: 25px; border-radius: 8px; text-align: left; }
+        .task-title { font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 10px; display: block; }
+        
+        /* Visual Placeholders */
+        .img-placeholder { 
+            width: 100%; background: #f9f9f9; border: 2px dashed #d1d8e0; 
+            margin: 15px 0; border-radius: 10px; min-height: 180px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; color: #778ca3; text-align: center; padding: 10px;
+        }
+
+        /* Buttons */
+        .platform-btn { 
+            display: inline-block; padding: 10px 18px; border-radius: 6px; 
+            text-decoration: none; color: white; font-weight: bold; margin-top: 10px; transition: 0.3s; font-size: 0.9rem;
+        }
+        .btn-quiz { background: #8e44ad; }
+        .btn-learning { background: #3498db; }
+        .btn-canva { background: #00c4cc; }
+        .btn-miro { background: #050038; }
+        .btn-padlet { background: #ff4081; }
+
+        textarea { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; resize: vertical; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f1f2f6; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>§5. Асқорыту үдерісі және ферменттердің рөлі</h1>
+    <p>Ағзадағы химиялық зертхана: Тағамның ыдырау құпиясы</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="stage-card" style="border-color: var(--why-color);">
+            <div>
+                <h2 style="color: var(--why-color);">I. WHY</h2>
+                <p>Өмірлік жағдаяттар және асқорыту маңызы</p>
+            </div>
+            <button class="btn-open" style="background: var(--why-color);" onclick="openM('mWhy')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--what-color);">
+            <div>
+                <h2 style="color: var(--what-color);">II. WHAT</h2>
+                <p>Ферменттердің қасиеттері мен қызметі</p>
+            </div>
+            <button class="btn-open" style="background: var(--what-color);" onclick="openM('mWhat')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--how-color);">
+            <div>
+                <h2 style="color: var(--how-color);">III. HOW</h2>
+                <p>Процестерді модельдеу және талдау</p>
+            </div>
+            <button class="btn-open" style="background: var(--how-color);" onclick="openM('mHow')">Тапсырмаларды ашу</button>
+        </div>
+
+        <div class="stage-card" style="border-color: var(--if-color);">
+            <div>
+                <h2 style="color: var(--if-color);">IV. IF</h2>
+                <p>Болжау және медициналық қолданыс</p>
+            </div>
+            <button class="btn-open" style="background: var(--if-color);" onclick="openM('mIf')">Тапсырмаларды ашу</button>
+        </div>
+    </div>
+</div>
+
+<div id="mWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhy')">&times;</span>
+        <h2 style="color: var(--why-color);">I КЕЗЕҢ: WHY</h2>
+        
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 1: Сүт іше алмайтын адамдар</span>
+            <p>Неге кейбір адамдар сүт ішкеннен кейін өзін жайсыз сезінеді? Бұл құбылысты ферменттермен байланыстырып, 2 себебін түсіндіріңіз.</p>
+            <div class="img-placeholder">[Схема: Лактаза ферменті және лактозаның глюкоза мен галактозаға ыдырауы]</div>
+            <textarea placeholder="Механизмін жазыңыз..."></textarea>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 2: Шайнаудың құпиясы</span>
+            <p>“Тамақты 32 рет шайнау керек”. Неге бұл маңызды? Механикалық және химиялық асқорытудың байланысын талдаңыз.</p>
+            <div class="img-placeholder">[Сурет: Ауыз қуысындағы сілекей бездері және амилазаның әсері]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why-color);">
+            <span class="task-title">Тапсырма 3: Спортшы мен кеңсе қызметкері</span>
+            <p>Физикалық белсенділік асқорыту үдерісі мен ферменттердің жұмысына қалай әсер етеді? Салыстырыңыз.</p>
+            <div class="img-placeholder">[Схема: Адамның асқорыту жүйесінің жалпы көрінісі]</div>
+        </div>
+    </div>
+</div>
+
+<div id="mWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mWhat')">&times;</span>
+        <h2 style="color: var(--what-color);">II КЕЗЕҢ: WHAT</h2>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 4: Асқорыту бекеттері</span>
+            <p>Ауыз, асқазан және ішекте қандай негізгі ферменттер жұмыс істейді? Олардың нысанасын (субстратын) анықтаңыз.</p>
+            <div class="img-placeholder">[Схема: Асқорыту мүшелері және ондағы ферменттер (пепсин, трипсин, липаза)]</div>
+            <a href="https://quizizz.com" target="_blank" class="platform-btn btn-quiz">Quizizz: Асқорыту ферменттері</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 5: Ферменттердің "мінезі"</span>
+            <p>Температура мен pH ортасының өзгеруі фермент белсенділігіне қалай әсер етеді? Графикті талдаңыз.</p>
+            <div class="img-placeholder">[График: Температура мен рН деңгейіне байланысты фермент белсенділігінің қисық сызығы]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what-color);">
+            <span class="task-title">Тапсырма 6: Кілт пен Құлып моделі</span>
+            <p>Ферменттердің спецификалылығын қалай түсінесіз? Неге бір фермент кез келген затты ыдырата алмайды?</p>
+            <div class="img-placeholder">[Диаграмма: Фермент-субстрат кешенінің түзілуі (Lock and Key моделі)]</div>
+            <a href="https://learningapps.org" target="_blank" class="platform-btn btn-learning">LearningApps: Сәйкестендіру</a>
+        </div>
+    </div>
+</div>
+
+<div id="mHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mHow')">&times;</span>
+        <h2 style="color: var(--how-color);">III КЕЗЕҢ: HOW</h2>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 7: Асқорыту жолының картасы</span>
+            <p>Тағамның өңделу жолын кезең-кезеңімен сызып, әр мүшедегі ферменттер мен ыдырайтын заттарды белгілеңіз.</p>
+            <div class="img-placeholder">[Мысал: Асқорыту процесінің инфографикалық схемасы]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Схема құрастыру</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 8: Ферменттердің жүйелік кестесі</span>
+            <p>Төмендегі кестені толтырыңыз:</p>
+            <table>
+                <tr><th>Фермент</th><th>Мүше</th><th>Субстрат (не ыдырайды)</th><th>Өнім</th></tr>
+                <tr><td><input type="text" placeholder="Амилаза"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                <tr><td><input type="text" placeholder="Пепсин"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how-color);">
+            <span class="task-title">Тапсырма 9: Экспериментті модельдеу</span>
+            <p>Асқазанның қышқылдығы (рН) өзгерсе, пепсиннің ақуызды қорыту қабілеті қалай өзгереді? Диаграммамен көрсетіңіз.</p>
+            <div class="img-placeholder">[График: Пепсиннің оңтайлы рН ортасындағы жұмысы]</div>
+            <a href="https://miro.com" target="_blank" class="platform-btn btn-miro">Miro: Процесті талдау</a>
+        </div>
+    </div>
+</div>
+
+<div id="mIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('mIf')">&times;</span>
+        <h2 style="color: var(--if-color);">IV КЕЗЕҢ: IF</h2>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 10: Ферменттер ереуілі</span>
+            <p>Егер ағзада асқорыту ферменттері бір күнге жұмысын тоқтатса, денсаулыққа қандай қауіп төнеді? Салдарларын болжаңыз.</p>
+            <div class="img-placeholder">[Схема: Қоректік заттардың сіңірілмеуі және ағзаның энергия тапшылығы]</div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 11: Дәріханадағы ферменттер</span>
+            <p>Адамдар неге "Мезим", "Панкреатин" сияқты препараттарды қолданады? Олардың медициналық маңызын түсіндіріңіз.</p>
+            <div class="img-placeholder">[Инфографика: Ферменттік препараттардың әсер ету механизмі]</div>
+            <a href="https://padlet.com" target="_blank" class="platform-btn btn-padlet">Padlet: Пікірталас</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if-color);">
+            <span class="task-title">Тапсырма 12: Ферментті зерттеу (Жоба)</span>
+            <p>Бір ферментті таңдап (мысалы, липаза), оның жұмыс істеуіне қажетті идеалды жағдайлар туралы визуалды есеп беріңіз.</p>
+            <div class="img-placeholder">[Диаграмма: Тірі ағзадағы ферментативті реакцияның циклі]</div>
+            <a href="https://www.canva.com" target="_blank" class="platform-btn btn-canva">Canva: Зерттеуді рәсімдеу</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

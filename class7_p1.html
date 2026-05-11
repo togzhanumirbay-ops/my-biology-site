@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§1. Экологиялық факторлар - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .four-mat-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .mat-column {
+            background: #fff;
+            border-top: 5px solid;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .col-why { border-color: #e74c3c; } /* Қызыл */
+        .col-what { border-color: #3498db; } /* Көк */
+        .col-how { border-color: #27ae60; } /* Жасыл */
+        .col-if { border-color: #f1c40f; } /* Сары */
+        
+        .mat-header { font-weight: bold; margin-bottom: 15px; text-align: center; }
+        .task-item { margin-bottom: 20px; font-size: 14px; }
+        .task-icon { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+        .btn-link { 
+            display: inline-block; 
+            padding: 8px 12px; 
+            background: #f1f1f1; 
+            color: #333; 
+            text-decoration: none; 
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        .btn-link:hover { background: #e0e0e0; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class7.html" style="color: white; text-decoration: none;">← 7-сыныпқа қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0;">
+        <span style="color: #27ae60;">Басты бет / 7-сынып</span> / §1. Экологиялық факторлар
+    </div>
+
+    <h2 style="text-align: center;">§1. Экологиялық факторлар</h2>
+    <p style="text-align: center; color: #666;">4MAT әдісі бойынша оқу тапсырмалары</p>
+
+    <div class="four-mat-container">
+        
+        <div class="mat-column col-why">
+    <div class="mat-header">I кезең – WHY<br><small>(Қызығушылық ояту)</small></div>
+    
+    <div class="task-item">
+        <p><strong>Мақсаты:</strong> оқушы «Неге бұл маңызды?» деген сұраққа жауап табады.</p>
+        <p><strong>Тапсырма:</strong> «Менің ортам – менің өмірім»</p>
+        <p style="font-size: 13px; color: #555;">Мұғалім әртүрлі орта суреттерін көрсетеді (шөл, орман, қала, ластанған өзен). Содан соң сұрақ қойылады:</p>
+        <ol style="font-size: 13px; padding-left: 20px;">
+            <li>Сен қай жерде өмір сүре алар едің? Неге?</li>
+            <li>Бұл ортада қандай факторлар әсер етеді?</li>
+        </ol>
+    </div>
+
+    <div class="task-item">
+        <button onclick="openImageModal()" class="btn-link" style="width: 100%; cursor: pointer; border: none; background: #e74c3c; color: white;">
+            🖼️ Суреттерді көру
+        </button>
+    </div>
+</div>
+
+        <div class="mat-column col-what">
+    <div class="mat-header">II кезең – WHAT<br><small>(Білім беру)</small></div>
+    
+    <div class="task-item">
+        <p><strong>Мақсаты:</strong> нақты ғылыми түсінік қалыптастыру.</p>
+        <span class="task-icon">📊 Презентация:</span>
+        <a href="lesson_presentation.pptx" class="btn-link" style="display:block; text-align:center; background:#3498db; color:white; margin-bottom:15px; border:none; border-radius:4px; padding:10px; cursor:pointer;">📥 Жүктеп алу (PPTX)</a>
+    </div>
+
+    <div class="task-item">
+        <button onclick="openLessonTasks()" style="width: 100%; cursor: pointer; border: 2px solid #3498db; background: #fff; color: #3498db; font-weight: bold; padding: 12px; border-radius: 8px; font-size: 14px; transition: 0.3s;">
+            📂 Тапсырмалар жинағын ашу
+        </button>
+    </div>
+</div>
+
+        <div class="mat-column col-how">
+    <div class="mat-header">III кезең – HOW<br><small>(Қолдану, практика)</small></div>
+    
+    <div class="task-item">
+        <p><strong>Мақсаты:</strong> «Бұл қалай жұмыс істейді?» — алған білімді практикада қолдану.</p>
+    </div>
+
+    <div class="task-item">
+        <button onclick="openHowTasks()" style="width: 100%; cursor: pointer; border: 2px solid #27ae60; background: #fff; color: #27ae60; font-weight: bold; padding: 12px; border-radius: 8px; font-size: 14px; transition: 0.3s;">
+            📂 Практикалық тапсырмалар
+        </button>
+    </div>
+
+    <div class="task-item">
+        <span class="task-icon">🔬 Зертханалық негіз:</span>
+        <p style="font-size: 13px;">Өсімдіктердің өсуіне сыртқы факторлардың әсерін зерттеу жоспары.</p>
+    </div>
+</div>
+
+        <div class="mat-column col-if">
+    <div class="mat-header">IV кезең – WHAT IF<br><small>(Шығармашылық, кеңейту)</small></div>
+    
+    <div class="task-item">
+        <p><strong>Мақсаты:</strong> алған білімді мүлдем жаңа, беймәлім жағдайларда қолдануды үйрену.</p>
+    </div>
+
+    <div class="task-item">
+        <button onclick="openIfTasks()" style="width: 100%; cursor: pointer; border: 2px solid #f1c40f; background: #fff; color: #f39c12; font-weight: bold; padding: 12px; border-radius: 8px; font-size: 14px; transition: 0.3s;">
+            🎨 Шығармашылық жобалар
+        </button>
+    </div>
+
+    <div class="task-item" style="background: #fff9e6; padding: 10px; border-radius: 5px; border: 1px dashed #f1c40f;">
+        <p style="font-size: 13px; margin: 0;"><b>Кері байланыс:</b> Бүгінгі сабақтан алған ең маңызды 1 ақпаратты атаңыз.</p>
+    </div>
+</div>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container" style="text-align: center; padding: 20px;">
+        <p>© 2026 Методический ресурс по биологии</p>
+    </div>
+</footer>
+
+<div id="imageModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8); text-align:center;">
+    <span onclick="closeImageModal()" style="position:absolute; right:25px; top:15px; color:white; font-size:35px; cursor:pointer;">&times;</span>
+    <div style="margin-top: 50px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; padding: 20px;">
+        <div style="background:white; padding:10px; border-radius:8px; width:200px;">
+            <img src="shol.jpg" alt="Шөл" style="width:100%;">
+            <p style="color:black;">Шөл дала</p>
+        </div>
+        <div style="background:white; padding:10px; border-radius:8px; width:200px;">
+            <img src="orman.jpg" alt="Орман" style="width:100%;">
+            <p style="color:black;">Орман</p>
+        </div>
+        <div style="background:white; padding:10px; border-radius:8px; width:200px;">
+            <img src="qala.jpg" alt="Қала" style="width:100%;">
+            <p style="color:black;">Қала</p>
+        </div>
+        <div style="background:white; padding:10px; border-radius:8px; width:200px;">
+            <img src="ozen.jpg" alt="Өзен" style="width:100%;">
+            <p style="color:black;">Ластанған өзен</p>
+        </div>
+    </div>
+</div>
+
+<script>
+function openImageModal() {
+    document.getElementById('imageModal').style.display = "block";
+}
+function closeImageModal() {
+    document.getElementById('imageModal').style.display = "none";
+}
+</script>
+
+<div id="lessonTasksModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8); overflow-y: auto;">
+    <div style="background: white; margin: 2% auto; padding: 30px; width: 90%; max-width: 700px; border-radius: 15px; position: relative; font-family: 'Segoe UI', sans-serif;">
+        
+        <span onclick="closeLessonTasks()" style="position:absolute; right:25px; top:15px; font-size:35px; cursor:pointer; color: #666;">&times;</span>
+        
+        <h2 style="color: #3498db; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px;">II кезең тапсырмалары</h2>
+
+        <div style="margin-top: 25px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px; background: #f9f9f9;">
+            <h3 style="margin-top: 0; color: #2c3e50;">🧩 Тапсырма: «Факторларды жіктеу»</h3>
+            <p style="font-size: 14px;"><b>Формат:</b> жұптық жұмыс</p>
+            <table border="1" style="width:100%; border-collapse:collapse; text-align:center; background: white; margin-top: 10px;">
+                <tr style="background:#3498db; color: white;">
+                    <th style="padding: 10px;">Фактор</th>
+                    <th style="padding: 10px;">Түрі</th>
+                    <th style="padding: 10px;">Мысал</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">Температура</td>
+                    <td style="color: red; font-weight: bold;">??</td>
+                    <td style="padding: 10px;">Жылу, суық</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">Жыртқыш</td>
+                    <td style="color: red; font-weight: bold;">??</td>
+                    <td style="padding: 10px;">Қасқыр, түлкі</td>
+                </tr>
+            </table>
+            <p style="font-size: 13px; color: #555; margin-top: 10px;"><i>👉 Оқушы факторларды: абиотикалық, биотикалық, антропогендік деп бөледі.</i></p>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; border-left: 5px solid #e67e22; background: #fff5eb; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #d35400;">🔥 Тапсырма: Jigsaw әдісі</h3>
+            <p style="font-size: 14px;"><b>Топтар:</b> Абиотикалық, Биотикалық, Антропогендік, Шектеуші факторлар.</p>
+            <p style="font-size: 14px; line-height: 1.5;">➡ Топтағы оқушылар араласып, алған мәліметтерін жаңа тобымен бөліседі. Осылайша әр оқушы барлық факторлар бойынша ақпарат алады.</p>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; border-left: 5px solid #8e44ad; background: #f4f0ff; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #8e44ad;">📱 Тапсырма: Quizizz тест</h3>
+            <p style="font-size: 14px;"><b>Мазмұны (10 сұрақ):</b> Факторды анықтау, мысалды табу, сәйкестендіру.</p>
+            <a href="https://quizizz.com/join" target="_blank" style="display: inline-block; background: #8e44ad; color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 5px;">🚀 Тестке өту</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+// Тапсырмалар терезесін ашу функциясы
+function openLessonTasks() {
+    document.getElementById('lessonTasksModal').style.display = "block";
+    document.body.style.overflow = "hidden"; // Артқы бетті жылжытпау
+}
+
+// Тапсырмалар терезесін жабу функциясы
+function closeLessonTasks() {
+    document.getElementById('lessonTasksModal').style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// Терезе сыртын басқанда жабылуы
+window.onclick = function(event) {
+    var modal = document.getElementById('lessonTasksModal');
+    if (event.target == modal) {
+        closeLessonTasks();
+    }
+}
+</script>
+
+<div id="howTasksModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8); overflow-y: auto;">
+    <div style="background: white; margin: 2% auto; padding: 30px; width: 90%; max-width: 700px; border-radius: 15px; position: relative; font-family: 'Segoe UI', sans-serif;">
+        
+        <span onclick="closeHowTasks()" style="position:absolute; right:25px; top:15px; font-size:35px; cursor:pointer; color: #666;">&times;</span>
+        
+        <h2 style="color: #27ae60; text-align: center; border-bottom: 2px solid #27ae60; padding-bottom: 10px;">III кезең: Практикалық жұмыс</h2>
+
+        <div style="margin-top: 25px; padding: 15px; border-left: 5px solid #27ae60; background: #f0fdf4; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #1e8449;">🔬 Тапсырма: Мини-зерттеу (Топтық жұмыс)</h3>
+            <p style="font-size: 14px;"><b>Тапсырма:</b> Өсімдікке жарық пен судың әсерін бақылау (үй тапсырмасы ретінде).</p>
+            <p style="font-size: 14px;"><b>Нәтиже:</b> Арнайы кестені толтырып, факторлардың өсімдік дамуына әсері туралы қорытынды жасау.</p>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; border: 1px solid #27ae60; border-radius: 10px; background: #fff;">
+            <h3 style="margin-top: 0; color: #27ae60;">🗺️ Тапсырма 8: «Экожүйе анализі»</h3>
+            <p style="font-size: 14px;"><b>Құрал:</b> Орман экожүйесінің суреті немесе постері.</p>
+            <p style="font-size: 14px;"><b>Оқушы орындауы тиіс:</b></p>
+            <ul style="font-size: 14px; line-height: 1.6;">
+                <li>3 абиотикалық факторды анықтау</li>
+                <li>3 биотикалық факторды анықтау</li>
+                <li>Олардың арасындағы өзара байланысты көрсету</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; border-left: 5px solid #3498db; background: #ebf5fb; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #2980b9;">💻 Тапсырма 9: Виртуалды симуляция</h3>
+            <p style="font-size: 14px;"><b>Платформа:</b> PhET Interactive Simulations</p>
+            <p style="font-size: 14px;"><b>Жұмыс барысы:</b> Оқушылар виртуалды ортада температураны өзгерте отырып, оның популяция санына әсерін бақылайды.</p>
+            <a href="https://phet.colorado.edu/kk/" target="_blank" style="display: inline-block; background: #3498db; color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 5px;">🚀 PhET-ке өту</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+// HOW терезесін ашу
+function openHowTasks() {
+    document.getElementById('howTasksModal').style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+// HOW терезесін жабу
+function closeHowTasks() {
+    document.getElementById('howTasksModal').style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// Терезе сыртын басқанда жабылуы (II және III кезеңдер үшін)
+window.onclick = function(event) {
+    var lessonModal = document.getElementById('lessonTasksModal');
+    var howModal = document.getElementById('howTasksModal');
+    if (event.target == lessonModal) { closeLessonTasks(); }
+    if (event.target == howModal) { closeHowTasks(); }
+}
+</script>
+
+<div id="ifTasksModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8); overflow-y: auto;">
+    <div style="background: white; margin: 2% auto; padding: 30px; width: 90%; max-width: 700px; border-radius: 15px; position: relative; font-family: 'Segoe UI', sans-serif;">
+        
+        <span onclick="closeIfTasks()" style="position:absolute; right:25px; top:15px; font-size:35px; cursor:pointer; color: #666;">&times;</span>
+        
+        <h2 style="color: #f39c12; text-align: center; border-bottom: 2px solid #f1c40f; padding-bottom: 10px;">IV кезең: Шығармашылық және Кеңейту</h2>
+
+        <div style="margin-top: 25px; padding: 15px; border-left: 5px solid #f1c40f; background: #fffdf0; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #d4ac0d;">🌍 Тапсырма: «Егер...» жобасы</h3>
+            <p style="font-size: 14px;"><b>Формат:</b> Топтық зерттеу жобасы.</p>
+            <p style="font-size: 14px; margin-bottom: 5px;"><b>Талдауға арналған тақырыптар:</b></p>
+            <ul style="font-size: 14px; line-height: 1.6;">
+                <li>Егер аймақтағы су ресурстары күрт азайса, экожүйе қалай өзгереді?</li>
+                <li>Егер экожүйедегі барлық жыртқыштар жойылып кетсе не болар еді?</li>
+            </ul>
+            <p style="font-size: 13px; color: #e67e22;"><i>👉 Оқушылар оқиғалардың арасындағы себеп-салдар байланысын құрады.</i></p>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; border: 1px solid #f1c40f; border-radius: 10px; background: #fff;">
+            <h3 style="margin-top: 0; color: #f39c12;">🎨 Тапсырма 11: Постер жасау</h3>
+            <p style="font-size: 14px;"><b>Тақырыбы:</b> «Экологиялық факторлар және адам әсері»</p>
+            <p style="font-size: 14px;"><b>Мақсаты:</b> Факторлардың өзара байланысын көрсететін визуалды модель немесе инфографика құрастыру.</p>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; border-left: 5px solid #e74c3c; background: #fef2f2; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #c0392b;">🎤 Тапсырма 12: Қорғау + пікірталас</h3>
+            <p style="font-size: 14px;"><b>Барысы:</b></p>
+            <ul style="font-size: 14px; line-height: 1.6;">
+                <li>Әр топ өз жобасын (постер немесе зерттеу) сынып алдында қорғайды.</li>
+                <li>Басқа топтар спикерлерге сыни сұрақтар қойып, пікірталасқа түседі.</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script>
+// WHAT IF терезесін ашу
+function openIfTasks() {
+    document.getElementById('ifTasksModal').style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+// WHAT IF терезесін жабу
+function closeIfTasks() {
+    document.getElementById('ifTasksModal').style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// Терезе сыртын басқанда жабылуы (Барлық кезеңдер үшін)
+window.onclick = function(event) {
+    var lessonModal = document.getElementById('lessonTasksModal');
+    var howModal = document.getElementById('howTasksModal');
+    var ifModal = document.getElementById('ifTasksModal');
+    
+    if (event.target == lessonModal) { closeLessonTasks(); }
+    if (event.target == howModal) { closeHowTasks(); }
+    if (event.target == ifModal) { closeIfTasks(); }
+}
+</script>
+
+</body>
+</html>

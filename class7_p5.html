@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§5. Омыртқасыз және омыртқалылар</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Төрт блок бір қатарда тұруы үшін */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .unit-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .instruction-gallery {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class7.html" style="color: white; text-decoration: none;">← 7-сыныпқа қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0;">
+        <span style="color: #27ae60;">Басты бет / 7-сынып</span> / §5. Омыртқасыз және омыртқалылар
+    </div>
+
+    <h2 style="text-align: center;">§5. Омыртқасыз және омыртқалылар</h2>
+    <p style="text-align: center; color: #666;">4MAT: Омыртқаның маңызы мен эволюциялық бейімделуі</p>
+
+    <div class="content-grid">
+        <div class="unit-card" style="border-top: 5px solid #e74c3c;">
+            <div>
+                <div class="unit-header" style="color: #e74c3c;">I кезең – WHY (Engage)</div>
+                <p><strong>Неге кейбір жануарларда қаңқа бар?</strong></p>
+                <p><small>Мақсаты: Қаңқаның қозғалысқа әсерін өз денесі арқылы сезіну.</small></p>
+            </div>
+            <button onclick="openModal('whyModalP5')" class="btn-task" style="background:#e74c3c; color:white;">🔥 Тапсырмалар</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 5px solid #3498db;">
+            <div>
+                <div class="unit-header" style="color: #3498db;">II кезең – WHAT (Conceptualize)</div>
+                <p><strong>Айырмашылығы қандай?</strong></p>
+                <p><small>Мақсаты: Рентгендік талдау және цифрлық классификация жасау.</small></p>
+            </div>
+            <button onclick="openModal('whatModalP5')" class="btn-task" style="background:#3498db; color:white;">🧠 Тапсырмалар</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 5px solid #27ae60;">
+            <div>
+                <div class="unit-header" style="color: #27ae60;">III кезең – HOW (Apply)</div>
+                <p><strong>Қалай қолданамыз?</strong></p>
+                <p><small>Мақсаты: STEM модельдеу және AI технологиясын пайдалану.</small></p>
+            </div>
+            <button onclick="openModal('howModalP5')" class="btn-task" style="background:#27ae60; color:white;">🛠️ Тапсырмалар</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 5px solid #f39c12;">
+            <div>
+                <div class="unit-header" style="color: #f39c12;">IV кезең – WHAT IF (Create)</div>
+                <p><strong>Егер қаңқа болмаса?</strong></p>
+                <p><small>Мақсаты: Спекулятивті биология арқылы гибридтер жасау.</small></p>
+            </div>
+            <button onclick="openModal('ifModalP5')" class="btn-task" style="background:#f39c12; color:white;">🌍 Тапсырмалар</button>
+        </div>
+    </div>
+</main>
+
+<div id="whyModalP5" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModalP5')">&times;</span>
+        <h2 style="color: #e74c3c;">I кезең: Қызығушылықты ояту</h2>
+        <div class="task-block">
+            <h3>🏃 Тапсырма 1: «Movement challenge»</h3>
+            <p>1-топ: «омыртқасыз» (жыланша қозғалу), 2-топ: «омыртқалы» (тік жүру). Қайсысы оңай? Неге?</p>
+        </div>
+        <div class="task-block">
+            <h3>🎥 Тапсырма 2: Slow-motion анализ</h3>
+            <p>Медуза мен балықтың қозғалысын салыстырыңыз.</p>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/EXAMPLE" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="task-block">
+            <h3>🎮 Тапсырма 3: Kahoot!</h3>
+            <a href="https://kahoot.it" target="_blank" class="btn-task" style="background:#8e44ad; color:white; text-decoration:none; display:inline-block;">🔗 Mystery Animal ойынына өту</a>
+        </div>
+    </div>
+</div>
+
+<div id="whatModalP5" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModalP5')">&times;</span>
+        <h2 style="color: #3498db;">II кезең: Білімді қалыптастыру</h2>
+        <div class="task-block">
+            <h3>🩻 Тапсырма 4: «X-ray thinking»</h3>
+            <p>Суреттер арқылы ішкі қаңқаны анықтаңыз.</p>
+            <button onclick="toggleGallery('xray-gallery')" class="btn-task" style="background:#34495e; color:white;">🖼️ Рентген суреттерін көру</button>
+            <div id="xray-gallery" class="instruction-gallery">
+                <img src="images/skeleton_xray.jpg" alt="X-ray" style="width:100%; border-radius:10px;">
+            </div>
+        </div>
+        <div class="task-block">
+            <h3>🧬 Тапсырма 6: BioInteractive HHMI</h3>
+            <p>Жануарды таңдап, жүйелік орнын анықтаңыз.</p>
+            <a href="https://www.biointeractive.org" target="_blank" class="btn-task" style="background:#3498db; color:white; text-decoration:none; display:inline-block;">🔗 HHMI Digital Lab</a>
+        </div>
+    </div>
+</div>
+
+<div id="howModalP5" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModalP5')">&times;</span>
+        <h2 style="color: #27ae60;">III кезең: Іс-тәжірибе</h2>
+        <div class="task-block">
+            <h3>🧪 Тапсырма 7: «Build a skeleton» (STEM)</h3>
+            <p>Таяқшалар мен қағаздан омыртқалы моделін жасап, омыртқасызбен салыстырыңыз.</p>
+        </div>
+        <div class="task-block">
+    <h3>💻 Тапсырма 9: «Sorting with AI»</h3>
+    <p>Teachable Machine платформасында AI-ды омыртқалыларды тануға үйретіңіз.</p>
+    
+    <a href="https://teachablemachine.withgoogle.com/" target="_blank" class="btn-task" style="background:#f1c40f; color:black; text-decoration:none; display:inline-block; margin-bottom: 10px;">
+        🔗 AI платформасына өту
+    </a>
+<div>
+                <p><small>Нұсқаулық суреті:</small></p>
+                <img src="teachable_machine_1.png" alt="AI Sorting Instruction" class="ai-img">
+            </div>
+    <button onclick="toggleSortingImages()" class="btn-task" style="background:#34495e; color:white; cursor:pointer;">
+        🖼️ AI нұсқаулығының суреттерін көру
+    </button>
+
+    <div id="ai-sorting-gallery" style="display: none; margin-top: 15px; border-top: 1px solid #ddd; padding-top: 10px;">
+        <p><small>Teachable Machine интерфейсі:</small></p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <img src="teachable_machine_1.png" alt="AI Interface 1" style="width: 48%; border-radius: 5px; border: 1px solid #ccc;">
+        </div>
+    </div>
+</div>
+
+<div id="ifModalP5" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModalP5')">&times;</span>
+        <h2 style="color: #f39c12;">IV кезең: Шығармашылық</h2>
+        <div class="task-block">
+            <h3>🎨 Тапсырма 11: Canva Hybrid Animal</h3>
+            <p>Canva-да гибрид жануардың моделін жасаңыз.</p>
+        </div>
+        <div class="task-block" style="background:#fff9e6; padding:15px; border-radius:10px;">
+            <h3>🎤 Тапсырма 12: Scientific Pitch</h3>
+            <p>«Қай жүйе тиімді – омыртқалы ма, омыртқасыз ба?» тақырыбында 1 минуттық қорғау.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Суреттерді ашып-жабу функциясы
+    function toggleGallery(id) {
+        var gallery = document.getElementById(id);
+        gallery.style.display = (gallery.style.display === "block") ? "none" : "block";
+    }
+
+    // Модальді терезелерді басқару (script.js файлыңызда бар болса, соны қолданыңыз)
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+</script>
+
+</body>
+</html>

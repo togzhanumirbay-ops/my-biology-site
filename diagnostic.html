@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Диагностикалық бөлім</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f8fafc;
+    color:#1e293b;
+    line-height:1.7;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+h1,h2,h3{
+    color:#1e3a8a;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    margin-bottom:30px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table th, table td{
+    border:1px solid #cbd5e1;
+    padding:10px;
+    text-align:center;
+}
+
+table th{
+    background:#dbeafe;
+}
+
+.scale{
+    background:#eff6ff;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    background:#f1f5f9;
+    border-radius:10px;
+}
+
+.result-box{
+    margin-top:20px;
+    padding:20px;
+    background:#dcfce7;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+canvas{
+    margin-top:20px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Диагностикалық бөлім</h1>
+
+<div class="card">
+<h2>Диагностиканың мақсаты</h2>
+
+<p>
+Бұл диагностикалық бөлім болашақ биология мұғалімдерінің педагогикалық дағдыларының қалыптасу деңгейін анықтауға арналған.
+</p>
+
+<p>
+Педагогикалық эксперимент Абай атындағы Қазақ ұлттық педагогикалық университеті базасында 2-курс «Биология мұғалімдерін даярлау» мамандығы студенттері арасында жүргізілді.
+</p>
+
+<p>
+Экспериментке жалпы саны 40 студент қатысып, олар бақылау және эксперименттік топтарға бөлінді. Зерттеу жұмысы 4 ай аралығында жүзеге асырылды.
+</p>
+</div>
+
+<div class="card">
+<h2>Зерттелетін педагогикалық дағдылар</h2>
+
+<div class="grid">
+
+<div>
+<h3>Жобалау дағдысы</h3>
+<p>
+Оқу үдерісін ғылыми-әдістемелік тұрғыда жоспарлау, сабақ құрылымын жүйелі ұйымдастыру қабілеті.
+</p>
+</div>
+
+<div>
+<h3>Дифференциалдық дағды</h3>
+<p>
+Білім алушылардың жеке ерекшеліктерін, оқу стильдерін және деңгейлерін ескере отырып оқытуды ұйымдастыру қабілеті.
+</p>
+</div>
+
+<div>
+<h3>Рефлексиялық дағды</h3>
+<p>
+Өз педагогикалық әрекетін талдау, бағалау және жетілдіру қабілеті.
+</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<h2>Бағалау шкаласы</h2>
+
+<table>
+<tr>
+<th>Балл</th>
+<th>Сипаттамасы</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Мүлде келіспеймін</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Келіспеймін</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Жартылай келісемін</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Келісемін</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Толық келісемін</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+<h2>Интерактив сауалнама</h2>
+
+<div class="question">
+<p><b>1.</b> Мен 4MAT әдісіне сәйкес сабақ құрылымын құрастыра аламын.</p>
+
+<select id="q1">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+
+<div class="question">
+<p><b>2.</b> Сабақтың мақсаттарын нақты және дұрыс анықтай аламын. </p>
+
+<select id="q2">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+
+<div class="question">
+<p><b>3.</b> Оқу материалына сәйкес тапсырмаларды тиімді іріктей аламын. </p>
+
+<select id="q3">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+
+<div class="question">
+<p><b>4.</b> Сабақ жоспарын логикалық және жүйелі түрде құра аламын. </p>
+
+<select id="q4">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+<div class="question">
+<p><b>5.</b> Оқушылардың жеке ерекшеліктерін ескере отырып тапсырмалар құрастыра аламын.  </p>
+
+<select id="q4">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+<div class="question">
+<p><b>6.</b> Әртүрлі деңгейдегі оқушыларға арналған тапсырмаларды бейімдей аламын.  </p>
+
+<select id="q4">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+<div class="question">
+<p><b>7.</b> Сабақта әртүрлі оқу стильдерін ескеруге тырысамын.  </p>
+
+<select id="q4">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+<div class="question">
+<p><b>8.</b> Өзім өткізген сабақты талдай аламын.  </p>
+
+<select id="q4">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+<div class="question">
+<p><b>9.</b> Өз қателіктерімді анықтап, оларды түзету жолдарын таба аламын.  </p>
+
+<select id="q4">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+<div class="question">
+<p><b>10.</b> Өз педагогикалық тәжірибемді жетілдіру үшін рефлексия жасаймын.  </p>
+
+<select id="q4">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+<button onclick="calculateResult()">Нәтижені шығару</button>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+
+<div class="card">
+<h2>Қорытынды</h2>
+
+<p>
+Эксперимент нәтижелері 4MAT әдісін қолдану болашақ биология мұғалімдерінің педагогикалық дағдыларын дамытуда тиімді екенін көрсетті.
+</p>
+
+<p>
+Нәтижелер 4MAT әдісінің сабақ құрылымын жүйелі ұйымдастыруға, білім алушылардың ерекшеліктерін ескеруге және рефлексиялық қабілеттерді дамытуға оң әсер ететіндігін дәлелдейді.
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function calculateResult(){
+
+let q1 = parseInt(document.getElementById('q1').value);
+let q2 = parseInt(document.getElementById('q2').value);
+let q3 = parseInt(document.getElementById('q3').value);
+let q4 = parseInt(document.getElementById('q4').value);
+
+let total = q1 + q2 + q3 + q4;
+
+let level = "";
+
+if(total <= 8){
+level = "Төмен деңгей";
+}
+else if(total <= 15){
+level = "Орташа деңгей";
+}
+else{
+level = "Жоғары деңгей";
+}
+
+document.getElementById('result').innerHTML =
+"Жалпы балл: " + total + "<br>Деңгей: " + level;
+
+}
+
+new Chart(document.getElementById('chart1'), {
+type: 'bar',
+data: {
+labels: ['Төмен', 'Орта', 'Жоғары'],
+datasets: [
+{
+label: 'Экспериментке дейін',
+data: [55,30,15]
+},
+{
+label: 'Эксперименттен кейін',
+data: [20,45,35]
+}
+]
+}
+});
+
+new Chart(document.getElementById('chart2'), {
+type: 'bar',
+data: {
+labels: ['Төмен', 'Орта', 'Жоғары'],
+datasets: [
+{
+label: 'Экспериментке дейін',
+data: [60,25,15]
+},
+{
+label: 'Эксперименттен кейін',
+data: [20,50,30]
+}
+]
+}
+});
+
+new Chart(document.getElementById('chart3'), {
+type: 'bar',
+data: {
+labels: ['Төмен', 'Орта', 'Жоғары'],
+datasets: [
+{
+label: 'Экспериментке дейін',
+data: [45,40,15]
+},
+{
+label: 'Эксперименттен кейін',
+data: [20,55,25]
+}
+]
+}
+});
+
+</script>
+
+</body>
+</html>

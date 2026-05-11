@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§6. Өсімдік бөлімдері - 4MAT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Кесте стильдері */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th { background-color: #27ae60; color: white; }
+        tr:nth-child(even) { background-color: #f9fdfa; }
+
+        /* Эволюциялық тізбек */
+        .evo-chain {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #27ae60;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .evo-node {
+            background: #e8f5e9;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #2ecc71;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .arrow { font-size: 20px; color: #27ae60; padding: 0 5px; }
+
+        /* Ресурс блоктары */
+        .resource-section {
+            background: #e8f6f3;
+            border: 2px solid #16a085;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-download {
+            background: #16a085;
+            color: white !important;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .img-box {
+            width: 100%;
+            min-height: 200px;
+            border: 2px dashed #bbb;
+            background: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            border-radius: 8px;
+            color: #666;
+            text-align: center;
+        }
+
+        .instruction-tag {
+            display: inline-block;
+            background: #fff9db;
+            border-left: 4px solid #f1c40f;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="class8.html" style="color: white; text-decoration: none;">← 8-сынып мәзіріне қайту</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div style="margin: 20px 0; font-size: 0.9rem;">
+        <a href="index.html" style="color: #27ae60; text-decoration: none;">Басты бет</a> / 
+        <a href="class8.html" style="color: #27ae60; text-decoration: none;">8-сынып</a> / 
+        §6. Өсімдік бөлімдері
+    </div>
+
+    <h2 style="text-align: center; color: #2c3e50;">§6. Өсімдік бөлімдерінің ерекше белгілері</h2>
+    <p style="text-align: center; color: #27ae60; font-weight: bold;">Өсімдіктер дүниесінің әртүрлілігі мен эволюциясы</p>
+
+    <div class="content-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+        
+        <div class="unit-card" style="border-top: 6px solid #e74c3c;">
+            <h3 style="color: #e74c3c;">I КЕЗЕҢ – WHY</h3>
+            <p>Қызығушылық: Өсімдіктердің күрделенуі мен көбею жолдары.</p>
+            <button onclick="openModal('whyModal6')" class="btn-task" style="width:100%; background:#e74c3c; color:white;">Ашу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #3498db;">
+            <h3 style="color: #3498db;">II КЕЗЕҢ – WHAT</h3>
+            <p>Түсіну: Бөлімдерді жіктеу, сипаттамалар және эволюция.</p>
+            <button onclick="openModal('whatModal6')" class="btn-task" style="width:100%; background:#3498db; color:white;">Зерттеу</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #27ae60;">
+            <h3 style="color: #27ae60;">III КЕЗЕҢ – HOW</h3>
+            <p>Қолдану: Сипаттама бойынша анықтау және суретпен жұмыс.</p>
+            <button onclick="openModal('howModal6')" class="btn-task" style="width:100%; background:#27ae60; color:white;">Тәжірибе</button>
+        </div>
+
+        <div class="unit-card" style="border-top: 6px solid #f39c12;">
+            <h3 style="color: #f39c12;">IV КЕЗЕҢ – IF</h3>
+            <p>Шығармашылық: Тұқымсыз әлем және жаңа өсімдік жобасы.</p>
+            <button onclick="openModal('ifModal6')" class="btn-task" style="width:100%; background:#f39c12; color:white;">Жобалау</button>
+        </div>
+
+    </div>
+</main>
+
+<div id="whyModal6" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModal6')">&times;</span>
+        <h2 style="color: #e74c3c;">I Кезен: WHY (Қызығушылық)</h2>
+        <div class="task-block">
+            <h3>🌲 Тапсырма 1: «Барлық өсімдіктер бірдей ме?»</h3>
+            <p>Мүк, қырықжапырақ және гүлді өсімдіктің сыртқы белгілеріне қарап, оларды не ажырататынын атаңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>📈 Тапсырма 2: «Қайсысы күрделі?»</h3>
+            <p>Балдыр, мүк, қырықжапырақ, гүлді өсімдік. Оларды қарапайымнан күрделіге қарай реттеп көріңіз.</p>
+        </div>
+        <div class="task-block">
+            <h3>🌱 Тапсырма 3: «Өсімдік қалай көбейеді?»</h3>
+            <p>Барлық өсімдіктер тұқым арқылы көбейе ме? Спора арқылы көбеюдің ерекшелігі неде?</p>
+        </div>
+    </div>
+</div>
+
+<div id="whatModal6" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModal6')">&times;</span>
+        <h2 style="color: #3498db;">II Кезен: WHAT (Түсіну)</h2>
+        
+        <div class="resource-section">
+            <p><strong>📂 Теориялық материалдар:</strong></p>
+            <a href="plant_kingdom.pptx" class="btn-download">📊 Презентацияны жүктеу</a>
+        </div>
+
+        <div class="task-block">
+            <h3>📊 Тапсырма 4: «Өсімдік бөлімдерінің кестесі»</h3>
+            <table>
+                <tr><th>Бөлім</th><th>Ерекшелігі</th><th>Көбеюі</th></tr>
+                <tr><td>Балдырлар</td><td>____________</td><td>____________</td></tr>
+                <tr><td>Мүктер</td><td>____________</td><td>____________</td></tr>
+                <tr><td>Қырықжапырақтар</td><td>____________</td><td>____________</td></tr>
+                <tr><td>Ашықтұқымдылар</td><td>____________</td><td>____________</td></tr>
+                <tr><td>Жабықтұқымдылар</td><td>____________</td><td>____________</td></tr>
+            </table>
+        </div>
+
+        <div class="task-block">
+            <h3>📈 Тапсырма 6: «Эволюциялық тізбек»</h3>
+            <div class="evo-chain">
+                <div class="evo-node">Балдырлар</div>
+                <div class="arrow">→</div>
+                <div class="evo-node">Мүктер</div>
+                <div class="arrow">→</div>
+                <div class="evo-node">?</div>
+                <div class="arrow">→</div>
+                <div class="evo-node">?</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="howModal6" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModal6')">&times;</span>
+        <h2 style="color: #27ae60;">III Кезен: HOW (Қолдану)</h2>
+        <div class="task-block">
+            <h3>🧠 Тапсырма 7: «Өсімдікті анықта»</h3>
+            <p>«Тамыры жоқ, ылғалды жерде өседі, спорамен көбейеді». Бұл қай бөлім?</p>
+        </div>
+        <div class="task-block">
+            <h3>❌ Тапсырма 8: «Қате кестені түзет»</h3>
+            <p>Мүк — Тұқыммен көбейеді. Қарағай — Спорамен көбейеді. <br><b>Дұрыс нұсқасын жазыңыз.</b></p>
+        </div>
+        <div class="task-block">
+            <h3>🔬 Тапсырма 9: «Сурет бойынша жіктеу»</h3>
+            <div class="img-box">
+                <img src="plants_atlas.png" alt="Өсімдіктер" style="width:100%; margin-top:10px;">
+            </div>
+            <div class="instruction-tag">📌 Нұсқаулық: Суретке қарап, өсімдіктің бөлімін анықтаңыз.</div>
+        </div>
+    </div>
+</div>
+
+<div id="ifModal6" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModal6')">&times;</span>
+        <h2 style="color: #f39c12;">IV Кезен: IF (Шығармашылық)</h2>
+        <div class="task-block">
+            <h3>🌍 Тапсырма 10: «Егер тұқым болмаса»</h3>
+            <p>Егер Жер бетінде тұқымды өсімдіктер жойылып кетсе, экожүйе қалай өзгереді?</p>
+        </div>
+        <div class="task-block">
+            <h3>🎨 Тапсырма 11: «Жаңа өсімдік ойлап тап»</h3>
+            <p>Марс планетасында немесе мұхит түбінде өсетін жаңа өсімдік бөлімін сипаттаңыз.</p>
+        </div>
+        <div class="task-block">
+            <h3>📊 Тапсырма 12: «Venn диаграммасы»</h3>
+            <p>Споралы өсімдіктер мен тұқымды өсімдіктердің 2 ұқсастығы мен 2 айырмашылығын жазыңыз.</p>
+            <img src="таблица.png" alt="Венн диаграммасы" style="width:70%; border-radius:5px;">
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

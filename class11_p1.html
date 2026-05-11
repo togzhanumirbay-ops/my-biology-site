@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§1. Антиген мен антидене - 11-сынып</title>
+    <style>
+        :root {
+            --why: #e74c3c; --what: #3498db;
+            --how: #2ecc71; --if: #f39c12;
+            --dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; margin: 0; color: #333; }
+        .header { background: white; padding: 30px; text-align: center; border-bottom: 3px solid #eee; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Stage Grid */
+        .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { 
+            background: white; border-radius: 15px; padding: 25px; text-align: center; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 10px solid; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Modal Layout */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 40px; width: 85%; max-width: 950px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #999; }
+
+        /* Task Styles */
+        .task-box { border-left: 6px solid #ccc; background: #fefefe; border: 1px solid #eee; padding: 20px; margin-bottom: 30px; border-radius: 0 12px 12px 0; text-align: left; }
+        .task-title { font-weight: bold; font-size: 1.2rem; color: var(--dark); display: block; margin-bottom: 8px; }
+        .task-meta { font-size: 0.95rem; color: #666; margin-bottom: 12px; background: #f0f0f0; padding: 5px 10px; display: inline-block; border-radius: 4px; }
+        
+        /* Elements */
+        .styled-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; }
+        .styled-table th, .styled-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .styled-table th { background: var(--dark); color: white; }
+
+        .diagram-box { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; background: #f8f9fa; padding: 20px; border-radius: 12px; margin: 15px 0; border: 1px solid #e0e0e0; }
+        .node { background: white; border: 2px solid var(--what); padding: 10px 15px; border-radius: 8px; font-weight: bold; text-align: center; }
+        .arrow { font-size: 1.2rem; font-weight: bold; color: var(--dark); }
+
+        .img-placeholder { background: #e9ecef; border: 2px dashed #adb5bd; padding: 20px; text-align: center; margin: 15px 0; border-radius: 12px; color: #495057; }
+        .btn-open { border: none; padding: 14px 30px; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        .btn-pres { background: #e74c3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="color: #27ae60; font-weight: bold; margin-bottom: 5px;">Басты бет / 11-сынып / §1</div>
+    <h1>§1. Антиген мен антидене арасындағы өзара әрекеттесу механизмі</h1>
+    <p>Иммундық жүйенің спецификалық тану және қорғаныс механизмдері</p>
+</div>
+
+<div class="container">
+    <div class="stage-grid">
+        <div class="card" style="border-top-color: var(--why);">
+            <h2 style="color: var(--why);">I КЕЗЕҢ: WHY</h2>
+            <p>Жауды тану және "кілт-құлып" принципі.</p>
+            <button class="btn-open" style="background: var(--why);" onclick="openM('modalWhy')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--what);">
+            <h2 style="color: var(--what);">II КЕЗЕҢ: WHAT</h2>
+            <p>Ұғымдар мен ғылыми кезеңдерді жүйелеу.</p>
+            <button class="btn-open" style="background: var(--what);" onclick="openM('modalWhat')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--how);">
+            <h2 style="color: var(--how);">III КЕЗЕҢ: HOW</h2>
+            <p>Модельдеу және Case Study талдау.</p>
+            <button class="btn-open" style="background: var(--how);" onclick="openM('modalHow')">Тапсырмалар</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--if);">
+            <h2 style="color: var(--if);">IV КЕЗЕҢ: WHAT IF</h2>
+            <p>Салдарларды болжау және болашақ медицинасы.</p>
+            <button class="btn-open" style="background: var(--if);" onclick="openM('modalIf')">Тапсырмалар</button>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhy" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhy')">&times;</span>
+        <h2 style="color: var(--why);">I кезең – WHY (Experience)</h2>
+        
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 1: «Ағза жауды қалай таниды?»</span>
+            <span class="task-meta">Мақсаты: Иммундық жүйенің бөгде заттарды тану қабілетіне қызығушылық қалыптастыру.</span>
+            <p><b>Нұсқаулық:</b> Ағзаға вирус түсті деп елестетіңіз. Иммундық жүйе оны қалай анықтайды? Схеманы толтырыңыз:</p>
+            <div class="diagram-box">
+                <div class="node">Бөгде зат (Вирус)</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+                <div class="arrow">→</div>
+                <div class="node">Иммундық жауап</div>
+            </div>
+            <p><b>Нәтиже:</b> Оқушы антигеннің иммундық жауапты қоздыратынын түсінеді.</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 2: «Кілт пен құлып»</span>
+            <span class="task-meta">Мақсаты: Антиген–антидене сәйкестігіне қызығушылық қалыптастыру.</span>
+            <p><b>Нұсқаулық:</b> Неге әр антидене тек белгілі бір антигенмен байланысады? Бұл механизм нені еске түсіреді? Күнделікті өмірден ұқсас 2 мысал келтіріңіз.</p>
+            <div class="img-placeholder"></div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--why);">
+            <span class="task-title">Тапсырма 3: «Неге вакцина жұмыс істейді?»</span>
+            <span class="task-meta">Мақсаты: Антиденелердің қорғаныштық рөлін өмірмен байланыстыру.</span>
+            <p><b>Нұсқаулық:</b> Вакцина ағзаны қалай қорғайды? Неге вакцинадан кейін адам ауырмауы мүмкін? Антиденелердің бұл жердегі рөлін талқылаңыз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalWhat')">&times;</span>
+        <h2 style="color: var(--what);">II кезең – WHAT (Conceptualization)</h2>
+        
+        <div style="text-align: center;">
+            <a href="#" class="btn-pres">📥 Презентацияны жүктеу (§1)</a>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 4: «Антиген мен антидене кестесі»</span>
+            <span class="task-meta">Мақсаты: Антиген мен антидененің ерекшеліктерін жүйелеу.</span>
+            <table class="styled-table">
+                <tr><th>Ұғым</th><th>Сипаттамасы</th><th>Қызметі</th></tr>
+                <tr><td>Антиген</td><td>[ ? ]</td><td>Иммундық жауап тудыру</td></tr>
+                <tr><td>Антидене</td><td>Иммуноглобулин нәруыздары</td><td>[ ? ]</td></tr>
+            </table>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 5: «Сәйкестендіру»</span>
+            <p>Құрылым мен қызметті дұрыс байланыстырыңыз:</p>
+            <ul>
+                <li>Антиген — ???</li>
+                <li>Антидене — ???</li>
+            </ul>
+        </div>
+
+        <div class="task-box" style="border-color: var(--what);">
+            <span class="task-title">Тапсырма 6: «Диаграмма толтыру»</span>
+            <div class="img-placeholder"></div>
+            <div class="diagram-box">
+                <div class="node">Антиген енуі</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+                <div class="arrow">→</div>
+                <div class="node">Антидене байланысы</div>
+                <div class="arrow">→</div>
+                <div class="node">Бейтараптандыру</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalHow" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalHow')">&times;</span>
+        <h2 style="color: var(--how);">III кезең – HOW (Application)</h2>
+        
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 7: «Иммундық реакция моделін құрастыр»</span>
+            <span class="task-meta">Мақсаты: Антиген мен антидененің өзара әрекеттесуін практикалық түрде көрсету.</span>
+            <p><b>Нұсқаулық:</b> Қағаз немесе пластилин арқылы антиген мен антидене моделін жасаңыз. Олардың активті орталықтарының сәйкестігін көрсетіңіз.</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 8: «Case Study: Ағзаға вирус түсті»</span>
+            <span class="task-meta">Мақсаты: Иммундық жауап механизмін талдау.</span>
+            <p><b>Жағдаят:</b> «Ағзаға жаңа вирус енді». Вирустың антигенін анықтап, антидене түзілу кезеңдерін ретімен сипаттаңыз:</p>
+            <div class="diagram-box">
+                <div class="node">Вирус</div>
+                <div class="arrow">→</div>
+                <div class="node">Антигенді тану</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+                <div class="arrow">→</div>
+                <div class="node">Қорғаныс</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--how);">
+            <span class="task-title">Тапсырма 9: «Байланысты талдау»</span>
+            <div class="img-placeholder"></div>
+            <p>Суретке қарап, антидененің неге тек белгілі бір антигенмен байланысатынын ғылыми тұрғыдан түсіндіріңіз.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modalIf" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeM('modalIf')">&times;</span>
+        <h2 style="color: var(--if);">IV кезең – WHAT IF (Creative)</h2>
+        
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 10: «Егер антиденелер түзілмесе...»</span>
+            <p><b>Болжам:</b> Егер адам ағзасы антидене түзу қабілетінен айырылса, қарапайым тұмау вирусының салдары қандай болар еді? Схеманы аяқтаңыз:</p>
+            <div class="diagram-box">
+                <div class="node">Антидене жоқ</div>
+                <div class="arrow">→</div>
+                <div class="node">[ ? ]</div>
+                <div class="arrow">→</div>
+                <div class="node">Инфекцияның шексіз таралуы</div>
+            </div>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 11: «Болашақ вакцинасы»</span>
+            <p><b>Шығармашылық:</b> Жаңа, мутацияға ұшыраған вирусқа қарсы ең тиімді вакцинаны қалай жасауға болады? Ол антигеннің қай бөлігін нысанаға алуы керек?</p>
+        </div>
+
+        <div class="task-box" style="border-color: var(--if);">
+            <span class="task-title">Тапсырма 12: «Себеп–салдар диаграммасы»</span>
+            <div class="diagram-box">
+                <div class="node">Антиген</div>
+                <div class="arrow">→</div>
+                <div class="node">Лимфоциттер белсенуі</div>
+                <div class="arrow">→</div>
+                <div class="node">Антидене түзілуі</div>
+                <div class="arrow">→</div>
+                <div class="node">Иммунитет</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
+</script>
+
+</body>
+</html>

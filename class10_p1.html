@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§1. Жердегі тіршілік үшін судың маңызы</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --why-color: #e74c3c;
+            --what-color: #3498db;
+            --how-color: #2ecc71;
+            --if-color: #f39c12;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f4f7f6; margin: 0; padding: 0; }
+        .header-section { text-align: center; padding: 40px 20px; }
+        .breadcrumb { font-size: 14px; color: #27ae60; margin-bottom: 20px; }
+        
+        .stage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stage-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 8px solid;
+        }
+
+        .card-title { font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; }
+        .card-aim { font-size: 14px; color: #333; line-height: 1.5; margin-bottom: 20px; }
+
+        .btn-task {
+            border: none;
+            border-radius: 8px;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-pres {
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Модаль терезе стильдері */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); overflow-y: auto; }
+        .modal-content { background: white; margin: 5% auto; padding: 30px; width: 85%; max-width: 800px; border-radius: 15px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; }
+        
+        .task-item { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .task-item:last-child { border: none; }
+        .task-h { font-weight: bold; color: #2c3e50; margin-bottom: 8px; display: block; }
+        .task-txt { font-size: 15px; color: #555; }
+        .img-box { background: #f9f9f9; border: 1px dashed #ccc; padding: 20px; margin: 10px 0; text-align: center; color: #999; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<div class="header-section">
+    <div class="breadcrumb">Басты бет / 10-сынып / §1. Жердегі тіршілік үшін судың маңызы</div>
+    <h1>§1. Жердегі тіршілік үшін судың маңызы</h1>
+    <p>4MAT әдісі бойынша оқу тапсырмалары</p>
+</div>
+
+<div class="stage-grid">
+    <div class="stage-card" style="border-top-color: var(--why-color);">
+        <div>
+            <div class="card-title">I кезең – WHY<br>(Engage / Experience)</div>
+            <div class="card-aim"><b>Мақсаты:</b> Судың тіршілік үшін неге маңызды екенін түсіну және қызығушылық қалыптастыру.</div>
+        </div>
+        <button class="btn-task" style="background-color: var(--why-color);" onclick="openModal('whyModal')">🧠 Тапсырмалар</button>
+    </div>
+
+    <div class="stage-card" style="border-top-color: var(--what-color);">
+        <div>
+            <div class="card-title">II кезең – WHAT<br>(Conceptualization)</div>
+            <div class="card-aim"><b>Мақсаты:</b> Судың қасиеттері мен оның жасушадағы қызметтері туралы ғылыми білім алу.</div>
+        </div>
+        <button class="btn-task" style="background-color: var(--what-color);" onclick="openModal('whatModal')">🎓 Тапсырмалар</button>
+    </div>
+
+    <div class="stage-card" style="border-top-color: var(--how-color);">
+        <div>
+            <div class="card-title">III кезең – HOW<br>(Application)</div>
+            <div class="card-aim"><b>Мақсаты:</b> Судың қасиеттерін тәжірибе жүзінде талдау және білімді практикада қолдану.</div>
+        </div>
+        <button class="btn-task" style="background-color: var(--how-color);" onclick="openModal('howModal')">🛠️ Тапсырмалар</button>
+    </div>
+
+    <div class="stage-card" style="border-top-color: var(--if-color);">
+        <div>
+            <div class="card-title">IV кезең – WHAT IF<br>(Creative Transfer)</div>
+            <div class="card-aim"><b>Мақсаты:</b> Болжам жасау және судың маңызын шығармашылық тұрғыдан талдау.</div>
+        </div>
+        <button class="btn-task" style="background-color: var(--if-color);" onclick="openModal('ifModal')">🌏 Тапсырмалар</button>
+    </div>
+</div>
+
+<div id="whyModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whyModal')">&times;</span>
+        <h2 style="color: var(--why-color);">I кезең: WHY</h2>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 1: «Сусыз өмір мүмкін бе?»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> «Егер Жер бетінде барлық су бір күнге жоғалып кетсе не болар еді?» деген сұраққа жауап іздеп, өз ойларыңды талқылаңдар.</div>
+        </div>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 2: «Тірі ағзалардағы су мөлшері»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> Адам (70%), медуза (95%) және өсімдік жасушаларындағы су мөлшерін салыстырып, неге ағзада су көп екенін түсіндіріңдер.</div>
+        </div>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 3: «Күнделікті өмірдегі су»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> Спортпен айналысқанда немесе күнделікті тіршілікте судың қандай биологиялық қызмет атқаратынын тізіп жазыңдар.</div>
+        </div>
+    </div>
+</div>
+
+<div id="whatModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('whatModal')">&times;</span>
+        <h2 style="color: var(--what-color);">II кезең: WHAT</h2>
+        
+        <div style="text-align: center;">
+            <a href="files/voda_presentation.pptx" class="btn-pres">📊 Презентацияны жүктеу</a>
+        </div>
+
+        <div class="task-item">
+            <span class="task-h">Тапсырма 4: «Судың қасиеттері кестесі»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> Әмбебап еріткіш, жоғары жылу сыйымдылығы, беттік керілу және булану қасиеттерінің биологиялық маңызын жазып, кестені толтырыңдар.</div>
+        </div>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 5: «Диаграмма толтыру»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> Су &rarr; Зат тасымалы, Температура реттелуі, Жасуша жұмысы бағыттары бойынша диаграмманы толықтырыңдар.</div>
+        </div>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 6: «Сәйкестендіру»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> Булану, Еріткіштік, Жылу сыйымдылығы қасиеттерін "Денені салқындату", "Заттарды еріту" және "Температураны тұрақтандыру" қызметтерімен сәйкестендіріңдер.</div>
+        </div>
+    </div>
+</div>
+
+<div id="howModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('howModal')">&times;</span>
+        <h2 style="color: var(--how-color);">III кезең: HOW</h2>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 7: «Тәжірибені талдау»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> Су мен топырақтың қызу жылдамдығын салыстырып, судың климатты тұрақтандырудағы рөлі туралы қорытынды жасаңдар.</div>
+        </div>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 8: «Қате ақпаратты түзет»</span>
+            <div class="task-txt"><b>Мәтін:</b> «Су биологиялық процестерге қатыспайды және температураны реттемейді». Осы сөйлемдегі ғылыми қателерді тауып, дұрыс нұсқасын жазыңдар.</div>
+        </div>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 9: «Сурет бойынша талдау»</span>
+            <div class="img-box">Без название</div>
+            <div class="task-txt"><b>Нұсқаулық:</b> Суреттегі биологиялық процесте судың қандай рөл атқарып тұрғанын сипаттаңдар.</div>
+        </div>
+    </div>
+</div>
+
+<div id="ifModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('ifModal')">&times;</span>
+        <h2 style="color: var(--if-color);">IV кезең: WHAT IF</h2>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 10: «Егер судың қасиеттері өзгерсе»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> Егер су еріткіш болмаса немесе өте тез қызатын болса, Жердегі тіршілік қалай өзгерер еді? Болжам жасаңдар.</div>
+        </div>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 11: «Басқа планетадағы тіршілік»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> Басқа планетада су болмаса, тіршілік иелері судың орнына қандай сұйықтықты қолдануы мүмкін? Шығармашылық сипаттама беріңдер.</div>
+        </div>
+        <div class="task-item">
+            <span class="task-h">Тапсырма 12: «Себеп–салдар диаграммасы»</span>
+            <div class="task-txt"><b>Нұсқаулық:</b> "Су &rarr; Жасуша қызметі &rarr; Тіршілік" тізбегін логикалық байланыстармен толықтырып, қорытындылаңдар.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === "modal") { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>

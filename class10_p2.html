@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>§2. Көмірсулар: Жіктелуі мен маңызы</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --why: #3498db; --what: #2ecc71;
+            --how: #f1c40f; --if: #9b59b6;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; color: #333; }
+        .header { text-align: center; padding: 30px; background: white; border-bottom: 2px solid #eee; }
+        
+        /* 4 Бағанды Grid */
+        .stage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto;
+        }
+
+        .card {
+            background: white; border-radius: 12px; padding: 20px; text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 5px solid;
+        }
+        .card:hover { transform: translateY(-5px); }
+
+        /* Модаль стильдері */
+        .modal-content { 
+            background: white; margin: 5% auto; padding: 40px; width: 80%; 
+            max-width: 900px; border-radius: 20px; line-height: 1.6;
+        }
+        
+        /* КЕСТЕ СТИЛІ */
+        .task-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            background: #fff; border-radius: 8px; overflow: hidden;
+        }
+        .task-table th { background: #2c3e50; color: white; padding: 12px; }
+        .task-table td { border: 1px solid #eee; padding: 12px; text-align: center; }
+
+        /* СХЕМА СТИЛІ */
+        .schema-box {
+            display: flex; align-items: center; justify-content: center;
+            gap: 15px; margin: 20px 0; background: #f0f7ff; padding: 20px; border-radius: 10px;
+        }
+        .step { background: white; padding: 10px 20px; border: 2px solid #3498db; border-radius: 5px; font-weight: bold; }
+        .arrow { font-size: 24px; color: #3498db; }
+
+        .btn-main { border: none; padding: 12px 25px; border-radius: 25px; color: white; font-weight: bold; cursor: pointer; margin-top: 15px; }
+        .img-container { margin: 15px 0; text-align: center; }
+        .img-container img { max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="color: #27ae60; margin-bottom: 10px;">Басты бет / 10-сынып / §2</div>
+    <h1>§2. Көмірсулар, оларды жіктеу және маңызы</h1>
+</div>
+
+<div class="stage-grid">
+    <div class="card" style="border-color: var(--why);">
+        <h3 style="color: var(--why);">I КЕЗЕҢ: WHY</h3>
+        <p>Мақсаты:Көмірсулардың ағза үшін негізгі энергия көзі екенін түсіндіру.</p>
+        <button class="btn-main" style="background: var(--why);" onclick="openM('modalWhy')">Тапсырмалар</button>
+    </div>
+    <div class="card" style="border-color: var(--what);">
+        <h3 style="color: var(--what);">II КЕЗЕҢ: WHAT</h3>
+        <p>Мақсаты: Көмірсулардың түрлерін жүйелеу.</p>
+        <button class="btn-main" style="background: var(--what);" onclick="openM('modalWhat')">Тапсырмалар</button>
+    </div>
+    <div class="card" style="border-color: var(--how);">
+        <h3 style="color: var(--how);">III КЕЗЕҢ: HOW</h3>
+        <p>Мақсаты: Көмірсулардың тағамдағы рөлін анықтау.</p>
+        <button class="btn-main" style="background: var(--how);" onclick="openM('modalHow')">Тапсырмалар</button>
+    </div>
+    <div class="card" style="border-color: var(--if);">
+        <h3 style="color: var(--if);">IV КЕЗЕҢ: WHAT IF</h3>
+        <p>Мақсаты: Көмірсулардың ағзадағы рөлін жүйелеу.</p>
+        <button class="btn-main" style="background: var(--if);" onclick="openM('modalIf')">Тапсырмалар</button>
+    </div>
+</div>
+
+<div id="modalWhy" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span onclick="closeM('modalWhy')" style="float:right; cursor:pointer; font-size:24px;">&times;</span>
+        <h2 style="color: var(--why);">I кезең – WHY</h2>
+        
+        <div class="task-section">
+            <h4>Тапсырма 1: «Энергия қайдан пайда болады?»</h4>
+            <p>Неге тәтті жегеннен кейін энергия тез қосылады? Спортшылар неге банан немесе макарон жейді?</p>
+            <div class="img-container">
+                <p><i>[Мұнда спортшы мен көмірсуға бай тағам суретін қойыңыз]</i></p>
+                
+            </div>
+        </div>
+
+        <div class="task-section">
+            <h4>Тапсырма 2: «Қандай тағамда көмірсу көп?»</h4>
+            <p>Берілгендердің ішінен көмірсуы көп тағамдарды сұрыптаңыз: Картоп, қант, ет, алма, күріш.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modalWhat" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span onclick="closeM('modalWhat')" style="float:right; cursor:pointer; font-size:24px;">&times;</span>
+        <h2 style="color: var(--what);">II кезең – WHAT</h2>
+        
+        <div class="task-section">
+            <h4>Тапсырма 4: «Көмірсуларды жіктеу»</h4>
+            <table class="task-table">
+                <tr><th>Көмірсу түрі</th><th>Ерекшелігі</th><th>Мысал</th></tr>
+                <tr><td>Моносахарид</td><td>Қарапайым қанттар</td><td>Глюкоза</td></tr>
+                <tr><td>Дисахарид</td><td>Екі қалдықтан тұрады</td><td>Сахароза</td></tr>
+                <tr><td>Полисахарид</td><td>Көп бөліктен тұрады</td><td>Крахмал</td></tr>
+            </table>
+        </div>
+
+        <div class="task-section">
+            <h4>Тапсырма 6: «Диаграмма толтыру»</h4>
+            <div class="schema-box">
+                <div class="step">Моносахарид</div>
+                <div class="arrow">→</div>
+                <div class="step">Дисахарид</div>
+                <div class="arrow">→</div>
+                <div class="step">Полисахарид</div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div id="modalHow" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span onclick="closeM('modalHow')" style="float:right; cursor:pointer; font-size:24px;">&times;</span>
+        <h2 style="color: var(--how);">III кезең – HOW</h2>
+        
+        <div class="task-section">
+            <h4>Тапсырма 8: «Қате ақпаратты түзет»</h4>
+            <p style="background: #fff5f5; padding: 15px; border-left: 5px solid red;">
+                «Крахмал – моносахарид, ал глюкоза – полисахарид».
+            </p>
+            <p><b>Тапсырма:</b> Жоғарыдағы сөйлемді ғылыми тұрғыдан түзетіп жазыңыз.</p>
+        </div>
+
+        <div class="task-section">
+            <h4>Тапсырма 9: «Сурет бойынша талдау»</h4>
+            <div class="img-container">
+                <p><i>[Мұнда әртүрлі көмірсулар (бал, бидай, мақта) суретін қойыңыз]</i></p>
+                <img src="img.jpg" alt="Көмірсулар">
+                <p>Оқушылар суреттерді талдап, көмірсу түрлерін анықтайды.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalIf" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span onclick="closeM('modalIf')" style="float:right; cursor:pointer; font-size:24px;">&times;</span>
+        <h2 style="color: var(--if);">IV кезең – WHAT IF </h2>
+        
+        <div class="task-section">
+            <h4>Тапсырма 10: «Егер көмірсулар болмаса»</h4>
+            <p>Жасушалар энергияны қайдан алар еді? Ағзаның жұмысы қалай өзгереді?</p>
+        </div>
+
+        <div class="task-section">
+            <h4>Тапсырма 12: «Себеп–салдар диаграммасы»</h4>
+            <div class="schema-box">
+                <div class="step">Көмірсу</div>
+                <div class="arrow">→</div>
+                <div class="step">Ыдырау (АТФ)</div>
+                <div class="arrow">→</div>
+                <div class="step">Энергия</div>
+                <div class="arrow">→</div>
+                <div class="step">Тіршілік</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openM(id) { document.getElementById(id).style.display = "block"; }
+    function closeM(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') { event.target.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>
